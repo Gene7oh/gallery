@@ -1,3 +1,8 @@
-This is the first project using the version control in the latest edition of phpStorm.
-Commit and push after successful git creation.
-still can not find a way to push to server except to commit and push. must be doing something wrong.
+# Gallery
+
+## A Udemy/Edwin Diaz Project
+
+Create an object oriented programing app following the Diaz tutorial.
+
+A link to the  [Diaz Courses](https://www.udemy.com/user/edwin166) . You'll be glad you did.
+
