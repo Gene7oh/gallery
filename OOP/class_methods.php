@@ -12,7 +12,12 @@
         
         }
         
-        function salutation()
+        function anotherGreeting()
+        {
+        
+        }
+        
+        function theLastMethod()
         {
         
         }
