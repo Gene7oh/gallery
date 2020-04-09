@@ -1,6 +1,5 @@
 <?php
-    
-    /*class Cars
+    class Cars
     {
         public $wheel_count = 4;
         private $door_count = 2;
@@ -15,17 +14,17 @@
     class Trucks extends Cars
     {
         private $door_count = 4;
+        static $color = "Blue with Gold trim" . "<br>";
         
         function truck_details()
         {
-            return "This truck has " . $this->door_count . " doors" . "<br>";
+            return "This truck has " . $this->door_count . "doors and the color is " . $this::$color . "<br>";
         }
     }
     
     $bmw = new Cars();
     echo $bmw->car_details();
-    $silverado = new Trucks();
-    echo "<br>" . $silverado->wheel_count = 6;
-    echo $silverado->truck_details();
-    echo "<br>";
-    echo $silverado->car_details();*/
+    echo "<br>" . "Thus begins the Static Modifier" . "<br>";
+    echo Trucks::$color;
+    $tundra = new Trucks();
+    echo $tundra->truck_details();
