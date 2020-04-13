@@ -2,7 +2,7 @@
     
     echo "Start getters and setters " . "<br>";
     echo "______-------------______" . "<br>";
-    
+    /*
     class Cars
     {
         private int $doors = 4;
@@ -15,6 +15,7 @@
         function set_values()
         {
             $this->doors = 10;
+            
         }
     }
     
@@ -22,4 +23,4 @@
     echo $bmw->set_values();
     echo $bmw->get_values();
     echo "<br>" . " New line";
-echo "<br>" . "Another new line after reset";
+echo "<br>" . "Another new line after reset";*/
