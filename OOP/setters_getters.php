@@ -22,4 +22,4 @@
     echo $bmw->set_values();
     echo $bmw->get_values();
     echo "<br>" . " New line";
-    echo "<br>" . "Another new line after reset";
+echo "<br>" . "Another new line after reset";
