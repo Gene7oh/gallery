@@ -5,7 +5,7 @@
      * Using PhpStorm
      * Date: 4/13/2020
      */
-    class Cars
+   /* class Cars
     {
         static int $wheel_count = 4;
         static int $door_count = 2;
@@ -28,11 +28,11 @@
         {
             echo parent::car_details();
         }
-    }
+    }*/
     
     /* ------------------------------Keep classes above this line -------------------*/
     
-    $gto = new Cars();
+    /*$gto = new Cars();
     echo $gto->car_details();
     Trucks::Truck_details();
-    Trucks::details();
+    Trucks::details();*/
