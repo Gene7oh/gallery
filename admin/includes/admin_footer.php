@@ -1,4 +1,5 @@
   </div>
+  <div class="lead" style="color: whitesmoke">Footer Stuff</div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
