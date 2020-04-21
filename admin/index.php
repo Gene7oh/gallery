@@ -10,7 +10,10 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <!-- Page Heading -->
-            <?php include "includes/admin_content.php"; ?>
+            <?php
+                include "includes/admin_content.php";
+                
+                ?>
         </div>
         <!-- /.container-fluid -->
     </div>
