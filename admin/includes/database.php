@@ -3,7 +3,7 @@
     
     class Database
     {
-        public $connect; /** original diaz var was private phpstorm thru a fit and edwin from the future makes it public which is one of the options phpstorm offered Cool right */
+        public string $connect; /** original diaz var was private phpstorm thru a fit and edwin from the future makes it public which is one of the options phpstorm offered Cool right */
         
         public function connect_db()
         {
