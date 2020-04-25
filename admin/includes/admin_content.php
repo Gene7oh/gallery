@@ -9,16 +9,10 @@
         <?php
             $sql = "SELECT * FROM users ";
             $result = $database->query($sql);
-            while ($row = mysqli_fetch_assoc($result)) {
-                $id = $row['user_id'];
-                $username = $row['user_name'];
-                $pass = $row['user_password'];
-                $fname = $row['user_fname'];
-                $lname = $row['user_lname'];
-            echo "$username" . "<br>";
-            echo "$fname" . "<br>";
+            foreach ($result as $record) {
+                echo $record['user_fname'] . "<br>";
+                echo $record['user_lname'] . "<br>";
             }
-            
         ?>
         <ol class="breadcrumb">
             <li>

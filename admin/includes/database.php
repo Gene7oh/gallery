@@ -13,15 +13,17 @@
         
         public function connect_db()
         {
-            $this->connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-            if (mysqli_connect_errno()) {
-                echo "Database Connection Failed " . mysqli_error();
+            /*$this->connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);*/
+            $this->connect = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+            if ($this->connect->errno) {
+                echo "Database Connection Failed " . $this->connect->connect_errno;
             }
         }
         
         public function query($sql)
         {
             return $result = mysqli_query($this->connect, $sql);
+            $this->confirm_query($result);
         }
         
         private function confirm_query($result)
@@ -33,8 +35,9 @@
         
         public function escape_string($string)
         {
-            return $escaped_string = mysqli_real_escape_string($this->connect,$string);
+            return $escaped_string = mysqli_real_escape_string($this->connect, $string);
         }
     }
     
+    /* INSTANTIATE DATABASE CONNECTION */
     $database = new Database();
