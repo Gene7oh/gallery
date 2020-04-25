@@ -13,6 +13,10 @@
                 echo $record['user_fname'] . "<br>";
                 echo $record['user_lname'] . "<br>";
             }
+            $sql="SELECT * FROM users WHERE user_id = 1";
+            $result = $database->query($sql);
+            $user_found = mysqli_fetch_array($result);
+            echo $user_found['user_name'];
         ?>
         <ol class="breadcrumb">
             <li>

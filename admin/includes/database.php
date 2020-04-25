@@ -13,9 +13,9 @@
         
         public function connect_db()
         {
-            /*$this->connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);*/
-            $this->connect = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-            if ($this->connect->errno) {
+            /*$this->connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); Edwin from the future*/
+            $this->connect = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+            if ($this->connect->connect_errno) {
                 echo "Database Connection Failed " . $this->connect->connect_errno;
             }
         }
@@ -29,13 +29,18 @@
         private function confirm_query($result)
         {
             if (!$result) {
-                echo "Query Failed " . mysqli_error($this->connect);
+                echo "Query Failed " . $this->connect->error;
             }
         }
         
         public function escape_string($string)
         {
-            return $escaped_string = mysqli_real_escape_string($this->connect, $string);
+            return $escaped_string = $this->connect->real_escape_string($string);
+        }
+        
+        public function the_insert_id()
+        {
+            return $this->connect->insert_id;
         }
     }
     
