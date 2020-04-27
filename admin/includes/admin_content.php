@@ -17,6 +17,12 @@
             $result = $database->query($sql);
             $user_found = mysqli_fetch_array($result);
             echo $user_found['user_name'];
+            echo "========The User Class ===========" . "<br>";
+            $user = new User();
+            $users_found = $user->find_all_users();
+            while ($row = mysqli_fetch_array($users_found)) {
+                echo $row['user_name'] . " " . $row['user_lname'] . "<br>";
+            }
         ?>
         <ol class="breadcrumb">
             <li>
