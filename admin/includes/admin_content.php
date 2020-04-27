@@ -17,12 +17,26 @@
             $result = $database->query($sql);
             $user_found = mysqli_fetch_array($result);
             echo $user_found['user_name'];
-            echo "========The User Class ===========" . "<br>";
+            echo "========The User Class Instantiate each time ===========" . "<br>";
             $user = new User();
-            $users_found = $user->find_all_users();
+            $users_found = $user->all_users();
             while ($row = mysqli_fetch_array($users_found)) {
                 echo $row['user_name'] . " " . $row['user_lname'] . "<br>";
             }
+            echo "--------Call Static Method Find All Users Query----------" . "<br>";
+            $user_found = User::all_users();
+            while ($row = mysqli_fetch_array($user_found)) {
+                echo $row['user_name'] . "<br>";
+            }
+            echo "-------------Static Method to return User by ID-------------" . "<br>";
+            $id =1;
+           $found= User::user_by_id($id);
+           if (!$found){
+               echo "User does not exit" . "<br>";
+           } else {
+               echo $found['user_name'] . " has been located in our database" . "<br>";
+           }
+           
         ?>
         <ol class="breadcrumb">
             <li>
