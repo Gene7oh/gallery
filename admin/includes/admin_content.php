@@ -34,9 +34,14 @@
            if (!$found){
                echo "User does not exit" . "<br>";
            } else {
-               echo $found['user_name'] . " has been located in our database" . "<br>";
+               $user = new User();
+               $user->user_name = $found['user_name'];
+               $user->fname = $found['user_fname'];
+               $user->lname = $found['user_lname'];
+               $user->password = $found['user_password'];
+               echo $user->user_name . " has been located in our database" . "<br>" . ". The first name is $user->fname" . " and the last name is " . $user->lname . " a recorded password of " . $user->password;
            }
-           
+           echo "<br>" . gettype($database->connect);
         ?>
         <ol class="breadcrumb">
             <li>

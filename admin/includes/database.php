@@ -3,7 +3,9 @@
     
     class Database
     {
-        public $connect;
+        /* use gettype() function to show property type, used on the output page like admin content */
+        /** @var object $connect */
+         public object $connect;
         
         /** original diaz var was private phpstorm thru a fit and edwin from the future makes it public which is one of the options phpstorm offered Cool right */
         function __construct()
