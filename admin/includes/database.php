@@ -3,7 +3,7 @@
     
     class Database
     {
-        /* use gettype() function to show property type, used on the output page like admin content */
+        /* use gettype() function to show property type, used on any output page like admin content */
         /** @var object $connect */
          public object $connect;
         

@@ -7,6 +7,7 @@
         <h2>Admin Content Page <small>actual</small></h2>
         <p class="lead text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deleniti dicta dolorem eaque nemo nobis perferendis suscipit tempore velit. Ab aliquam hic libero natus nihil quisquam rem ullam veniam?</p>
         <?php
+            echo "-------Query the database class -----------" . "<br>";
             $sql = "SELECT * FROM users ";
             $result = $database->query($sql);
             foreach ($result as $record) {
@@ -41,7 +42,7 @@
                $user->password = $found['user_password'];
                echo $user->user_name . " has been located in our database" . "<br>" . ". The first name is $user->fname" . " and the last name is " . $user->lname . " a recorded password of " . $user->password;
            }
-           echo "<br>" . gettype($database->connect);
+           echo "<br>" . gettype($database->connect) . "<br>";
         ?>
         <ol class="breadcrumb">
             <li>
