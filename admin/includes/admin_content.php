@@ -8,19 +8,19 @@
         <p class="lead text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deleniti dicta dolorem eaque nemo nobis perferendis suscipit tempore velit. Ab aliquam hic libero natus nihil quisquam rem ullam veniam?</p>
         <?php
             echo "-------Query the database class -----------" . "<br>";
-            $sql = "SELECT * FROM users ";
+            $sql    = "SELECT * FROM users ";
             $result = $database->query($sql);
             foreach ($result as $record) {
                 echo $record['user_fname'] . "<br>";
                 echo $record['user_lname'] . "<br>";
             }
-            $sql = "SELECT * FROM users WHERE user_id = 1";
-            $result = $database->query($sql);
+            $sql        = "SELECT * FROM users WHERE user_id = 1";
+            $result     = $database->query($sql);
             $user_found = mysqli_fetch_array($result);
-            echo $user_found['user_name'];
+            echo $user_found['user_name'] . "<br>";
             echo "========The User Class Instantiate each time ===========" . "<br>";
-            $user = new User();
-            $users_found = $user->all_users();
+            $instance    = new User();
+            $users_found = $instance->all_users();
             while ($row = mysqli_fetch_array($users_found)) {
                 echo $row['user_name'] . " " . $row['user_lname'] . "<br>";
             }
@@ -30,19 +30,30 @@
                 echo $row['user_name'] . "<br>";
             }
             echo "-------------Static Method to return User by ID-------------" . "<br>";
-            $id =1;
-           $found= User::user_by_id($id);
-           if (!$found){
-               echo "User does not exit" . "<br>";
-           } else {
-               $user = new User();
-               $user->user_name = $found['user_name'];
-               $user->fname = $found['user_fname'];
-               $user->lname = $found['user_lname'];
-               $user->password = $found['user_password'];
-               echo $user->user_name . " has been located in our database" . "<br>" . ". The first name is $user->fname" . " and the last name is " . $user->lname . " a recorded password of " . $user->password;
-           }
-           echo "<br>" . gettype($database->connect) . "<br>";
+            $id         = 2;
+            $user_found = User::user_by_id($id);
+            if (!$user_found) {
+                echo "User does not exit" . "<br>";
+            } else {
+                $user            = new User();
+                $user->id        = $user_found['user_id'];
+                $user->user_name = $user_found['user_name'];
+                $user->fname     = $user_found['user_fname'];
+                $user->lname     = $user_found['user_lname'];
+                $user->password  = $user_found['user_password'];
+                echo $user->user_name . " has been located in our database." . "<br>" . " The first name is $user->fname" . " and the last name is " . $user->lname . " a recorded password of " . $user->password . " with the user id recorded " . $user->id . "<br>";
+            }
+            echo "<br>" . gettype($database->connect) . "<br>";
+            echo "---------AUTO INSTANTIATE BY USER ID-------------" . "<br>";
+            $id        = 1;
+            $find_user = User::user_by_id($id);
+            if (!$find_user) {
+                echo "No record of requested user " . "<br>";
+            } else {
+                $obj_user = User::instantiate($find_user);
+                echo "The auto instantiate method has discovered the user by id named " . $obj_user->user_name . " and the recorded id is " . $obj_user->id . "<br>";
+            }
+        
         ?>
         <ol class="breadcrumb">
             <li>
