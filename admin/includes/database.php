@@ -3,7 +3,8 @@
     
     class Database
     {
-        public $connect;
+        /** @var object $connect */
+        public object $connect;
         
         /** original diaz var was private phpstorm thru a fit and edwin from the future makes it public which is one of the options phpstorm offered Cool right */
         function __construct()
