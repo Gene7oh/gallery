@@ -5,22 +5,22 @@
             <small>administration @gallery</small>
         </h1>
         <h2>Admin Content Page <small>actual</small></h2>
-        <p class="lead text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deleniti dicta dolorem eaque nemo nobis perferendis suscipit tempore velit. Ab aliquam hic libero natus nihil quisquam rem ullam veniam?</p>
-        <?php
-            echo "-------Query the database class -----------" . "<br>";
-            
-            echo "========The User Class Instantiate each time ===========" . "<br>";
-           
-            echo "--------Call Static Method Find All Users Query----------" . "<br>";
-            
-            echo "-------------Static Method to return User by ID-------------" . "<br>";
-            
-//            echo "<br>" . gettype($database->connect) . "<br>";
-            echo "---------AUTO INSTANTIATE BY USER ID-------------" . "<br>";
-            
-            echo "-------------AUTO INSTANTIATE METHOD with loop in the method-------" . "<br>";
-           
-        ?>
+        <p class="lead text-justify">
+            <?php
+                $result_set = Users::find_all_users();
+                while ($row = mysqli_fetch_array($result_set)) {
+                    echo $row['user_fname'] . "<br>";
+                }
+                $user_id = 3;
+                $found_user = Users::user_by_id($user_id);
+                if (!$found_user){
+                    echo "Unable to locate User " . "<br>";
+                } else {
+                    echo $found_user['user_name'] . " has been located " . "<br>";
+                }
+                
+            ?>
+        </p>
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
