@@ -1,8 +1,9 @@
 <?php
+    
     class Users
     {
         public int    $id;
-        public string $user_name;
+        public string $username;
         public string $password;
         public string $fname;
         public string $lname;
@@ -21,7 +22,12 @@
         public static function find_this_query($sql)
         {
             global $database;
-            return $result_set = $database->query($sql);
+            $result_set    = $database->query($sql);
+            $the_obj_array = array();
+            while ($row = mysqli_fetch_array($result_set)) {
+                $the_obj_array[] = self::instantiate($row);
+            }
+            return $the_obj_array;
         }
         
         public static function instantiate($record)
@@ -44,5 +50,10 @@
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);
+        }
+        
+        public static function test_var()
+        {
+            var_dump(get_class_vars(self::class));
         }
     }

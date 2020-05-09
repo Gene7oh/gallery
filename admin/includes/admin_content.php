@@ -5,7 +5,7 @@
             <small>administration @gallery</small>
         </h1>
         <h2>Admin Content Page <small>actual</small></h2>
-        <p class="lead text-justify">
+        <p class="lead">
             <?php
                 /*$result_set = Users::find_all_users();
                 while ($row = mysqli_fetch_array($result_set)) {
@@ -22,7 +22,12 @@
                 $find_user = Users::user_by_id($id);
                 $user_found = Users::instantiate($find_user);
                 echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . " and a user name of " . $user_found->user_name . "<br>";*/
-                
+                $users = Users::find_all_users();
+                foreach ($users as $user) {
+                    echo $user->username . "<br>";
+                }
+                $test = new Users();
+                $test::test_var();
             ?>
         </p>
         <ol class="breadcrumb">
