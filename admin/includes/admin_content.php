@@ -18,10 +18,11 @@
                 } else {
                     echo $found_user['user_name'] . " has been located. The user ID is " . $found_user['user_id'] . "<br>";
                 }*/
-                $id = 2;
+                /*$id = 1;
                 $find_user = Users::user_by_id($id);
                 $user_found = Users::instantiate($find_user);
-                echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . "<br>";
+                echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . " and a user name of " . $user_found->user_name . "<br>";*/
+                
             ?>
         </p>
         <ol class="breadcrumb">
