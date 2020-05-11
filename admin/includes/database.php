@@ -5,7 +5,19 @@
     {
         /* use gettype() function to show property type, used on any output page like admin content */
         /** @var object $connect */
-        public object $connect;
+        public $connect;
+        
+        public function show_column_names($table_name)
+        {
+            $sql = "SHOW COLUMNS FROM $table_name";
+            $result = $this->query($sql);
+            if (!$result){
+                echo "Failed";
+            }
+            while ($row = mysqli_fetch_array($result)){
+                echo   $row['Field'] . "<br>";
+            }
+        }
         
         /** original diaz var was private phpstorm thru a fit and edwin from the future makes it public which is one of the options phpstorm offered Cool right */
         function __construct()

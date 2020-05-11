@@ -23,9 +23,11 @@
                 $user_found = Users::instantiate($find_user);
                 echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . " and a user name of " . $user_found->user_name . "<br>";*/
                 $users = Users::find_all_users();
-                foreach ($users as $user){
+                foreach ($users as $user) {
                     echo $user->user_name . " found. First name is " . $user->user_fname . " User ID is " . $user->user_id . "<br>";
                 }
+                $database->show_column_names('users');
+                
             ?>
         </p>
         <ol class="breadcrumb">

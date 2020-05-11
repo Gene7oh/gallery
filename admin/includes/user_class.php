@@ -2,6 +2,12 @@
     
     class Users
     {
+        /** @lesson learned. Class property had to match database
+         * column name in order
+         * for the instantiate function to assign
+         * the value to the property.
+         * TODO automate the class properties using the instantiate loop.
+         */
         public $user_id;
         public $user_name;
         public $user_password;
@@ -12,8 +18,8 @@
         {
             return self::find_this_query("SELECT * FROM users");
         }
-        
-        public static function user_by_id($user_id)
+    
+         public static function user_by_id($user_id)
         {
             $result_set = self::find_this_query("SELECT * FROM users WHERE user_id =$user_id");
             return $found_user = mysqli_fetch_array($result_set);
