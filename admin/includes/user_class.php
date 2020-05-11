@@ -2,11 +2,11 @@
     
     class Users
     {
-        public $id;
+        public $user_id;
         public $user_name;
-        public $password;
-        public $fname;
-        public $lname;
+        public $user_password;
+        public $user_fname;
+        public $user_lname;
         
         public static function find_all_users()
         {
