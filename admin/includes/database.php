@@ -11,9 +11,7 @@
         {
             $sql = "SHOW COLUMNS FROM $table_name";
             $result = $this->query($sql);
-            if (!$result){
-                echo "Failed";
-            }
+            $this->confirm_query($result);
             while ($row = mysqli_fetch_array($result)){
                 echo   $row['Field'] . "<br>";
             }

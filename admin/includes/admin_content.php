@@ -26,7 +26,8 @@
                 foreach ($users as $user) {
                     echo $user->user_name . " found. First name is " . $user->user_fname . " User ID is " . $user->user_id . "<br>";
                 }
-                $database->show_column_names('users');
+                $table_name = "users";
+                $database->show_column_names($table_name);
                 
             ?>
         </p>
