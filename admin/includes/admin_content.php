@@ -22,13 +22,18 @@
                 $find_user = Users::user_by_id($id);
                 $user_found = Users::instantiate($find_user);
                 echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . " and a user name of " . $user_found->user_name . "<br>";*/
+                echo "----------FIND ALL USERS-------------" . "<br>";
                 $users = Users::find_all_users();
                 foreach ($users as $user) {
                     echo $user->user_name . " found. First name is " . $user->user_fname . " User ID is " . $user->user_id . "<br>";
                 }
+                echo "-----------SHOW COLUMN NAMES--------------" . "<br>";
                 $table_name = "users";
                 $database->show_column_names($table_name);
-                
+                echo "----------FIND BY ID------------" . "<br>";
+                $uid = 1;
+//                $user_located = Users::user_by_id($uid);
+            
             ?>
         </p>
         <ol class="breadcrumb">
