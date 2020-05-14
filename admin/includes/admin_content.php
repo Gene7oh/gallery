@@ -31,9 +31,13 @@
                 $table_name = "users";
                 $database->show_column_names($table_name);
                 echo "-----------Ternary Operator--------------" . "<br>";
-                $ter       = 1;
-                $check_ter = ($ter > 1) ? "Greater Than" : "Less than or equal to";
-                echo $check_ter . "<br>";
+                $num1      = 5;
+                $num2      = 3;
+                $sum       = $num1 * $num2;
+                $check_sum = ($sum >= 15) ? "Sum is greater or equal to 15" . "<br>" : "Less than 15" . "<br>";
+                echo $check_sum;
+                $sum_check = ($sum > 15) ? "Sum is greater than 15" . "<br>" : (($sum < 15) ? "Sum is less" . "<br>" : "Sum is equal" . "<br>");
+                echo $sum_check;
                 echo "----------FIND BY ID------------" . "<br>";
                 $uid = 1;
                 //                $user_located = Users::user_by_id($uid);
