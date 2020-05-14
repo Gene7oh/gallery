@@ -39,9 +39,12 @@
                 $sum_check = ($sum > 15) ? "Sum is greater than 15" . "<br>" : (($sum < 15) ? "Sum is less" . "<br>" : "Sum is equal" . "<br>");
                 echo $sum_check;
                 echo "----------FIND BY ID------------" . "<br>";
-                $uid = 1;
-                //                $user_located = Users::user_by_id($uid);
-            
+                $uid = 3;
+                $find_user = Users::user_by_id($uid);
+                /*if ($find_user){
+                    echo $find_user->user_name . "<br>";
+                }else echo "User Not Found!" . "<br>";*/
+                echo $find_user ? $find_user->user_name . "<br>" : "User Not Found" . "<br>";
             ?>
         </p>
         <ol class="breadcrumb">
