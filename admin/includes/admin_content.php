@@ -56,6 +56,8 @@
                 echo "------------Auto Add missing Files---------------" . "<br>";
                 $bmw = new Cars();
                 echo $bmw->found();
+                $test = new Test_Class();
+                echo $test->runTest();
                 $truck = new Trucks("Does Not Exist");
             ?>
         </p>

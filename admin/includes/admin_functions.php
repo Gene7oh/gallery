@@ -8,7 +8,7 @@
         if (file_exists($path)){
             require_once "$path";
         } else {
-            die("File named {$file}.php could not be located");
+            die("File named {$file}.php could not be located") . "<br>";
         }
     }
     spl_autoload_register('fileAutoLoader');
