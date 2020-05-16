@@ -58,7 +58,9 @@
                 echo $bmw->found();
                 $test = new Test_Class();
                 echo $test->runTest();
-                $truck = new Trucks("Does Not Exist");
+                /*$truck = new Trucks("Does Not Exist"); Commented out because of the die function in the auto load file function */
+                echo "-----------------Sessions Class-----------------" . "<br>";
+                
             ?>
         </p>
         

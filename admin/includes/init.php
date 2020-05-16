@@ -4,4 +4,5 @@
     include "config.php";
     include "Database.php";
     include "Users.php";
-//    include "Cars.php";
+    /*Cars class is for testing the auto load file function only
+    include "Cars.php";*/
