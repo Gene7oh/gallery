@@ -19,8 +19,8 @@
         {
             return self::find_this_query("SELECT * FROM users");
         }
-    
-         public static function user_by_id($user_id)
+        
+        public static function user_by_id($user_id)
         {
             /** previous version of the method returned an array from here but now it is returned from instantiate method */
             /*$result_set = self::find_this_query("SELECT * FROM users WHERE user_id =$user_id");
@@ -33,7 +33,7 @@
             }*/
             return !empty($the_result_array) ? array_shift($the_result_array) : false;
         }
-    
+        
         public static function find_this_query($sql)
         {
             global $database;
@@ -44,7 +44,7 @@
             }
             return $the_obj_array;
         }
-    
+        
         public static function instantiate($record)
         {
             $the_object = new self();
@@ -60,13 +60,13 @@
             }
             return $the_object;
         }
-    
+        
         private function has_the_attribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);
         }
-    
+        
         public static function test_var()
         {
             var_dump(get_class_vars(self::class));

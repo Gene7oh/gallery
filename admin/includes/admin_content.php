@@ -5,6 +5,14 @@
             <small>administration @gallery</small>
         </h1>
         <h2>Admin Content Page <small>actual</small></h2>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i> Blank Page
+            </li>
+        </ol>
         <p class="lead">
             <?php
                 /*$result_set = Users::find_all_users();
@@ -39,22 +47,19 @@
                 $sum_check = ($sum > 15) ? "Sum is greater than 15" . "<br>" : (($sum < 15) ? "Sum is less" . "<br>" : "Sum is equal" . "<br>");
                 echo $sum_check;
                 echo "----------FIND BY ID------------" . "<br>";
-                $uid = 3;
+                $uid = 4;
                 $find_user = Users::user_by_id($uid);
                 /*if ($find_user){
                     echo $find_user->user_name . "<br>";
                 }else echo "User Not Found!" . "<br>";*/
                 echo $find_user ? $find_user->user_name . "<br>" : "User Not Found" . "<br>";
+                echo "------------Auto Add missing Files---------------" . "<br>";
+                $bmw = new Cars();
+                echo $bmw->found();
+                $truck = new Trucks("Does Not Exist");
             ?>
         </p>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-file"></i> Blank Page
-            </li>
-        </ol>
+        
     </div>
 </div>
 <!-- /.row -->
