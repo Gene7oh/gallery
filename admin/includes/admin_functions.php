@@ -1,6 +1,6 @@
 <?php
     
-    function classAutoLoader($file)
+    function fileAutoLoader($file)
         /** autoload function depreciated and replaced with spl autoload register using custom function as the param (see function declared outside of the custom function) */
     {
         $file = strtolower($file);
@@ -11,4 +11,4 @@
             die("File named {$file}.php could not be located");
         }
     }
-    spl_autoload_register('classAutoLoader');
+    spl_autoload_register('fileAutoLoader');
