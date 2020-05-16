@@ -15,22 +15,7 @@
         </ol>
         <p class="lead">
             <?php
-                /*$result_set = Users::find_all_users();
-                while ($row = mysqli_fetch_array($result_set)) {
-                    echo $row['user_fname'] . "<br>";
-                }
-                $user_id = 3;
-                $found_user = Users::user_by_id($user_id);
-                if (!$found_user){
-                    echo "Unable to locate User With User IF of " . $user_id . "<br>";
-                } else {
-                    echo $found_user['user_name'] . " has been located. The user ID is " . $found_user['user_id'] . "<br>";
-                }*/
-                /*$id = 1;
-                $find_user = Users::user_by_id($id);
-                $user_found = Users::instantiate($find_user);
-                echo "The user named " . $user_found->fname . " has been found listed under the Id of " . $user_found->id . " and a user name of " . $user_found->user_name . "<br>";*/
-                echo "----------FIND ALL USERS-------------" . "<br>";
+                /*echo "----------FIND ALL USERS-------------" . "<br>";
                 $users = Users::find_all_users();
                 foreach ($users as $user) {
                     echo $user->user_name . " found. First name is " . $user->user_fname . " User ID is " . $user->user_id . "<br>";
@@ -49,16 +34,13 @@
                 echo "----------FIND BY ID------------" . "<br>";
                 $uid = 4;
                 $find_user = Users::user_by_id($uid);
-                /*if ($find_user){
-                    echo $find_user->user_name . "<br>";
-                }else echo "User Not Found!" . "<br>";*/
                 echo $find_user ? $find_user->user_name . "<br>" : "User Not Found" . "<br>";
                 echo "------------Auto Add missing Files---------------" . "<br>";
                 $bmw = new Cars();
                 echo $bmw->found();
                 $test = new Test_Class();
                 echo $test->runTest();
-                /*$truck = new Trucks("Does Not Exist"); Commented out because of the die function in the auto load file function */
+                $truck = new Trucks("Does Not Exist");*/
                 echo "-----------------Sessions Class-----------------" . "<br>";
                 
             ?>
