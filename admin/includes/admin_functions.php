@@ -5,10 +5,11 @@
     {
         $file = strtolower($file);
         $path = "includes/{$file}.php";
-        if (file_exists($path)){
+        if (file_exists($path) && !class_exists($file)) {
             require_once "$path";
         } else {
             die("File named {$file}.php could not be located") . "<br>";
         }
     }
+    
     spl_autoload_register('fileAutoLoader');
