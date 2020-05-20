@@ -27,8 +27,7 @@
         
         /**
          * @return bool
-         * creates a public method to use a private property in
-         * this case $signed_in
+         * creates a public method to use a private property $signed_in
          */
         public function is_signed_in()
         {
@@ -38,7 +37,7 @@
         public function login($user)
         {
             if ($user) {
-                $this->user_id = $_SESSION['user_id'] = $this->user_id;
+                $this->user_id = $_SESSION['user_id'] = $user->user_id;
                 $this->signed_in = true;
             }
     
