@@ -40,7 +40,6 @@
                 echo $test->runTest();
                 $truck = new Trucks("Does Not Exist");*/
                 echo "-----------------Sessions Class-----------------" . "<br>";
-                
             ?>
         </p>
     </div>
