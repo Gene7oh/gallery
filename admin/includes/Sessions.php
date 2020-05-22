@@ -16,9 +16,7 @@
          */
         public $user_id;
         
-        /**
-         * Session constructor.
-         */
+        /** Session constructor.*/
         function __construct()
         {
             session_start();
@@ -28,6 +26,7 @@
         /**
          * @return bool
          * creates a public method to use a private property $signed_in
+         * Called a getter()
          */
         public function is_signed_in()
         {

@@ -13,6 +13,7 @@
     }
     
     spl_autoload_register('fileAutoLoader');
+    
     function redirect($location)
     {
         header("Location: {$location}");
