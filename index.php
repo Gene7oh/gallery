@@ -7,7 +7,6 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur delectus deserunt, maxime, numquam obcaecati pariatur perferendis quia quo repellat sequi soluta ut velit! Illo inventore itaque neque perspiciatis quis.
         </p>
     </div>
-    <?php /*include "includes/nedry.php";*/ ?>
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
         <?php include("includes/sidebar.php"); ?>

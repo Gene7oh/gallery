@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Gallery@gallery</a>
                 <a class="navbar-brand pull-right" href="admin">Admin</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

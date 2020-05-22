@@ -45,6 +45,14 @@
             return $the_obj_array;
         }
         
+        public static function verify_user($user_name, $user_password)
+        {
+            global $database;
+            $user_name = $database->escape_string($user_name);
+            $user_password = $database->escape_string($user_password);
+            
+        }
+        
         public static function instantiate($record)
         {
             $the_object = new self();
