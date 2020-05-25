@@ -1,7 +1,7 @@
 <?php require_once "includes/init.php"; ?>
 <?php
     if ($session->is_signed_in()) {
-        redirect('../admin');
+        redirect('admin');
     }
     if (isset($_POST['submit'])) {
         $user_name = trim($_POST['user_name']);
@@ -21,6 +21,7 @@
 ?>
 <div class="col-md-8">
     <h2>User Login</h2>
+    <h4 class="bg bg-danger"><?php if ($user_found = false) { echo $message;}?></h4>
     <form action="" method="post" class="form">
         <div class="input-group">
             <input name="user_name" type="text" class="form-control" placeholder="User Name">

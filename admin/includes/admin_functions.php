@@ -1,5 +1,5 @@
 <?php
-    
+   
     function fileAutoLoader($file)
         /** autoload function depreciated and replaced with spl autoload register using custom function as the param (see function declared outside of the custom function) */
     {

@@ -22,15 +22,7 @@
         
         public static function user_by_id($user_id)
         {
-            /** previous version of the method returned an array from here but now it is returned from instantiate method */
-            /*$result_set = self::find_this_query("SELECT * FROM users WHERE user_id =$user_id");
-            return $found_user = mysqli_fetch_array($result_set);*/
             $the_result_array = self::find_this_query("SELECT * FROM users WHERE user_id =$user_id");
-            /*if (!empty($the_result_array)){
-                return $first_item = array_shift($the_result_array);
-            }else {
-                return false;
-            }*/
             return !empty($the_result_array) ? array_shift($the_result_array) : false;
         }
         
@@ -50,7 +42,9 @@
             global $database;
             $user_name = $database->escape_string($user_name);
             $user_password = $database->escape_string($user_password);
-            
+            $sql = "SELECT * FROM users WHERE user_name = '$user_name' AND user_password = '$user_password' ";
+            $result_array = self::find_this_query($sql);
+            return !empty($result_array) ? array_shift($result_array) : false;
         }
         
         public static function instantiate($record)
