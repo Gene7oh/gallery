@@ -15,12 +15,21 @@
          * @var
          */
         public $user_id;
+        public $message;
         
         /** Session constructor.*/
         function __construct()
         {
             session_start();
             $this->check_the_login();
+        }
+    
+        /**
+         * @param string $msg
+         */
+        public function message($msg="")
+        {
+        $this->message = $_SESSION['$msg'];
         }
         
         /**
