@@ -31,9 +31,11 @@
                 <h4 style="color: darkred" class="bg bg-danger"><?php echo $message ?></h4>
                 <form action="" method="post" class="form">
                     <div class="form-group">
+                        <label for="user_name">User Name</label>
                         <input name="user_name" type="text" class="form-control" placeholder="User Name" value="<?php echo htmlentities($user_name); ?>">
                     </div>
                     <div class="form-group">
+                        <label for="password">Password</label>
                         <input name="password" type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group">
@@ -44,4 +46,4 @@
             </div>
         </div>
     </div>
-<?php /*require_once "includes/admin_footer.php" ;*/ ?>
+<?php require_once "includes/admin_footer.php" ; ?>
