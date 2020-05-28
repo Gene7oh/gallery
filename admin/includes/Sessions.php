@@ -22,14 +22,27 @@
         {
             session_start();
             $this->check_the_login();
+            $this->check_message();
         }
-    
+        
         /**
          * @param string $msg
          */
-        public function message($msg="")
+        public function message($msg = "")
         {
-        $this->message = $_SESSION['$msg'];
+            if (!empty($msg)) {
+                $_SESSION['message'] = $msg;
+            } else {
+                return $this->message;
+            }
+        }
+        private function check_message(){
+            if (isset($_SESSION['message'])){
+                $this->message = $_SESSION['message'];
+                unset($_SESSION['message']);
+            } else {
+                $this->message = "";
+            }
         }
         
         /**

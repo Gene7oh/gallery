@@ -13,7 +13,7 @@
             $session->login($user_found);
             redirect('index.php');
         } else {
-            $message = "**One of the two fields is incorrect**" . "<br>";
+            $message = "**One of the fields is, or both of them are incorrect**" . "<br>";
         }
     } else {
         $user_name = "";
