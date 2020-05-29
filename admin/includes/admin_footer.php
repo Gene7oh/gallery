@@ -15,7 +15,7 @@
             }
     </style>
 <main style="color: whitesmoke" role="main" class="container">
-    <h1 class="mt">@Gallery Footer</h1>
+    <h3 class="mt">@Gallery Footer</h3>
     <p class="lead">Various informative statements explaining the following links</p>
     <div class="row">
         <div class="col-md-3 navbar-brand">

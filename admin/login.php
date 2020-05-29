@@ -13,7 +13,7 @@
             $session->login($user_found);
             redirect('index.php');
         } else {
-            $message = "**One of the fields is, or both of them are incorrect**" . "<br>";
+            $message = "**One of the fields is, or both fields are; Incorrect**" . " <i class= 'fa fa-frown-o'></i> <i class= 'fa fa-frown-o'></i>" . "<br>";
         }
     } else {
         $user_name = "";
@@ -27,7 +27,7 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="col-md-4 col-md-offset-5">
-                <h2>User Login</h2>
+                <h2>User Login </h2>
                 <h4 style="color: darkred" class="bg bg-danger"><?php echo $message ?></h4>
                 <form action="" method="post" class="form">
                     <div class="form-group">
