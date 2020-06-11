@@ -26,7 +26,7 @@
 ?>
     <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="col-md-4 col-md-offset-5">
+            <div class="col-md-4 col-md-offset-4">
                 <h2>User Login </h2>
                 <h4 style="color: darkred" class="bg bg-danger"><?php echo $message ?></h4>
                 <form action="" method="post" class="form">

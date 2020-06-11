@@ -15,7 +15,7 @@
 
     <!-- Custom CSS -->
     <link href="css/blog-home.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e404aa13c6.js" crossorigin="anonymous"></script>
+<!--    <script src="https://kit.fontawesome.com/e404aa13c6.js" crossorigin="anonymous"></script>-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
