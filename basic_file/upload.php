@@ -23,5 +23,8 @@
     <input type="file" name="upload_file"> <br>
     <button type="submit" name="submit">Submit</button>
 </form>
+<div>
+    <button><a href="index.php">Home</a></button>
+</div>
 </body>
 </html>

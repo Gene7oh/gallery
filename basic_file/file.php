@@ -14,3 +14,4 @@ if (is_dir(__DIR__)){
 } else echo "False! Path does not lead to a folder" . "<br>";
 echo file_exists(__DIR__) ? "Located" . "<br>" : "Not Located" . "<br>";
 echo is_dir(__FILE__) ? "Yes a directory" . "<br>" : "No not a directory" . "<br>";
+echo "<div><button><a href='index.php'>Home</a></button></button></div>";
