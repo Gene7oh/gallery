@@ -1,5 +1,5 @@
 <?php
-    
+/*
     class Cars
     {
         public $wheel_count = 4;
@@ -32,4 +32,4 @@
     echo "<br>";
     $Tundra = new Trucks();
     echo $Tundra->wheel_count = 6;
-    
+    */
