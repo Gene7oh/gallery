@@ -1,6 +1,6 @@
 <?php
     
-    /*class Cars
+    class Cars
     {
         public $wheel_count = 4;
         private $door_count = 2;
@@ -28,4 +28,4 @@
     echo "<br>" . $silverado->wheel_count = 6;
     echo $silverado->truck_details();
     echo "<br>";
-    echo $silverado->car_details();*/
+    
