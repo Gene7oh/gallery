@@ -29,3 +29,7 @@
     echo $silverado->truck_details();
     echo "<br>";
     echo $silverado->car_details();
+    echo "<br>";
+    $Tundra = new Trucks();
+    echo $Tundra->wheel_count = 6;
+    
