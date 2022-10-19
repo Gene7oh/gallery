@@ -1,18 +1,19 @@
-<?php 
+<?php
+	/** @noinspection PhpMultipleClassDeclarationsInspection */
+	
+	
+	class Cars {
 
 
-class Cars {
 
-
-
-function gretting(){
+function greeting(){
 
 
 	}
 
 
 
-function gretting2(){
+function greeting2(){
 
 
 	}

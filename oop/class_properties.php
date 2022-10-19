@@ -1,7 +1,11 @@
-<?php 
-
-
-class Cars {
+<?php
+	/** @noinspection PhpMissingReturnTypeInspection */
+	/** @noinspection PhpMissingFieldTypeInspection */
+	
+	/** @noinspection PhpMultipleClassDeclarationsInspection */
+	
+	
+	class Cars {
 
 
 	var $wheel_count = 4;

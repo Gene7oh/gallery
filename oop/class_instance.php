@@ -1,11 +1,12 @@
-<?php 
+<?php
+	/** @noinspection PhpMultipleClassDeclarationsInspection */
+	
+	
+	class Cars {
 
 
-class Cars {
 
-
-
-function gretting(){
+function greeting(){
 
 	echo "Hello Student";
 
@@ -21,7 +22,7 @@ $mercedes = new Cars();
 
 
 
-$bmw->gretting();
+$bmw->greeting();
 
 
 
