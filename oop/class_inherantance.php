@@ -1,7 +1,10 @@
-<?php 
-
-
-class Cars {
+<?php
+	/** @noinspection PhpMissingFieldTypeInspection */
+	
+	/** @noinspection PhpMultipleClassDeclarationsInspection */
+	
+	
+	class Cars {
 
 var $wheels = 5;
 
@@ -39,4 +42,3 @@ echo $tacoma->wheels;
 
 
 
- ?>

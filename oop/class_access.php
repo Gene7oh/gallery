@@ -1,7 +1,8 @@
-<?php 
-
-
-class Cars {
+<?php
+	/** @noinspection ALL */
+	
+	
+	class Cars {
 
 
 	public $wheel_count = 4;
