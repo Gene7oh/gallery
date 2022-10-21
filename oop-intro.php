@@ -78,11 +78,33 @@
         
         static function bugRant()
         {
-            return "Often, Termites aka " . Bugs::$termites . " will infest the structure. On occasion the property owner will think using ants as a deterrent is a good idea because they are " . Bugs::$ants . ", however they still eat wood, therefor the only way to eliminate the threat is to employ an anteater as the " . Bugs::$anteater . "<br>" ;
+            return "Often, Termites aka " . Bugs::$termites . " will infest the structure. On occasion the property owner will think using ants as a deterrent is a good idea because they are " . Bugs::$ants . ", however they still eat wood, therefor the only way to eliminate the threat is to employ an anteater as the " . Bugs::$anteater . "<br>";
             
         }
     }
+    
     echo "Calling static var out of the class <br>";
     echo Bugs::$anteater . "<br>";
     echo "Calling the method out of the class <br>";
     echo Bugs::bugRant() . "<br>";
+    echo "-------------SET and GET-----------" . "<br>";
+    
+    class Getset
+    {
+        private int $val = 8;
+        
+        function getVal()
+        {
+            echo $this->val;
+        }
+        
+        function setVal()
+        {
+            $this->val = 10;
+        }
+    }
+    $get_val = new Getset();
+    $get_val->setVal();
+    
+    $get_val->getVal();
+    
