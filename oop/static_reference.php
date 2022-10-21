@@ -1,10 +1,11 @@
-<?php 
+<?php
+	/** @noinspection ALL */
+	
+	
+	class Cars {
 
 
-class Cars {
-
-
-	static $wheel_count = 4;
+	static  $wheel_count = 4;
 
 
 
