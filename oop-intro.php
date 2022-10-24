@@ -103,8 +103,79 @@
             $this->val = 10;
         }
     }
+    
     $get_val = new Getset();
     $get_val->setVal();
     
     $get_val->getVal();
+    echo "<br> =============== Get and Set Static ============= <br>";
     
+    class SetGet
+    {
+        static private int $set_get_value = 20;
+        
+        static function getSetGet()
+        {
+            echo SetGet::$set_get_value;
+        }
+        
+        static function setSetGet()
+        {
+            SetGet::$set_get_value = 30;
+        }
+    }
+    
+    SetGet::setSetGet();
+    SetGet::getSetGet();
+    echo "<br> ---------- Static Self and Parent keywords ---------- <br>";
+    
+    class Autos
+    {
+        static string $message     = "Autos is the parent class and will use the self :: keyword to call vars <br>";
+        static int    $door_count  = 4;
+        static int    $wheel_count = 6;
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        static function autoDetail()
+        
+        {
+            return self::$message . " The auto has " . self::$door_count . " doors and " . self::$wheel_count . " wheels <br>";
+        }
+    }
+    
+    echo Autos::autoDetail();
+    
+    class Truck extends Autos
+    {
+        /** @noinspection PhpMissingReturnTypeInspection */
+        static function report()
+        {
+            return " --------Truck Class-------- <br>
+            This is the Truck class function returning details method " . parent::autoDetail();
+        }
+    }
+    
+    echo Truck::report();
+    echo "------------Constructors and Destructors-------------- <br>";
+    
+    class Construct
+    {
+        static string $msg    = "The construct is automatically called when the class is instantiated <br> each time the class is called the integer increases by 1.";
+        static int    $number = 8;
+        static int $num = 10;
+        
+        function __construct()
+        {
+            echo self::$number++ . "<br>" . self::$msg . "<br>";
+        }
+        function __destruct(){
+            return self::$num-- . "<br> The number is decreased by 1 when the destruct is called.";
+        }
+    }
+    
+
+    
+    $call      = new Construct;
+    $new_call  = new Construct();
+    $next_call = new Construct();
+   echo  Construct::$num;
