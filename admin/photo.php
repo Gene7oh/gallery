@@ -1,6 +1,6 @@
 <?php
     include("includes/admin-header.php"); ?>
-    <title>Admin Home</title>
+    <title>Photos</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--<a class="navbar-brand" href="index.php">Gallery Admin</a>-->
+            <a class="navbar-brand" href="index.php">Gallery Admin</a>
             <a class="navbar-brand" href="../index.php">Gallery Front</a>
         </div>
         <!-- Top Menu Items -->
@@ -28,8 +28,26 @@
     </nav>
     <!--end entire navigation-->
     <div id="page-wrapper">
-        <?php
-            include("includes/admin-content.php");  ?>
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Photo
+                        <small>Gallery</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-file"></i> Blank Page
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->

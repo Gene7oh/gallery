@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Blank Page
-                <small>Subheading</small>
+                Gallery
+                <small>Admin Page</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
