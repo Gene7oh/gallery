@@ -7,7 +7,7 @@
         <h2>Admin Content Page <small>actual</small> </h2>
         <p class="lead text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate deleniti dicta dolorem eaque nemo nobis perferendis suscipit tempore velit. Ab aliquam hic libero natus nihil quisquam rem ullam veniam?</p>
         <?php
-        if ($database->connect){
+        if ($connect_db->connect){
             echo "Connected";
         }
         ?>

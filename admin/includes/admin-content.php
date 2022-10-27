@@ -6,6 +6,11 @@
                 Gallery
                 <small>Admin Page</small>
             </h1>
+            <?php
+                if ($connect_db->connect){
+                    echo "Connected";
+                }
+            ?>
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>

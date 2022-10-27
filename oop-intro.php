@@ -1,6 +1,5 @@
 <?php
     
-    namespace gallery;
     // Create the class
     class Cars
     {
