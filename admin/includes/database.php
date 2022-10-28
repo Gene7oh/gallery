@@ -12,6 +12,15 @@
             $this->open_db_connect();
         }
         
+        public function query($sql)
+        {
+            $result = mysqli_query($this->connect, $sql);
+            if (!$result) {
+                echo "Query Failed";
+            }
+            return $result;
+        }
+        
         
         public function open_db_connect()
         {

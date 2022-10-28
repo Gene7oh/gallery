@@ -8,7 +8,7 @@
             </h1>
             <?php
                 /** @noinspection PhpUndefinedVariableInspection */
-               if ($database->connect){
+                if ($database->connect){
                    echo "Connected to DB ";
                }
             ?>
