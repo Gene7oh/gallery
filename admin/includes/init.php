@@ -1,3 +1,3 @@
 <?php
-    include "config_db.php";
+    include "new-config.php";
     include "database.php";

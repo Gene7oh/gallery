@@ -7,13 +7,15 @@
                 <small>Admin Page</small>
             </h1>
             <?php
-                if ($connect_db->connect){
-                    echo "Connected";
-                }
+                /** @noinspection PhpUndefinedVariableInspection */
+               if ($database->connect){
+                   echo "Connected to DB ";
+               }
             ?>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
+                    <i class="fa fa-dashboard"></i> <!--suppress HtmlUnknownTarget -->
+                    <a href="index.php">Dashboard</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i> Blank Page
