@@ -1,3 +1,6 @@
+<footer class="modal-footer" style="color: antiquewhite">
+    <h3>Footer Stuff</h3>
+</footer>
   </div>
     <!-- /#wrapper -->
 
