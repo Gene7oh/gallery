@@ -19,20 +19,27 @@
         }
         
         public function query($sql) {
-            return $this->connect->query($sql);
-            
+            $result = $this->connect->query($sql);
+            $this->confirmQuery($result);
+            return $result;
         }
         
         private function confirmQuery($result) {
             if (!$result) {
                 echo "Query Failed" . "<br>" . $this->connect->error;
-            } else echo "Record Found" . "<br>";
+            } else echo "<h3 style='color: darkred'>Record Found</h3>" . "<br>";
         }
         
         
         public function escapeString($string) {
-            $escaped_string = $this->connect->real_escape_string($string);
+            return $escaped_string = $this->connect->real_escape_string($string);
+            
         }
+        
+        public function TheInsertId() {
+            return $this->connect->insert_id();
+        }
+        
     }
     
     $database = new Database();

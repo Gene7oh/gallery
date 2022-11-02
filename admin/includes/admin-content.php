@@ -8,13 +8,14 @@
             </h1>
             <?php
                 $sql        = "SELECT * FROM users WHERE user_id = 1";
+                echo "<pre>";
                 /** @noinspection PhpUndefinedVariableInspection */
                 $result     = $database->query($sql);
                 $user_found = mysqli_fetch_array($result);
-                echo "<pre>";
                 echo "Found a user named:" . "<br>" . $user_found['user_fname'] . "<br>" . $user_found['user_lname'];
                 echo "</pre>";
             ?>
+            
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-dashboard"></i> <!--suppress HtmlUnknownTarget -->
