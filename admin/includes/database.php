@@ -19,15 +19,14 @@
         }
         
         public function query($sql) {
-            return $result = $this->connect->query($sql);
-            $this->confirmQuery($result);
+            return $this->connect->query($sql);
+            
         }
         
         private function confirmQuery($result) {
             if (!$result) {
                 echo "Query Failed" . "<br>" . $this->connect->error;
-            }
-            
+            } else echo "Record Found" . "<br>";
         }
         
         
