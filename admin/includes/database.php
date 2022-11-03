@@ -27,15 +27,19 @@
         private function confirmQuery($result) {
             if (!$result) {
                 echo "Query Failed" . "<br>" . $this->connect->error;
-            } else echo "<h3 style='color: darkred'>Record Found</h3>" . "<br>";
+            } else echo "<h3 style='color: darkred'>Record(s) Found</h3>" . "<br>";
         }
-        
-        
+    
+    
+        /** @noinspection PhpUnused
+         * @noinspection PhpUnusedLocalVariableInspection
+         */
         public function escapeString($string) {
             return $escaped_string = $this->connect->real_escape_string($string);
             
         }
-        
+    
+        /** @noinspection PhpUnused */
         public function TheInsertId() {
             return $this->connect->insert_id();
         }
