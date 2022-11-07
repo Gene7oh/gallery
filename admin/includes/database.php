@@ -27,7 +27,7 @@
         private function confirmQuery($result) {
             if (!$result) {
                 echo "Query Failed" . "<br>" . $this->connect->error;
-            } else echo "<h3 style='color: darkred'>Record(s) Found</h3>" . "<br>";
+            } /*else echo "<h3 style='color: darkred'>Record(s) Found</h3>" . "<br>";*/
         }
     
     
