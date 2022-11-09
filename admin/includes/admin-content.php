@@ -39,14 +39,20 @@
                 }*/
                 // ↓↓ Call user by ID using static method and passed parameter↓↓
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 70%'>";
-                 $user_id    = 1;
-                 $user_found = User::findUserById($user_id);
-                 if (!$user_found) {
-                     echo "<alert style='color:darkred; font-size: large; font-weight: bolder'>User not found!</alert>";
-                 } else {
-                     echo $user_found['user_id'] . "<br>" . $user_found['username'] . "<br>" . $user_found['user_fname'] . " " . $user_found['user_lname'];
-                 }
-                 echo "</pre>";
+                $user_id    = 2;
+                $user_found = User::findUserById($user_id);
+                if (!$user_found) {
+                    echo "<alert style='color:darkred; font-size: large; font-weight: bold'>User not found!</alert>";
+                } else {
+                    /*echo $user_found['user_id'] . "<br>" . $user_found['username'] . "<br>" . $user_found['user_fname'] . " " . $user_found['user_lname'];*/
+                    $user             = new User();
+                    $user->user_id    = $user_found['user_id'];
+                    $user->username   = $user_found['username'];
+                    $user->user_fname = $user_found['user_fname'];
+                    $user->user_lname = $user_found['user_lname'];
+                    echo $user->user_id . "<br>" . $user->username . "<br>" . $user->user_fname . " " . $user->user_lname;
+                }
+                echo "</pre>";
                 
                 echo "</pre>"; /*the end tag for the light gray background */
             ?>

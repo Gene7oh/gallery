@@ -1,8 +1,13 @@
 <?php
     // ↓↓ to use the db class we need to make the $database object global↓↓
-    
+    /** @noinspection PhpUnused */
     /** @noinspection PhpUnnecessaryLocalVariableInspection */
     class User {
+        public int $user_id;
+        public string $username;
+        public string $user_fname;
+        public string $user_lname;
+        public string $user_password;
         public static function findAllUsers() {
 //            global $database;
 //            $result_set = $database->query("SELECT * FROM users");
@@ -10,7 +15,6 @@
             return $result_set;
         }
     
-        /** @noinspection PhpUndefinedVariableInspection */
         public static function findUserById($user_id){
 //            global $database;
 //            $result     = $database->query("SELECT * FROM users WHERE user_id = $user_id");
