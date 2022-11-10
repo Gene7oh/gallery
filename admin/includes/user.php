@@ -12,14 +12,27 @@
         public string $user_lname;
         public string $user_password;
         
-        public static function autoInstance($user_found): User {
-            $auto_instance             = new self;
-            $auto_instance->user_id    = $user_found['user_id'];
+        
+        /** @noinspection PhpUndefinedFieldInspection */
+        public static function autoInstance($fetched_records): User {
+            $auto_instance = new self;
+            /*$auto_instance->user_id    = $user_found['user_id'];
             $auto_instance->username   = $user_found['username'];
             $auto_instance->user_fname = $user_found['user_fname'];
-            $auto_instance->user_lname = $user_found['user_lname'];
+            $auto_instance->user_lname = $user_found['user_lname'];*/
             /* for the love of Jesus please to remember to return the results or objects ↓↓*/
+            foreach ($fetched_records as $records => $value) {
+                if ($auto_instance->instanceHasRecords($records)) {
+                    $auto_instance->records = $value;
+                }
+            }
             return $auto_instance;
+        }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        private function instanceHasRecords($records) {
+            $object_vars = get_object_vars($this);
+            return array_key_exists($records, $object_vars);
         }
         
         public static function findAllUsers() {
@@ -42,4 +55,5 @@
             $found_user = mysqli_fetch_array($result);
             return $found_user;
         }
+        
     } /** end User class */

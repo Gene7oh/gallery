@@ -39,7 +39,7 @@
                 }*/
                 // ↓↓ Call user by ID using static method and passed parameter↓↓
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 90%'>";
-                $user_id    = 1;
+                $user_id    = 2;
                 $user_found = User::findUserById($user_id);
                 if (!$user_found) {
                     echo "<alert style='color:darkred; font-size: large; font-weight: bold'>User not found!</alert>";
