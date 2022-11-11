@@ -1,4 +1,4 @@
 <?php
     include "new-config.php";
-    include "database.php";
-    include "user.php";
+    include "Database.php";
+    include "User.php";
