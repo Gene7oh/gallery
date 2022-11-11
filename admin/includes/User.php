@@ -4,16 +4,22 @@
     class User {
         /** @noinspection PhpUnnecessaryLocalVariableInspection */
         public static function findAllUsers() {
-            global $database;
-            $result = $database->query("SELECT * FROM users");
-            return $result;
+            $result = self::createQuery("SELECT * FROM users");
+            while ($row = mysqli_fetch_array($result)) {
+                echo $row['user_id'] . "<br>" . $row['username'] . "<br>";
+            }
         }
-    
+        
         /** @noinspection PhpUnnecessaryLocalVariableInspection */
-        public static function findUserById($user_id){
+        private static function createQuery($sql) {
             global $database;
-            $result = $database->query("SELECT * FROM users WHERE user_id = $user_id");
-            $find_user = mysqli_fetch_array($result);
-            return $find_user;
+            return $database->query($sql);
+        }
+        
+        /** @noinspection PhpUnnecessaryLocalVariableInspection */
+        public static function findUserById($user_id) {
+            $result     = self::createQuery("SELECT * FROM users WHERE user_id = $user_id");
+            $user_found = mysqli_fetch_array($result);
+            return $user_found;
         }
     } /** end User class */
