@@ -14,11 +14,9 @@
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 #↓↓ start pre styled code here ↓↓.
-                echo User::findAllUsers();
-                $user_id    = 3;
-                $found_user = User::findUserById($user_id);
-                echo "Found the following " . $found_user['username'] . " " . $found_user['user_fname'] . " " . $found_user['user_lname'];
-                    #↑↑ end pre styled code here ↑↑
+        
+        
+                #↑↑ end pre styled code here ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
             ?>
