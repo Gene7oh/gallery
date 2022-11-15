@@ -13,10 +13,15 @@
             <?php
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
-                #↓↓ start pre styled code here ↓↓.
-        
-        
-                #↑↑ end pre styled code here ↑↑
+                #↓↓ start pre element styled code here ↓↓.
+                $result = User::findAllUsers();
+                while ($found_users = mysqli_fetch_array($result)) {
+                    echo $found_users['username'] . " " . $found_users['user_fname'] . "<br>";
+                }
+                $user_id = 2;
+                $user_found = User::findUserById($user_id);
+                echo $user_found['user_id'] . "<br>" . $user_found['user_fname'] . " " . $user_found['user_lname'];
+                #↑↑ end pre element styled code here ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
             ?>
