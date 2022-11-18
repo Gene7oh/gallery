@@ -4,21 +4,61 @@
      * ↓↓ to use the db class we need to make the $database object global↓↓*/
     class User
     {
+        public $user_id;
+        public $username;
+        public $user_fname;
+        public $user_lname;
+        public $user_password;
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
         public static function findAllUsers()
         {
-            global $database;
-            /** @noinspection PhpUnnecessaryLocalVariableInspection */
-            $result = $database->query("SELECT * FROM users");
-            return $result;
+            return self::findThisQuery("SELECT * FROM users");
         }
         
-        public static function findUserById($user_id)
+        /** @noinspection PhpMissingReturnTypeInspection */
+        public static function findThisQuery($sql)
         {
             global $database;
-            /**@noinspection PhpUnnecessaryLocalVariableInspection */
-            $result= $database->query("SELECT * FROM users WHERE user_id = $user_id");
             /** @noinspection PhpUnnecessaryLocalVariableInspection */
-            $user_found = mysqli_fetch_array($result);
-            return $user_found;
+            $result           = $database->query($sql);
+            $the_object_array = array();
+            while ($row = mysqli_fetch_array($result)) {
+                $the_object_array[] = self::instantiation($row);
+            }
+            return $the_object_array;
         }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        private static function instantiation($the_record)
+        {
+            $the_object = new self();
+            /*$the_object->user_id       = $found_user['user_id'];
+            $the_object->username      = $found_user['username'];
+            $the_object->user_fname    = $found_user['user_fname'];
+            $the_object->user_lname    = $found_user['user_lname'];
+            $the_object->user_password = $found_user['user_password'];*/
+            foreach ($the_record as $the_attribute => $value) {
+                if ($the_object->hasAttribute($the_attribute)) {
+                    /** @noinspection PhpUndefinedFieldInspection */
+                    $the_object->$the_attribute = $value;
+                }
+            }
+            return $the_object;
+        }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        private function hasAttribute($the_attribute)
+        {
+            $object_properties = get_object_vars($this);
+            return array_key_exists($the_attribute, $object_properties);
+        }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        public static function findUserById($user_id)
+        {
+            $user_by_id_array = self::findThisQuery("SELECT * FROM users WHERE user_id = $user_id");
+            return !empty($user_by_id_array) ? array_shift($user_by_id_array) : die("<warning style='color:darkred'>User Number $user_id Not Found!</warning>");
+        }
+        
     } /** end User class */

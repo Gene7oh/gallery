@@ -13,15 +13,25 @@
             <?php
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
-                #↓↓ start pre element styled code here ↓↓.
-                $result = User::findAllUsers();
-                while ($found_users = mysqli_fetch_array($result)) {
-                    echo $found_users['username'] . " " . $found_users['user_fname'] . "<br>";
+                #↓↓ start pre element styled code ↓↓.
+                $users = User::findAllUsers();
+                foreach ($users as $user) {
+                    echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
                 }
-                $user_id = 2;
-                $user_found = User::findUserById($user_id);
-                echo $user_found['user_id'] . "<br>" . $user_found['user_fname'] . " " . $user_found['user_lname'];
-                #↑↑ end pre element styled code here ↑↑
+                /*$all_users = new User();
+                while ($found_users = mysqli_fetch_array($result)) {
+                    $all_users->user_id = $found_users['user_id'];
+                    $all_users->username = $found_users['username'];
+                    $all_users->user_fname = $found_users['user_fname'];
+                    $all_users->user_lname = $found_users['user_lname'];
+                    $all_users->user_password = $found_users['user_password'];
+                    echo $all_users->user_id . " " . $all_users->user_fname . " " . $all_users->user_lname . "<br>";
+                }*/
+                $user_id    = 21534;
+                $user = User::findUserById($user_id);
+//                $user       = User::instantiation($found_user);
+                echo $user->user_id . ": " . $user->user_fname . " " . $user->user_lname;
+                #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
             ?>
