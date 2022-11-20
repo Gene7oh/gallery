@@ -4,11 +4,11 @@
      * ↓↓ to use the db class we need to make the $database object global↓↓*/
     class User
     {
-        public $user_id;
-        public $username;
-        public $user_fname;
-        public $user_lname;
-        public $user_password;
+        public int $user_id = 0;
+        public string $username = "";
+        public string $user_fname = "";
+        public string $user_lname = "";
+        public string $user_password = "";
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findAllUsers()

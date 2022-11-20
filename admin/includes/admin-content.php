@@ -27,7 +27,7 @@
                     $all_users->user_password = $found_users['user_password'];
                     echo $all_users->user_id . " " . $all_users->user_fname . " " . $all_users->user_lname . "<br>";
                 }*/
-                $user_id    = 21534;
+                $user_id    = 123;
                 $user = User::findUserById($user_id);
 //                $user       = User::instantiation($found_user);
                 echo $user->user_id . ": " . $user->user_fname . " " . $user->user_lname;
