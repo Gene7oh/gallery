@@ -20,5 +20,7 @@
             die("<warning style='color:darkred'>The $class class was not found! <br> The file could have been deleted:<br> moved: renamed: or never created!</warning>");
         }
     }
-    
+    function redirect($location){
+        header("Location: {$location}");
+    }
     spl_autoload_register('classAutoLoader');
