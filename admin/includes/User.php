@@ -4,10 +4,10 @@
      * ↓↓ to use the db class we need to make the $database object global↓↓*/
     class User
     {
-        public int $user_id = 0;
-        public string $username = "";
-        public string $user_fname = "";
-        public string $user_lname = "";
+        public int    $user_id       = 0;
+        public string $username      = "";
+        public string $user_fname    = "";
+        public string $user_lname    = "";
         public string $user_password = "";
         
         /** @noinspection PhpMissingReturnTypeInspection */
@@ -29,7 +29,6 @@
             return $the_object_array;
         }
         
-        /** @noinspection PhpMissingReturnTypeInspection */
         private static function instantiation($the_record)
         {
             $the_object = new self();
@@ -40,7 +39,6 @@
             $the_object->user_password = $found_user['user_password'];*/
             foreach ($the_record as $the_attribute => $value) {
                 if ($the_object->hasAttribute($the_attribute)) {
-                    /** @noinspection PhpUndefinedFieldInspection */
                     $the_object->$the_attribute = $value;
                 }
             }
@@ -48,6 +46,7 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
+        
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
@@ -55,6 +54,19 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
+        
+        public static function verifyUser($username, $password)
+        {
+            global $database;
+            $username = $database->escapeString($username);
+            $password = $database->escapeString($password);
+            $sql = "SELECT * FROM users WHERE username = $username AND user_password = $password LIMIT 1";
+            $result_array = User::findThisQuery($sql);
+            return !empty($result_array) ? array_shift($result_array) : die("<warning style='color:darkred'>User Not Found!</warning>");
+        }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
         public static function findUserById($user_id)
         {
             $user_by_id_array = self::findThisQuery("SELECT * FROM users WHERE user_id = $user_id");

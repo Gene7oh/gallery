@@ -1,6 +1,6 @@
 <?php    ob_start(); ?>
 <?php    require_once "init.php"; ?>
-<?php    /** @noinspection PhpUndefinedVariableInspection */
+<?php
     if (!$session->isSignedIn()) {
         redirect("includes/login.php");
     } ?>

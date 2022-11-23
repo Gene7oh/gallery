@@ -28,7 +28,7 @@
             return $this->signed_in;
         }
         
-        public function login(/*query the db*/ $user)
+        public function login($user)
         {
             if ($user) {
                 /** @noinspection PhpUndefinedVariableInspection */
