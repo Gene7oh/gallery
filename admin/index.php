@@ -1,5 +1,10 @@
 <?php
     include("includes/admin-header.php"); ?>
+<?php
+    /** @noinspection PhpUndefinedVariableInspection */
+    if (!$session->isSignedIn()) {
+        redirect("login.php");
+    } ?>
     <title>Admin Home</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

@@ -21,7 +21,8 @@
                 $this->signed_in = false;
             }
         }
-        
+    
+        /** @noinspection PhpMissingReturnTypeInspection */
         public function isSignedIn()
         {
             // method fetches private var is a getter method

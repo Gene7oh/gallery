@@ -35,7 +35,6 @@
             } /*else echo "<h3 style='color: darkred'>Record(s) Found</h3>" . "<br>";*/
         }
         
-        
         /** @noinspection PhpUnused
          * @noinspection PhpUnusedLocalVariableInspection
          */

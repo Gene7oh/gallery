@@ -28,7 +28,8 @@
             }
             return $the_object_array;
         }
-        
+    
+        /** @noinspection PhpMissingReturnTypeInspection */
         private static function instantiation($the_record)
         {
             $the_object = new self();
