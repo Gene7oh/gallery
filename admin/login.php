@@ -9,12 +9,12 @@
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
         /*↓↓method to contact db and verify the user↓↓*/
-        $user_found = User::verifyUser($username, $password);
-        if ($user_found) {
-            $session->login($user_found);
+        $user_found_array = User::verifyUser($username, $password);
+        if ($user_found_array) {
+            $session->login($user_found_array);
             redirect("index.php");
         } else {
-            $login_err_msg = "Password or Username incorrect!";
+            $login_err_msg = "Password or Username incorrect! <br> Try again or go back to the Home Page <a href='../index.php'>here</a>";
         }
     } /* End if isset submit */ else {
         // place value in var to stop undefined var from login form
@@ -34,11 +34,13 @@
         </div>
         <div style="color: whitesmoke !important;" class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" value="<?php
-                echo htmlentities($password); ?>">
+            <input type="password" class="form-control" name="password" value="" >
         </div>
         <div class="form-group">
             <input type="submit" name="submit" value="Submit" class="btn btn-primary">
         </div>
     </form>
+    <?php
+        include "includes/admin-footer.php";
+    ?>
 </div>

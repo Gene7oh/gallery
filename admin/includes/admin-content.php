@@ -18,19 +18,15 @@
                 foreach ($users as $user) {
                     echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
                 }
-                /*$all_users = new User();
-                while ($found_users = mysqli_fetch_array($result)) {
-                    $all_users->user_id = $found_users['user_id'];
-                    $all_users->username = $found_users['username'];
-                    $all_users->user_fname = $found_users['user_fname'];
-                    $all_users->user_lname = $found_users['user_lname'];
-                    $all_users->user_password = $found_users['user_password'];
-                    echo $all_users->user_id . " " . $all_users->user_fname . " " . $all_users->user_lname . "<br>";
-                }*/
-                $user_id    = 123;
+                $user_id    = 10;
                 $user = User::findUserById($user_id);
-//                $user       = User::instantiation($found_user);
-                echo $user->user_id . ": " . $user->user_fname . " " . $user->user_lname;
+                if ($user){
+                    echo $user->user_id . ": " . $user->user_fname . " " . $user->user_lname;
+                } else {
+                    echo "<hr>";
+                    echo "<warning style='color: darkred;'>User not found!</warning>";
+                }
+                
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */

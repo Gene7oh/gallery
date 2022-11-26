@@ -1,7 +1,7 @@
 <?php
     include("includes/admin-header.php"); ?>
 
-    <title>Member Login</title>
+    <title>Title Here</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->

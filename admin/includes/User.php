@@ -28,7 +28,7 @@
             }
             return $the_object_array;
         }
-    
+        
         /** @noinspection PhpMissingReturnTypeInspection */
         private static function instantiation($the_record)
         {
@@ -47,7 +47,6 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
-        
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
@@ -55,23 +54,21 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
-        
         public static function verifyUser($username, $password)
         {
             global $database;
-            $username = $database->escapeString($username);
-            $password = $database->escapeString($password);
-            $sql = "SELECT * FROM users WHERE username = $username AND user_password = $password LIMIT 1";
+            $username     = $database->escapeString($username);
+            $password     = $database->escapeString($password);
+            $sql          = "SELECT * FROM users WHERE username = '{$username}' AND user_password = '{$password}' LIMIT 1";
             $result_array = User::findThisQuery($sql);
-            return !empty($result_array) ? array_shift($result_array) : die("<warning style='color:darkred'>User Not Found!</warning>");
+            return !empty($result_array) ? array_shift($result_array) : false;
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
-        
         public static function findUserById($user_id)
         {
             $user_by_id_array = self::findThisQuery("SELECT * FROM users WHERE user_id = $user_id");
-            return !empty($user_by_id_array) ? array_shift($user_by_id_array) : die("<warning style='color:darkred'>User Number $user_id Not Found!</warning>");
+            return !empty($user_by_id_array) ? array_shift($user_by_id_array) : false;
         }
         
     } /** end User class */

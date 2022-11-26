@@ -36,7 +36,5 @@
         <?php
             include("includes/admin-content.php");  ?>
         <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
 <?php
     include("includes/admin-footer.php"); ?>
