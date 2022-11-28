@@ -27,3 +27,6 @@
     {
         header("Location: {$location}");
     }
+    function refresh($time, $location){
+        header("Refresh: $time; url=$location");
+    }

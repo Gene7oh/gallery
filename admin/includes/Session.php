@@ -2,13 +2,15 @@
     
     class Session
     {
-        public int   $user_id;
-        private bool $signed_in = false;
+        public int    $user_id;
+        public string $message;
+        private bool  $signed_in = false;
         
         function __construct()
         {
             session_start();
             $this->checkLogin();
+            $this->checkMessage();
         }
         
         private function checkLogin()
@@ -21,8 +23,26 @@
                 $this->signed_in = false;
             }
         }
-    
-        /** @noinspection PhpMissingReturnTypeInspection */
+        
+        private function checkMessage()
+        {
+            if (isset($_SESSION['message'])) {
+                $this->message = $_SESSION['message'];
+                unset($_SESSION['message']);
+            } else {
+                $this->message = "";
+            }
+        }
+        
+        public function message($msg = "")
+        {
+            if (!empty($msg)) {
+                $_SESSION['message'] = $msg;
+            } else {
+                return $this->message;
+            }
+        }
+        
         public function isSignedIn()
         {
             // method fetches private var is a getter method
@@ -32,11 +52,12 @@
         public function login($user)
         {
             if ($user) {
-                /** @noinspection PhpUndefinedVariableInspection */
                 $this->user_id   = $_SESSION['user_id'] = $user->user_id;
                 $this->signed_in = true;
             }
         }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
         
         public function logout()
         {
@@ -44,5 +65,6 @@
             unset($_SESSION['user_id']);
             $this->signed_in = false;
         }
-    } /* end the session class */
+        
+    } /*←← end the session class */
     $session = new Session();

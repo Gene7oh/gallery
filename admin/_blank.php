@@ -1,7 +1,6 @@
 <?php
     include("includes/admin-header.php"); ?>
 
-    <title>Title Here</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,6 +36,7 @@
                         Blank Page
                         <small>Subheading</small>
                     </h1>
+                   <!-- if an include content script is needed here is where it goes -->
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>

@@ -3,5 +3,5 @@
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     $session->logout();
-    redirect("login.php");
+    redirect("login.php?logout_success");
  ?>
