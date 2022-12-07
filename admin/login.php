@@ -28,6 +28,7 @@
     }
 ?>
 <div class="col-md-4 col-md-offset-3">
+    <div class="form-group pull-right"><a style="text-decoration: none; color: whitesmoke;" class="navbar-link" href="../index.php">Home Page</a></div>
     <h4 class="bg-danger"><?php
             echo $status_message; ?></h4>
     <form id="login-id" action="" method="post">

@@ -14,7 +14,7 @@
         public static function findAllUsers()
         {
             return self::findThisQuery("SELECT * FROM users");
-        }
+        }  /* end findalluser method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findThisQuery($sql)
@@ -27,7 +27,7 @@
                 $the_object_array[] = self::instantiation($row);
             }
             return $the_object_array;
-        }
+        }  /* end findthisquery method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
         private static function instantiation($the_record)
@@ -44,14 +44,14 @@
                 }
             }
             return $the_object;
-        }
+        }  /* end instantiation method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);
-        }
+        }  /* end hastheattribute method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function verifyUser($username, $password)
@@ -62,7 +62,7 @@
             $sql          = "SELECT * FROM users WHERE username = '{$username}' AND user_password = '{$password}' LIMIT 1";
             $result_array = User::findThisQuery($sql);
             return !empty($result_array) ? array_shift($result_array) : false;
-        }
+        }  /* end verifyuser method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findUserById($user_id)
@@ -104,10 +104,10 @@
             global $database;
             $sql = "DELETE  FROM users WHERE user_id = '{$database->escapeString($this->user_id)}'";
             $database->query($sql);
-            if (mysqli_affected_rows($database->connect) == 1){
+            if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
             } else {
                 return false;
             }
-        }
+        }    /*end delete user method*/
     } /** end User class */
