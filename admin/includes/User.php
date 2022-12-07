@@ -69,6 +69,45 @@
         {
             $user_by_id_array = self::findThisQuery("SELECT * FROM users WHERE user_id = $user_id");
             return !empty($user_by_id_array) ? array_shift($user_by_id_array) : false;
-        }
+        } /* end findbyuserID method */
         
+        /** @noinspection PhpMissingReturnTypeInspection */
+        public function createUser()
+        {
+            global $database;
+            $sql = "INSERT INTO users (username, user_fname, user_lname, user_password) VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')";
+            /*$sql .= "VALUES ('";
+            $sql .= $database->escapeString($this->username) . "','";
+            $sql .= $database->escapeString($this->user_fname) . "' , '";
+            $sql .= $database->escapeString($this->user_lname) . "' ,'";
+            $sql .= $database->escapeString($this->user_password) . "')";*/
+            if ($database->query($sql)) {
+                $this->user_id = $database->TheInsertId();
+                return true;
+            } else {
+                return false;
+            }
+        } /* end createUser method */
+        public function updateUser()
+        {
+            global $database;
+            $sql = "UPDATE users SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
+            $database->query($sql);
+            if (mysqli_affected_rows($database->connect) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }  /* end updateUser method */
+        public function deleteUser()
+        {
+            global $database;
+            $sql = "DELETE  FROM users WHERE user_id = '{$database->escapeString($this->user_id)}'";
+            $database->query($sql);
+            if (mysqli_affected_rows($database->connect) == 1){
+                return true;
+            } else {
+                return false;
+            }
+        }
     } /** end User class */

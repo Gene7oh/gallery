@@ -47,9 +47,9 @@
         /** @noinspection PhpUnused */
         public function TheInsertId()
         {
-            return $this->connect->insert_id();
+            return mysqli_insert_id($this->connect);
         }
         
-    }
+    } /*end Database Class */
     
     $database = new Database();

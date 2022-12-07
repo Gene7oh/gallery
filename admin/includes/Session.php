@@ -56,9 +56,7 @@
                 $this->signed_in = true;
             }
         }
-        
-        /** @noinspection PhpMissingReturnTypeInspection */
-        
+    
         public function logout()
         {
             unset($this->user_id);
