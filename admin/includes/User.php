@@ -72,7 +72,32 @@
         } /* end findbyuserID method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
-        public function createUser()
+        public function save()
+        {
+//            return isset($this->user_id) ? $this->updateUser() : $this->createUser();
+            if (isset($this->user_id)) {
+                $this->updateUser();
+            } else {
+                $this->createUser();
+            }
+        }   /* end the save method*/
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
+public function updateUser()
+        {
+            global $database;
+            $sql = "UPDATE users SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
+            $database->query($sql);
+            if (mysqli_affected_rows($database->connect) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } /* end createUser method */
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
+public function createUser()
         {
             global $database;
             $sql = "INSERT INTO users (username, user_fname, user_lname, user_password) VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')";
@@ -87,19 +112,9 @@
             } else {
                 return false;
             }
-        } /* end createUser method */
-        public function updateUser()
-        {
-            global $database;
-            $sql = "UPDATE users SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
-            $database->query($sql);
-            if (mysqli_affected_rows($database->connect) == 1) {
-                return true;
-            } else {
-                return false;
-            }
         }  /* end updateUser method */
-        public function deleteUser()
+        
+public function deleteUser()
         {
             global $database;
             $sql = "DELETE  FROM users WHERE user_id = '{$database->escapeString($this->user_id)}'";
