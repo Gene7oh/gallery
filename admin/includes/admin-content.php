@@ -19,7 +19,7 @@
                 foreach ($users as $user) {
                     echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
                 }*/
-                /*$user_id = 4;
+                /*$user_id = 27;
                 $user    = User::findUserById($user_id);
                 if ($user) {
                     echo "<info class='bg-info' style='color: black;' >$user->user_id: $user->user_fname $user->user_lname</info>";
@@ -29,9 +29,9 @@
                 }*/
                 /*$trigger = 1;
                 if ($trigger != 1) {
-                    $create_username            = "LastEntry";
-                    $create_user_fname          = "Last";
-                    $create_user_lname          = "Entry";
+                    $create_username            = "astractTable";
+                    $create_user_fname          = "Abstract";
+                    $create_user_lname          = "Table";
                     $create_user_pass           = "0987";
                     $create_user                = new User();
                     $create_user->username      = $create_username;
@@ -45,8 +45,7 @@
                 } else {
                     die("Query Failed <br>");
                 }
-                
-            } else echo "Waiting for input, wanna create a user?";*/
+             } else echo "Waiting for input, wanna create a user?";*/
                 /*$user_id = 26;
                 $user    = User::findUserById($user_id);
                 $user->username = "LastEntryUpdate";
@@ -56,7 +55,7 @@
                 } else {
                     die("Query Failed") . "<br>";
                 }*/
-                /* $user_id = 24;
+                /* $user_id = 26;
                  if ($user = User::findUserById($user_id)){
                      $deleted = $user->deleteUser();
                      if ($deleted) {
@@ -66,9 +65,13 @@
                      }
                  } else echo "User number $user_id not found";*/
                 /*$user_id   = 27;
-                $userLname = "Method Created";
+                $username = "AbstractMethod";
+                $userFname = "Abstract";
+                $userLname = "Abstract Created";
                 $user_pass = "1208";
                 if ($user = User::findUserById($user_id)) {
+                    $user->username = $username;
+                    $user->user_fname = $userFname;
                     $user->user_lname = $userLname;
                     $user->user_password = $user_pass;
                     $user->save();
@@ -76,9 +79,9 @@
                 }*/
                 /*$user = new User();
                 unset($user->user_id);
-                $user->username = "Unset";
-                $user->user_fname = "In method";
-                $user->user_lname = "Not Working";
+                $user->username = "UnsetAbstact";
+                $user->user_fname = "Abstract";
+                $user->user_lname = "TableMethod";
                 $user->save();*/
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */

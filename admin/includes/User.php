@@ -4,7 +4,8 @@
      * ↓↓ to use the db class we need to make the $database object global↓↓*/
     class User
     {
-        public int    $user_id       = 0;
+        protected static string $db_table = "users";
+        public int       $user_id  = 0;
         public string $username      = "";
         public string $user_fname    = "";
         public string $user_lname    = "";
@@ -13,7 +14,7 @@
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findAllUsers()
         {
-            return self::findThisQuery("SELECT * FROM users");
+            return self::findThisQuery("SELECT * FROM " . self::$db_table);
         }  /* end findalluser method */
         
         /** @noinspection PhpMissingReturnTypeInspection */
@@ -59,7 +60,8 @@
             global $database;
             $username     = $database->escapeString($username);
             $password     = $database->escapeString($password);
-            $sql          = "SELECT * FROM users WHERE username = '{$username}' AND user_password = '{$password}' LIMIT 1";
+            /** @noinspection SqlResolve */
+            $sql          = "SELECT * FROM " . self::$db_table . " WHERE username = '{$username}' AND user_password = '{$password}' LIMIT 1";
             $result_array = User::findThisQuery($sql);
             return !empty($result_array) ? array_shift($result_array) : false;
         }  /* end verifyuser method */
@@ -67,7 +69,8 @@
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findUserById($user_id)
         {
-            $user_by_id_array = self::findThisQuery("SELECT * FROM users WHERE user_id = $user_id");
+            /** @noinspection SqlResolve */
+            $user_by_id_array = self::findThisQuery("SELECT * FROM " . self::$db_table . " WHERE user_id = $user_id");
             return !empty($user_by_id_array) ? array_shift($user_by_id_array) : false;
         } /* end findbyuserID method */
         
@@ -87,7 +90,7 @@
 public function updateUser()
         {
             global $database;
-            $sql = "UPDATE users SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
+            $sql = "UPDATE ". self::$db_table . " SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
             $database->query($sql);
             if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
@@ -100,7 +103,8 @@ public function updateUser()
 public function createUser()
         {
             global $database;
-            $sql = "INSERT INTO users (username, user_fname, user_lname, user_password) VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')";
+            /** @noinspection SqlResolve */
+            $sql = "INSERT INTO " . self::$db_table . " (username, user_fname, user_lname, user_password) VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')";
             /*$sql .= "VALUES ('";
             $sql .= $database->escapeString($this->username) . "','";
             $sql .= $database->escapeString($this->user_fname) . "' , '";
@@ -117,7 +121,8 @@ public function createUser()
 public function deleteUser()
         {
             global $database;
-            $sql = "DELETE  FROM users WHERE user_id = '{$database->escapeString($this->user_id)}'";
+            /** @noinspection SqlResolve */
+            $sql = "DELETE  FROM " . self::$db_table . " WHERE user_id = '{$database->escapeString($this->user_id)}'";
             $database->query($sql);
             if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
