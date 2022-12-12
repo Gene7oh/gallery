@@ -4,12 +4,18 @@
      * ↓↓ to use the db class we need to make the $database object global↓↓*/
     class User
     {
-        protected static string $db_table = "users";
-        public int       $user_id  = 0;
-        public string $username      = "";
-        public string $user_fname    = "";
-        public string $user_lname    = "";
-        public string $user_password = "";
+        protected static array     $db_table_fields = array(
+                'username',
+                'user_fname',
+                'user_lname',
+                'user_password'
+        );
+        protected static string $db_table        = "users";
+        public int              $user_id         = 0;
+        public string           $username        = "";
+        public string           $user_fname      = "";
+        public string           $user_lname      = "";
+        public string           $user_password   = "";
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public static function findAllUsers()
@@ -58,8 +64,8 @@
         public static function verifyUser($username, $password)
         {
             global $database;
-            $username     = $database->escapeString($username);
-            $password     = $database->escapeString($password);
+            $username = $database->escapeString($username);
+            $password = $database->escapeString($password);
             /** @noinspection SqlResolve */
             $sql          = "SELECT * FROM " . self::$db_table . " WHERE username = '{$username}' AND user_password = '{$password}' LIMIT 1";
             $result_array = User::findThisQuery($sql);
@@ -79,18 +85,18 @@
         {
 //            return isset($this->user_id) ? $this->updateUser() : $this->createUser();
             if (isset($this->user_id)) {
-                $this->updateUser();
+                $this->update();
             } else {
-                $this->createUser();
+                $this->create();
             }
         }   /* end the save method*/
         
         /** @noinspection PhpMissingReturnTypeInspection */
         
-public function updateUser()
+        public function update()
         {
             global $database;
-            $sql = "UPDATE ". self::$db_table . " SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
+            $sql = "UPDATE " . self::$db_table . " SET username = '{$database->escapeString($this->username)}', user_fname = '{$database->escapeString($this->user_fname)}', user_lname = '{$database->escapeString($this->user_lname)}', user_password = '{$database->escapeString($this->user_password)}' WHERE user_id = {$database->escapeString($this->user_id)}";
             $database->query($sql);
             if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
@@ -98,27 +104,49 @@ public function updateUser()
                 return false;
             }
         } /* end createUser method */
-        /** @noinspection PhpMissingReturnTypeInspection */
         
-public function createUser()
+        /** @noinspection PhpMissingReturnTypeInspection */
+        public function create()
+            /** @noinspection SqlResolve */
         {
             global $database;
-            /** @noinspection SqlResolve */
-            $sql = "INSERT INTO " . self::$db_table . " (username, user_fname, user_lname, user_password) VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')";
-            /*$sql .= "VALUES ('";
-            $sql .= $database->escapeString($this->username) . "','";
-            $sql .= $database->escapeString($this->user_fname) . "' , '";
-            $sql .= $database->escapeString($this->user_lname) . "' ,'";
-            $sql .= $database->escapeString($this->user_password) . "')";*/
+            $properties = $this->properties();
+            $sql        = "INSERT INTO " . self::$db_table . "(" . implode(",", array_keys($properties)) . ")";
+            $sql        .= "VALUES ('" . implode("','", array_values($properties)) . "')";
             if ($database->query($sql)) {
                 $this->user_id = $database->TheInsertId();
                 return true;
             } else {
                 return false;
             }
+            /** VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')"
+             * $sql .= "VALUES ('";
+             * $sql .= $database->escapeString($this->username) . "','";
+             * $sql .= $database->escapeString($this->user_fname) . "' , '";
+             * $sql .= $database->escapeString($this->user_lname) . "' ,'";
+             * $sql .= $database->escapeString($this->user_password) . "')"; */
+        }  /* end properties function*/
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
+        protected function properties()
+        {
+            $properties = array();
+            foreach (self::$db_table_fields as $db_field) {
+                if (property_exists($this, $db_field)) {
+                    $properties[$db_field] = $this->$db_field;
+                }
+                /**
+                 * Warning:  Undefined property: User::$db_field in Z:\xampp\htdocs\Projects\gallery\admin\includes\User.php on line 136
+                 * ↑↑ the dollar sign needed in the $this->$db_field assigned to the array key.
+                 * User has been successfully created
+                 */
+            }
+            return $properties;
         }  /* end updateUser method */
         
-public function deleteUser()
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
+        public function delete()
         {
             global $database;
             /** @noinspection SqlResolve */

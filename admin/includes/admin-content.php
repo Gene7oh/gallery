@@ -15,10 +15,10 @@
                 echo "<h4 class='media'>The Admin Practice Page</h4>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 #↓↓ start pre element styled code ↓↓.
-                /*$users = User::findAllUsers();
-                foreach ($users as $user) {
-                    echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
-                }*/
+                /* $users = User::findAllUsers();
+                 foreach ($users as $user) {
+                     echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
+                 }*/
                 /*$user_id = 27;
                 $user    = User::findUserById($user_id);
                 if ($user) {
@@ -27,43 +27,43 @@
                     echo "<hr>";
                     echo "<warning class='bg-danger' style='color: darkred;'>User ID $user_id not found!</warning>";
                 }*/
-                /*$trigger = 1;
-                if ($trigger != 1) {
-                    $create_username            = "astractTable";
-                    $create_user_fname          = "Abstract";
-                    $create_user_lname          = "Table";
-                    $create_user_pass           = "0987";
-                    $create_user                = new User();
-                    $create_user->username      = $create_username;
-                    $create_user->user_fname    = $create_user_fname;
-                    $create_user->user_lname    = $create_user_lname;
-                    $create_user->user_password = $create_user_pass;*/
-                /*↓↓assign create_user->createUserMethod to $variable so not to have to use the method in the if statement which created duplicate entries↓↓*/
-                /*$user_created = $create_user->createUser();
-                if ($user_created) {
-                    echo "User has been successfully created";
-                } else {
-                    die("Query Failed <br>");
-                }
-             } else echo "Waiting for input, wanna create a user?";*/
-                /*$user_id = 26;
-                $user    = User::findUserById($user_id);
-                $user->username = "LastEntryUpdate";
-                $updated = $user->updateUser();
-                if ($updated){
+                /* $trigger = 1;
+                 if ($trigger != 1) {
+                     $create_username            = "put $ back in to db field";
+                     $create_user_fname          = "leaving any this or symbol out of this query ";
+                     $create_user_lname          = "the db_field in this call might be the problem";
+                     $create_user_pass           = "2525";
+                     $create_user                = new User();
+                     $create_user->username      = $create_username;
+                     $create_user->user_fname    = $create_user_fname;
+                     $create_user->user_lname    = $create_user_lname;
+                     $create_user->user_password = $create_user_pass;
+                     $user_created               = $create_user->create();
+                     if ($user_created) {
+                         echo "User has been successfully created";
+                     } else {
+                         die("Query Failed <br>");
+                     }
+                 } else echo "Waiting for input, want to create a user?" . "<br>";*/
+                /*↑↑assign create_user->createUserMethod to $variable so not to have to use the method in the if statement which created duplicate entries↑↑*/
+                /*$user_id        = 32;
+                $user           = User::findUserById($user_id);
+                $user->user_password = "3164";
+                $updated        = $user->update();
+                if ($updated) {
                     echo "User successfully updated";
                 } else {
                     die("Query Failed") . "<br>";
                 }*/
-                /* $user_id = 26;
-                 if ($user = User::findUserById($user_id)){
-                     $deleted = $user->deleteUser();
-                     if ($deleted) {
-                         echo "User successfully Deleted";
-                     } else {
-                         die("Query Failed <br>");
-                     }
-                 } else echo "User number $user_id not found";*/
+                /*$user_id = 36;
+                if ($user = User::findUserById($user_id)){
+                    $deleted = $user->delete();
+                    if ($deleted) {
+                        echo "User successfully Deleted";
+                    } else {
+                        die("Query Failed <br>");
+                    }
+                } else echo "User number $user_id not found";*/
                 /*$user_id   = 27;
                 $username = "AbstractMethod";
                 $userFname = "Abstract";
