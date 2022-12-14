@@ -46,9 +46,12 @@
                      }
                  } else echo "Waiting for input, want to create a user?" . "<br>";*/
                 /*↑↑assign create_user->createUserMethod to $variable so not to have to use the method in the if statement which created duplicate entries↑↑*/
-                /*$user_id        = 32;
+                /*$user_id        = 28;
                 $user           = User::findUserById($user_id);
-                $user->user_password = "3164";
+                $user->username = "AbstUpdate";
+                $user->user_fname = "Abstract";
+                $user->user_lname = "Updated";
+                $user->user_password = "unsetPassAstMethod";
                 $updated        = $user->update();
                 if ($updated) {
                     echo "User successfully updated";
