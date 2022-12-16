@@ -12,13 +12,14 @@
             </h1>
             <?php
                 echo "<pre>";
-                echo "<h4 class='media'>The Admin Practice Page</h4>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 #↓↓ start pre element styled code ↓↓.
+                echo "<h4 class='media'>The Admin Practice Page</h4>";
                 /* $users = User::findAllUsers();
                  foreach ($users as $user) {
-                     echo $user->user_id . ":-> " . $user->user_fname . " " . $user->user_lname . "<br>";
+                     echo $user->user_id . " -> " . $user->username . " " . $user->user_fname . " " . $user->user_lname . "<br>";
                  }*/
+                
                 /*$user_id = 27;
                 $user    = User::findUserById($user_id);
                 if ($user) {
@@ -27,12 +28,13 @@
                     echo "<hr>";
                     echo "<warning class='bg-danger' style='color: darkred;'>User ID $user_id not found!</warning>";
                 }*/
+                
                 /* $trigger = 1;
                  if ($trigger != 1) {
-                     $create_username            = "put $ back in to db field";
-                     $create_user_fname          = "leaving any this or symbol out of this query ";
-                     $create_user_lname          = "the db_field in this call might be the problem";
-                     $create_user_pass           = "2525";
+                     $create_username            = "CleanProperties";
+                     $create_user_fname          = "New Method";
+                     $create_user_lname          = "Using $>database->escapeString()";
+                     $create_user_pass           = "5876";
                      $create_user                = new User();
                      $create_user->username      = $create_username;
                      $create_user->user_fname    = $create_user_fname;
@@ -46,18 +48,19 @@
                      }
                  } else echo "Waiting for input, want to create a user?" . "<br>";*/
                 /*↑↑assign create_user->createUserMethod to $variable so not to have to use the method in the if statement which created duplicate entries↑↑*/
-                /*$user_id        = 28;
+               /* $user_id        = 39;
                 $user           = User::findUserById($user_id);
-                $user->username = "AbstUpdate";
-                $user->user_fname = "Abstract";
-                $user->user_lname = "Updated";
-                $user->user_password = "unsetPassAstMethod";
+                $user->username = "AbstUpdateAgain";
+                $user->user_fname = "AbstractAgain";
+                $user->user_lname = "UpdateCleanPropMethod";
+                $user->user_password = "3rd new pass";
                 $updated        = $user->update();
                 if ($updated) {
                     echo "User successfully updated";
                 } else {
                     die("Query Failed") . "<br>";
                 }*/
+                
                 /*$user_id = 36;
                 if ($user = User::findUserById($user_id)){
                     $deleted = $user->delete();
@@ -67,6 +70,7 @@
                         die("Query Failed <br>");
                     }
                 } else echo "User number $user_id not found";*/
+                
                 /*$user_id   = 27;
                 $username = "AbstractMethod";
                 $userFname = "Abstract";
@@ -80,12 +84,14 @@
                     $user->save();
                     echo "User Updated";
                 }*/
+                
                 /*$user = new User();
                 unset($user->user_id);
                 $user->username = "UnsetAbstact";
                 $user->user_fname = "Abstract";
                 $user->user_lname = "TableMethod";
                 $user->save();*/
+                
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
