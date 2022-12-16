@@ -14,27 +14,27 @@
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 #↓↓ start pre element styled code ↓↓.
-                echo "<h4 class='media'>The Admin Practice Page</h4>";
-                /* $users = User::findAllUsers();
-                 foreach ($users as $user) {
-                     echo $user->user_id . " -> " . $user->username . " " . $user->user_fname . " " . $user->user_lname . "<br>";
-                 }*/
+                /*echo "<h4 class='media'>The Admin Practice Page</h4>";
+                   $users = User::findAll();
+                  foreach ($users as $user) {
+                      echo $user->user_id . " -> " . $user->username . " " . $user->user_fname . " " . $user->user_lname . "<br>";
+                  }*/
                 
-                /*$user_id = 27;
-                $user    = User::findUserById($user_id);
-                if ($user) {
-                    echo "<info class='bg-info' style='color: black;' >$user->user_id: $user->user_fname $user->user_lname</info>";
-                } else {
-                    echo "<hr>";
-                    echo "<warning class='bg-danger' style='color: darkred;'>User ID $user_id not found!</warning>";
-                }*/
+                /* $user_id = 27;
+                 $user = User::findById($user_id);
+                 if ($user) {
+                     echo "<info class='bg-info' style='color: black;' >$user_id: $user->user_fname $user->user_lname</info>";
+                 } else {
+                     echo "<hr>";
+                     echo "<warning class='bg-danger' style='color: darkred;'>User ID $user->id not found!</warning>";
+                 }*/
                 
                 /* $trigger = 1;
                  if ($trigger != 1) {
-                     $create_username            = "CleanProperties";
-                     $create_user_fname          = "New Method";
-                     $create_user_lname          = "Using $>database->escapeString()";
-                     $create_user_pass           = "5876";
+                     $create_username            = "AbstractTest";
+                     $create_user_fname          = "Method";
+                     $create_user_lname          = "Name Changes";
+                     $create_user_pass           = "1247";
                      $create_user                = new User();
                      $create_user->username      = $create_username;
                      $create_user->user_fname    = $create_user_fname;
@@ -48,21 +48,22 @@
                      }
                  } else echo "Waiting for input, want to create a user?" . "<br>";*/
                 /*↑↑assign create_user->createUserMethod to $variable so not to have to use the method in the if statement which created duplicate entries↑↑*/
-               /* $user_id        = 39;
-                $user           = User::findUserById($user_id);
-                $user->username = "AbstUpdateAgain";
-                $user->user_fname = "AbstractAgain";
-                $user->user_lname = "UpdateCleanPropMethod";
-                $user->user_password = "3rd new pass";
-                $updated        = $user->update();
-                if ($updated) {
-                    echo "User successfully updated";
-                } else {
-                    die("Query Failed") . "<br>";
-                }*/
                 
-                /*$user_id = 36;
-                if ($user = User::findUserById($user_id)){
+                /* $user_id        = 40;
+                 $user           = User::findById($user_id);
+                 $user->username = "AbstTestUpdate";
+                 $user->user_fname = "Update";
+                 $user->user_lname = "New Entry";
+                 $user->user_password = "4th new pass";
+                 $updated        = $user->update();
+                 if ($updated) {
+                     echo "User successfully updated";
+                 } else {
+                     die("Query Failed") . "<br>";
+                 }*/
+                
+                /*$user_id = 30;
+                if ($user = User::findById($user_id)){
                     $deleted = $user->delete();
                     if ($deleted) {
                         echo "User successfully Deleted";
@@ -76,7 +77,7 @@
                 $userFname = "Abstract";
                 $userLname = "Abstract Created";
                 $user_pass = "1208";
-                if ($user = User::findUserById($user_id)) {
+                if ($user = User::findById($user_id)) {
                     $user->username = $username;
                     $user->user_fname = $userFname;
                     $user->user_lname = $userLname;
@@ -86,10 +87,11 @@
                 }*/
                 
                 /*$user = new User();
-                unset($user->user_id);
+                unset($user->id);
                 $user->username = "UnsetAbstact";
                 $user->user_fname = "Abstract";
                 $user->user_lname = "TableMethod";
+                $user->user_password = "MethodNameChange";
                 $user->save();*/
                 
                 #↑↑ end pre element styled code ↑↑

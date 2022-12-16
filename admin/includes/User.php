@@ -11,19 +11,20 @@
                 'user_password'
         );
         protected static string $db_table        = "users";
-        public int              $user_id         = 0;
+        public int              $id              = 0;
         public string           $username        = "";
         public string           $user_fname      = "";
         public string           $user_lname      = "";
         public string           $user_password   = "";
         
         /** @noinspection PhpMissingReturnTypeInspection */
-        public static function findAllUsers()
+        public static function findAll()
         {
             return self::findThisQuery("SELECT * FROM " . self::$db_table);
         }
-        
         /** @noinspection PhpMissingReturnTypeInspection */
+        /** @noinspection SqlResolve */
+        
         public static function findThisQuery($sql)
         {
             global $database;
@@ -36,7 +37,9 @@
             return $the_object_array;
         }
         
+        
         /** @noinspection PhpMissingReturnTypeInspection */
+        
         private static function instantiation($the_record)
         {
             $the_object = new self();
@@ -55,6 +58,7 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
+        
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
@@ -62,6 +66,16 @@
         }
         
         /** @noinspection PhpMissingReturnTypeInspection */
+        
+        public static function findById($user_id)
+        {
+            /** @noinspection SqlResolve */
+            $id_array = self::findThisQuery("SELECT * FROM " . self::$db_table . " WHERE id = $user_id");
+            return !empty($id_array) ? array_shift($id_array) : false;
+        }
+        
+        /** @noinspection PhpMissingReturnTypeInspection */
+        
         public static function verifyUser($username, $password)
         {
             global $database;
@@ -72,19 +86,12 @@
             $result_array = User::findThisQuery($sql);
             return !empty($result_array) ? array_shift($result_array) : false;
         }
-        /** @noinspection PhpMissingReturnTypeInspection */
-        /** @noinspection SqlResolve */
-        public static function findUserById($user_id)
-        {
-            $user_by_id_array = self::findThisQuery("SELECT * FROM " . self::$db_table . " WHERE user_id = $user_id");
-            return !empty($user_by_id_array) ? array_shift($user_by_id_array) : false;
-        }
         
         /** @noinspection PhpMissingReturnTypeInspection */
         public function save()
         {
 //            return isset($this->user_id) ? $this->updateUser() : $this->createUser();
-            if (isset($this->user_id)) {
+            if (isset($this->id)) {
                 $this->update();
             } else {
                 $this->create();
@@ -100,7 +107,8 @@
             foreach ($properties as $key => $value) {
                 $property_pairs[] = " {$key}= '{$value}' ";
             }
-            $sql = "UPDATE " . self::$db_table . " SET " . implode(",", $property_pairs) . " WHERE user_id = {$database->escapeString($this->user_id)}";
+            
+            $sql = "UPDATE " . self::$db_table . " SET " . implode(",", $property_pairs) . " WHERE id = {$database->escapeString($this->id)}";
             $database->query($sql);
             if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
@@ -112,7 +120,7 @@
         }
         /** @noinspection PhpMissingReturnTypeInspection */
         /** @noinspection SqlResolve */
-
+        
         protected function cleanProperties()
         {
             global $database;
@@ -151,7 +159,7 @@
             $sql        = "INSERT INTO " . self::$db_table . "(" . implode(",", array_keys($properties)) . ")";
             $sql        .= "VALUES ('" . implode("','", array_values($properties)) . "')";
             if ($database->query($sql)) {
-                $this->user_id = $database->TheInsertId();
+                $this->id = $database->TheInsertId();
                 return true;
             } else {
                 return false;
@@ -164,11 +172,11 @@
              * $sql .= $database->escapeString($this->user_password) . "')"; */
         }
         
-        public function delete()
+        public function delete(): bool
         {
             global $database;
             /** @noinspection SqlResolve */
-            $sql = "DELETE  FROM " . self::$db_table . " WHERE user_id = '{$database->escapeString($this->user_id)}'";
+            $sql = "DELETE  FROM " . self::$db_table . " WHERE id = '{$database->escapeString($this->id)}'";
             $database->query($sql);
             if (mysqli_affected_rows($database->connect) == 1) {
                 return true;
