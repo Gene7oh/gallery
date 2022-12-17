@@ -2,7 +2,7 @@
     
     class Session
     {
-        public int    $user_id;
+        public int    $id;
         public string $message;
         private bool  $signed_in = false;
         
@@ -15,11 +15,11 @@
         
         private function checkLogin()
         {
-            if (isset($_SESSION['user_id'])) {
-                $this->user_id   = $_SESSION['user_id'];
+            if (isset($_SESSION['id'])) {
+                $this->id        = $_SESSION['id'];
                 $this->signed_in = true;
             } else {
-                unset($this->user_id);
+                unset($this->id);
                 $this->signed_in = false;
             }
         }
@@ -52,15 +52,15 @@
         public function login($user)
         {
             if ($user) {
-                $this->user_id   = $_SESSION['user_id'] = $user->user_id;
+                $this->id        = $_SESSION['id'] = $user->id;
                 $this->signed_in = true;
             }
         }
     
         public function logout()
         {
-            unset($this->user_id);
-            unset($_SESSION['user_id']);
+            unset($this->id);
+            unset($_SESSION['id']);
             $this->signed_in = false;
         }
         

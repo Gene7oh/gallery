@@ -1,6 +1,5 @@
 <?php
-    /** ↓↓ depreciated function ↓↓ */
-    /*function __autoload($class)
+    /** ↓↓ depreciated function ↓↓ function __autoload($class)
     {
         $class = strtolower($class);
         $path  = "includes/{$class}.php";
