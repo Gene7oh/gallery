@@ -43,7 +43,7 @@
             }
         }
         
-        public function isSignedIn()
+        public function isSignedIn(): bool
         {
             // method fetches private var is a getter method
             return $this->signed_in;
