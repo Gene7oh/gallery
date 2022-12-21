@@ -15,7 +15,9 @@
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 echo "<h4 class='media'>The Admin Practice Page</h4>";
                 #↓↓ start pre element styled code ↓↓.
-                    # code here
+                
+               # code goes here
+                
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
@@ -29,6 +31,8 @@
                     <i class="fa fa-file"></i> Blank Page
                 </li>
             </ol>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore, doloremque dolorum ducimus eius esse expedita harum itaque modi molestias nihil officia porro rem rerum, sequi similique tempora
+                tempore vero?</p>
         </div>
     </div>
     <!-- /.row -->
