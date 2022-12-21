@@ -4,26 +4,16 @@
     
     class Db_object
     {
-        protected static string $db_table        = "users";
-    
+        
+        
         /* @noinspection PhpMissingReturnTypeInspection */
         public static function findAll()
         {
-            return static::findThisQuery("SELECT * FROM " . static::$db_table);
+            return static::findByQuery("SELECT * FROM " . static::$db_table);
         }
-        /* @noinspection PhpMissingReturnTypeInspection */
-        /* @noinspection SqlResolve */
-    
-        /* @noinspection PhpMissingReturnTypeInspection */
-    
-        public static function findById($user_id)
-        {
-            /* @noinspection SqlResolve */
-            $id_array = static::findThisQuery("SELECT * FROM " . static::$db_table . " WHERE id = $user_id");
-            return !empty($id_array) ? array_shift($id_array) : false;
-        }
-    
-        public static function findThisQuery($sql): array
+        
+        
+        public static function findByQuery($sql): array
         {
             global $database;
             /* @noinspection PhpUnnecessaryLocalVariableInspection */
@@ -34,14 +24,11 @@
             }
             return $the_object_array;
         }
-    
-    
-        /* @noinspection PhpMissingReturnTypeInspection */
-    
+        
         private static function instantiation($the_record)
         {
             $got_called_class = get_called_class();
-            $the_object = new $got_called_class();
+            $the_object       = new $got_called_class();
             foreach ($the_record as $the_attribute => $value) {
                 if ($the_object->hasAttribute($the_attribute)) {
                     $the_object->$the_attribute = $value;
@@ -55,13 +42,112 @@
             }
             return $the_object;
         }
-    
-        /* @noinspection PhpMissingReturnTypeInspection */
-    
+        
+        
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);
         }
-    
-    }
+        
+        
+        public static function findById($user_id)
+        {
+            /* @noinspection SqlResolve */
+            $id_array = static::findByQuery("SELECT * FROM " . static::$db_table . " WHERE id = $user_id");
+            return !empty($id_array) ? array_shift($id_array) : false;
+        }
+        
+        
+        public function save()
+        {
+//            return isset($this->user_id) ? $this->updateUser() : $this->createUser();
+            if (isset($this->id)) {
+                $this->update();
+            } else {
+                $this->create();
+            }
+        }
+        
+        public function update()
+        {
+            global $database;
+            $properties     = $this->cleanProperties();
+            $property_pairs = array();
+            foreach ($properties as $key => $value) {
+                $property_pairs[] = " {$key}= '{$value}' ";
+            }
+            
+            $sql = "UPDATE " . static::$db_table . " SET " . implode(",", $property_pairs) . " WHERE id = {$database->escapeString($this->id)}";
+            $database->query($sql);
+            if (mysqli_affected_rows($database->connect) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+            /* replaced update crud statement ↓↓ with
+             * username= '{$database->escapeString($this->username)}', user_fname= '{$database->escapeString($this->user_fname)}', user_lname= '{$database->escapeString($this->user_lname)}', user_password= '{$database->escapeString($this->user_password)}'*/
+        }
+        
+        
+        protected function cleanProperties()
+        {
+            global $database;
+            $cleaned_properties = array();
+            foreach ($this->properties() as $key => $value) {
+                $cleaned_properties[$key] = $database->escapeString($value);
+            }
+            return $cleaned_properties;
+        }
+        
+        
+        protected function properties()
+        {
+            $properties = array();
+            foreach (static::$db_table_fields as $db_field) {
+                if (property_exists($this, $db_field)) {
+                    $properties[$db_field] = $this->$db_field;
+                }
+                /*
+                 *
+                 * Warning:  Undefined property: User::$db_field in Z:\xampp\htdocs\Projects\gallery\admin\includes\User.php on line 136
+                 * ↑↑ the dollar sign needed in the $this->$db_field assigned to the array key.
+                 * User has been successfully created
+                 */
+            }
+            return $properties;
+        }
+        
+        public function create()
+        {
+            global $database;
+            $properties = $this->cleanProperties();
+            $sql        = "INSERT INTO " . static::$db_table . "(" . implode(",", array_keys($properties)) . ")";
+            $sql        .= "VALUES ('" . implode("','", array_values($properties)) . "')";
+            if ($database->query($sql)) {
+                $this->id = $database->TheInsertId();
+                return true;
+            } else {
+                return false;
+            }
+            /* VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')"
+             * $sql .= "VALUES ('";
+             * $sql .= $database->escapeString($this->username) . "','";
+             * $sql .= $database->escapeString($this->user_fname) . "' , '";
+             * $sql .= $database->escapeString($this->user_lname) . "' ,'";
+             * $sql .= $database->escapeString($this->user_password) . "')"; */
+        }
+        
+        public function delete(): bool
+        {
+            global $database;
+            /* @noinspection SqlResolve */
+            $sql = "DELETE  FROM " . static::$db_table . " WHERE id = '{$database->escapeString($this->id)}'";
+            $database->query($sql);
+            if (mysqli_affected_rows($database->connect) == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }  /* end of class */
