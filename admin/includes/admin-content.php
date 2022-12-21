@@ -14,10 +14,9 @@
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 92%'>";
                 #↓↓ start pre element styled code ↓↓.
+                
                 echo "<h4 class='media'>The Admin Practice Page</h4>";
                 
-               
-    
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */

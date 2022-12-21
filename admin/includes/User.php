@@ -1,22 +1,22 @@
 <?php
     
     /* call static methods with the self :: var inside another class method.
-     * ↓↓ to use the db class we need to make the $database object global↓↓ */
+     * ↓↓ to use the db class we need to make the $database object global in each method ↓↓ */
     
     class User extends Db_object
     {
-        protected static array  $db_table_fields = array(
+        protected static array $db_table_fields = array(
                 'username',
                 'user_fname',
                 'user_lname',
                 'user_password'
         );
-        public int              $id              = 0;
-        public string           $username        = "";
-        public string           $user_fname      = "";
-        public string           $user_lname      = "";
-        public string           $user_password   = "";
-      
+        public int             $id              = 0;
+        public string          $username        = "";
+        public string          $user_fname      = "";
+        public string          $user_lname      = "";
+        public string          $user_password   = "";
+        
         /* @noinspection PhpMissingReturnTypeInspection */
         
         public static function verifyUser($username, $password)
