@@ -69,7 +69,7 @@
             }
         }
         
-        public function update()
+        public function update(): bool
         {
             global $database;
             $properties     = $this->cleanProperties();
@@ -90,7 +90,7 @@
         }
         
         
-        protected function cleanProperties()
+        protected function cleanProperties(): array
         {
             global $database;
             $cleaned_properties = array();
@@ -101,7 +101,7 @@
         }
         
         
-        protected function properties()
+        protected function properties(): array
         {
             $properties = array();
             foreach (static::$db_table_fields as $db_field) {
@@ -118,7 +118,7 @@
             return $properties;
         }
         
-        public function create()
+        public function create(): bool
         {
             global $database;
             $properties = $this->cleanProperties();
