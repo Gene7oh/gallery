@@ -16,10 +16,6 @@
                 echo "<h4 class='media'>The Admin Practice Page</h4>";
                 #↓↓ start pre element styled code ↓↓.
                     ## code here.
-                $display_photos = Photo::findAll();
-                foreach ($display_photos as $photos){
-                    echo $photos->id . " " . $photos->title . "<br>";
-                }
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
