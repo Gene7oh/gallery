@@ -6,8 +6,8 @@
          define('DS', DIRECTORY_SEPARATOR);
      }*/
     defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-    define('SITE_ROOT', DS . 'Z:' . DS . 'XAMPP' . DS . 'HTDOCS' . DS . 'PROJECTS' . DS . 'GALLERY');
-    defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', 'SITE_ROOT' . DS . 'ADMIN' . DS . 'INCLUDES');
+    define('SITE_ROOT', 'z:' . DS . 'xampp' . DS . 'htdocs' . DS . 'projects' . DS . 'gallery');
+    defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT . DS . 'admin' . DS . 'includes');
     require_once "functions.php";
     require_once "new-config.php";
     require_once "Database.php";
