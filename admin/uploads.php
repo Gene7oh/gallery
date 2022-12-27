@@ -1,5 +1,10 @@
 <?php
     include("includes/admin-header.php"); ?>
+<?php
+    /** @noinspection PhpUndefinedVariableInspection */
+    if (!$session->isSignedIn()) {
+        redirect("login.php");
+    } ?>
     <title>Upload</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -34,8 +39,15 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Upload Page
-                        <small>Subheading</small>
+                        <small>for photos</small>
                     </h1>
+                    <div class="col-md-6">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="form-group"><input type="text" name="title" class="form-control"></div>
+                            <div class="form-group"><input type="file" name="file_upload" class="form-control"></div>
+                            <input type="submit" name="submit">
+                        </form>
+                    </div>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
