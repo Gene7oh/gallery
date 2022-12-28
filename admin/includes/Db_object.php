@@ -125,6 +125,7 @@
             $sql        = "INSERT INTO " . static::$db_table . "(" . implode(",", array_keys($properties)) . ")";
             $sql        .= "VALUES ('" . implode("','", array_values($properties)) . "')";
             if ($database->query($sql)) {
+               /* id is created dynamically in the child class which is why there is an error showing in the editor */
                 $this->id = $database->TheInsertId();
                 return true;
             } else {

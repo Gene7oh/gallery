@@ -1,5 +1,4 @@
-<?php
-    include("includes/admin-header.php"); ?>
+<?php include("includes/admin-header.php"); ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
@@ -20,21 +19,17 @@
             <a class="navbar-brand" href="../index.php">Gallery Front</a>
         </div>
         <!-- Top Menu Items -->
-        <?php
-            include('includes/admin-top-nav.php'); ?>
+        <?php include('includes/admin-top-nav.php'); ?>
         <!--/* end top nav */-->
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <?php
-                include('includes/admin-side-nav.php') ?>
+            <?php include('includes/admin-side-nav.php') ?>
             <!--/* end side nav -->
         </div>
         <!-- /.navbar-collapse -->
     </nav>
     <!--end entire navigation-->
     <div id="page-wrapper">
-        <?php
-            include("includes/admin-content.php");  ?>
+        <?php include("includes/admin-content.php");  ?>
         <!-- /.container-fluid -->
-<?php
-    include("includes/admin-footer.php"); ?>
+<?php include("includes/admin-footer.php"); ?>

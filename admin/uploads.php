@@ -1,5 +1,4 @@
-<?php
-    include("includes/admin-header.php"); ?>
+<?php include("includes/admin-header.php"); ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
@@ -25,8 +24,7 @@
         <!--/* end top nav */-->
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <?php
-                include('includes/admin-side-nav.php') ?>
+            <?php include('includes/admin-side-nav.php') ?>
             <!--/* end side nav -->
         </div>
         <!-- /.navbar-collapse -->
@@ -39,10 +37,24 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Upload Page
-                        <small>for photos</small>
+                        <small>for your photos</small>
                     </h1>
                     <div class="col-md-6">
+                        <?php
+                            $msg = "";
+                            if (isset($_POST['submit'])) {
+                                $photo        = new Photo();
+                                $photo->title = $_POST['title'];
+                                $photo->setFile($_FILES['file_upload']);
+                                if ($photo->save()) {
+                                    $msg = "Photo uploaded Successfully";
+                                } else {
+                                    $msg = join("<br>", $photo->errors);
+                                }
+                            } /*  End isset submit */
+                        ?>
                         <form action="" method="post" enctype="multipart/form-data">
+                            <?php echo $msg; ?>
                             <div class="form-group"><input type="text" name="title" class="form-control"></div>
                             <div class="form-group"><input type="file" name="file_upload" class="form-control"></div>
                             <input type="submit" name="submit">

@@ -1,5 +1,4 @@
-<?php
-    include("includes/admin-header.php"); ?>
+<?php include("includes/admin-header.php"); ?>
     <title>Photos</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,8 +19,7 @@
         <!--/* end top nav */-->
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <?php
-                include('includes/admin-side-nav.php') ?>
+            <?php include('includes/admin-side-nav.php') ?>
             <!--/* end side nav -->
         </div>
         <!-- /.navbar-collapse -->
@@ -51,5 +49,4 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
-<?php
-    include("includes/admin-footer.php"); ?>
+<?php include("includes/admin-footer.php"); ?>

@@ -1,5 +1,4 @@
-<?php
-    require_once "includes/admin-header.php"; ?>
+<?php require_once "includes/admin-header.php"; ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     $session->logout();

@@ -55,17 +55,17 @@
                     return false;
                 }
                 $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
-                if (file_exists($target_path)){
+                if (file_exists($target_path)) {
                     $this->errors[] = "File {$this->filename} already exists";
                     return false;
                 }
-                if (move_uploaded_file($this->tmp_path, $target_path)){
-                    if ($this->create()){
+                if (move_uploaded_file($this->tmp_path, $target_path)) {
+                    if ($this->create()) {
                         unset($this->tmp_path);
                         return true;
                     }
                 } else {
-                    $this->errors[] = "Upload directory may need permissions";
+                    $this->errors[] = "Upload directory may need permissions set";
                     return false;
                 }
             }
