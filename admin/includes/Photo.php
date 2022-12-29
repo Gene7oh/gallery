@@ -70,5 +70,8 @@
                 }
             }
         }  /* End Method */
+        public function picturePath(){
+            return $this->upload_directory . DS . $this->filename;
+        }
         
     }  /* end of class */

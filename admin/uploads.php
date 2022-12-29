@@ -43,31 +43,37 @@
                         <?php
                             $msg = "";
                             if (isset($_POST['submit'])) {
-                                $photo        = new Photo();
-                                $photo->title = $_POST['title'];
+                                $photo              = new Photo();
+                                $photo->title       = $_POST['title'];
+                                $photo->description = $_POST['description'];
                                 $photo->setFile($_FILES['file_upload']);
                                 if ($photo->save()) {
                                     $msg = "Photo uploaded Successfully";
                                 } else {
-                                    $msg = join("<br>", $photo->errors);
+                                    $msg = "<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>";
                                 }
                             } /*  End isset submit */
                         ?>
                         <form action="" method="post" enctype="multipart/form-data">
                             <?php echo $msg; ?>
-                            <div class="form-group"><input type="text" name="title" class="form-control"></div>
-                            <div class="form-group"><input type="file" name="file_upload" class="form-control"></div>
+                            <div class="form-group">
+                                <label for="upload_file">Chose photo to upload.
+                                    <input type="file" name="file_upload" class="form-control">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Name your photo
+                                    <input type="text" name="title" class="form-control">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Describe your photo
+                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
+                                </label>
+                            </div>
                             <input type="submit" name="submit">
                         </form>
                     </div>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                    </ol>
                 </div>
             </div>
             <!-- /.row -->
@@ -75,5 +81,4 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
-<?php
-    include("includes/admin-footer.php"); ?>
+<?php include("includes/admin-footer.php"); ?>
