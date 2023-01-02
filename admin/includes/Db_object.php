@@ -34,7 +34,7 @@
                     $the_object->$the_attribute = $value;
                 }
                 /*
-                 * $the_object->user_id       = $found_user['user_id'];
+                 * $the_object->id       = $found_user['id'];
                 $the_object->username      = $found_user['username'];
                 $the_object->user_fname    = $found_user['user_fname'];
                 $the_object->user_lname    = $found_user['user_lname'];
@@ -51,17 +51,17 @@
         }
         
         
-        public static function findById($user_id)
+        public static function findById($id)
         {
             /* @noinspection SqlResolve */
-            $id_array = static::findByQuery("SELECT * FROM " . static::$db_table . " WHERE id = $user_id");
+            $id_array = static::findByQuery("SELECT * FROM " . static::$db_table . " WHERE id = $id");
             return !empty($id_array) ? array_shift($id_array) : false;
         }
         
         
         public function save()
         {
-//            return isset($this->user_id) ? $this->updateUser() : $this->createUser();
+//            return isset($this->id) ? $this->updateUser() : $this->createUser();
             if (isset($this->id)) {
                 $this->update();
             } else {

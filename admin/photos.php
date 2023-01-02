@@ -39,7 +39,7 @@
                         Gallery
                         <small>Photo Display</small>
                     </h1>
-                    <div class="col-md-12">
+                    <div class="col-md-12 ">
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>

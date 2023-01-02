@@ -15,10 +15,7 @@
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 95%'>";
                 echo "<h4 class='media'>The Admin Practice Page</h4>";
                 #↓↓ start pre element styled code ↓↓.
-                    ## code here.
-                echo "The paths defined" . "<br>";
-                echo SITE_ROOT . "<br>";
-                echo INCLUDES_PATH;
+                    ## code here
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
