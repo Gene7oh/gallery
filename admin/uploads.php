@@ -36,8 +36,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Upload Page
-                        <small>for your photos</small>
+                        Upload
+                        <small>your photos</small>
                     </h1>
                     <div class="col-md-6">
                         <?php

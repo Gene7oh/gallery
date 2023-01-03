@@ -42,11 +42,6 @@
             
         }  /* End Method */
         
-        public function picturePath()
-        {
-            return $this->upload_directory . DS . $this->filename;
-        }
-        
         public function save()
         {
             if ($this->id) {
@@ -74,9 +69,22 @@
                     return false;
                 }
             }
-        }  /* End Method */
-        public function deletePhoto(){
+        }
         
+        public function deletePhoto()
+        {
+            if ($this->delete()) {
+                $target_path = SITE_ROOT . DS . 'admin' . DS . $this->picturePath();
+                /** @noinspection PhpTernaryExpressionCanBeReplacedWithConditionInspection */
+                return unlink($target_path) ? true : false;
+            } else {
+                return false;
+            }
+        }  /* End Method */
+        
+        public function picturePath(): string
+        {
+            return $this->upload_directory . DS  . $this->filename;
         }
         
     }  /* end of class */
