@@ -41,6 +41,14 @@
                     </h1>
                     <div class="col-md-12 ">
                         <table class="table table-striped table-hover">
+                            <?php
+                                if (isset($_GET['delete-success'])){
+                                    echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
+                                }
+                                if (isset($_GET['no-photo'])){
+                                    echo "<warning style='color: darkred'>Something went Wrong!</warning>";
+                                }
+                            ?>
                             <thead>
                             <tr>
                                 <th>Photo</th>

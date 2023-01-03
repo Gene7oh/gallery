@@ -75,5 +75,8 @@
                 }
             }
         }  /* End Method */
+        public function deletePhoto(){
+        
+        }
         
     }  /* end of class */
