@@ -18,7 +18,6 @@
                     ## code here
                 echo SITE_ROOT;
                 echo "<br>";
-                
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */
                 echo "</pre>"; /*the end tag for the light gray background */
