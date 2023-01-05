@@ -71,7 +71,7 @@
             }
         }
         
-        public function deletePhoto()
+        public function deletePhoto(): bool
         {
             if ($this->delete()) {
                 $target_path = SITE_ROOT . DS . 'admin' . DS . $this->picturePath();

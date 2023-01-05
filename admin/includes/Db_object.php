@@ -33,12 +33,6 @@
                 if ($the_object->hasAttribute($the_attribute)) {
                     $the_object->$the_attribute = $value;
                 }
-                /*
-                 * $the_object->id       = $found_user['id'];
-                $the_object->username      = $found_user['username'];
-                $the_object->user_fname    = $found_user['user_fname'];
-                $the_object->user_lname    = $found_user['user_lname'];
-                $the_object->user_password = $found_user['user_password'];*/
             }
             return $the_object;
         }
@@ -61,7 +55,6 @@
         
         public function save()
         {
-//            return isset($this->id) ? $this->updateUser() : $this->createUser();
             if (isset($this->id)) {
                 $this->update();
             } else {
@@ -86,8 +79,6 @@
             } else {
                 return false;
             }
-            /* replaced update crud statement ↓↓ with
-             * username= '{$database->escapeString($this->username)}', user_fname= '{$database->escapeString($this->user_fname)}', user_lname= '{$database->escapeString($this->user_lname)}', user_password= '{$database->escapeString($this->user_password)}'*/
         }
         
         
@@ -109,12 +100,6 @@
                 if (property_exists($this, $db_field)) {
                     $properties[$db_field] = $this->$db_field;
                 }
-                /*
-                 *
-                 * Warning:  Undefined property: User::$db_field in Z:\xampp\htdocs\Projects\gallery\admin\includes\User.php on line 136
-                 * ↑↑ the dollar sign needed in the $this->$db_field assigned to the array key.
-                 * User has been successfully created
-                 */
             }
             return $properties;
         }
@@ -133,12 +118,6 @@
             } else {
                 return false;
             }
-            /* VALUES ('{$database->escapeString($this->username)}','{$database->escapeString($this->user_fname)}', '{$database->escapeString($this->user_lname)}', '{$database->escapeString($this->user_password)}')"
-             * $sql .= "VALUES ('";
-             * $sql .= $database->escapeString($this->username) . "','";
-             * $sql .= $database->escapeString($this->user_fname) . "' , '";
-             * $sql .= $database->escapeString($this->user_lname) . "' ,'";
-             * $sql .= $database->escapeString($this->user_password) . "')"; */
         }
         
         public function delete(): bool

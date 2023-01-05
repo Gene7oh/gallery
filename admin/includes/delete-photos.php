@@ -4,10 +4,10 @@
     if (!$session->isSignedIn()) {
         redirect("login.php");
     }
-    if (empty($_GET['photo-id'])){
+    if (empty($_GET['delete-id'])){
         redirect("../photos.php?no-photo");
     }
-    $photo = Photo::findById($_GET['photo-id']);
+    $photo = Photo::findById($_GET['delete-id']);
     if ($photo){
         $photo->deletePhoto();
         redirect("../photos.php?delete-success");

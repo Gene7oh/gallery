@@ -14,7 +14,6 @@
         
         public function open_db_connection()
         {
-            /*$this->connect = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);*/
             $this->connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
             if ($this->connect->connect_errno) {
                 die("Connection Failed" . "<br>" . $this->connect->connect_errno);
@@ -32,7 +31,7 @@
         {
             if (!$result) {
                 echo "Query Failed" . "<br>" . $this->connect->error;
-            } /*else echo "<h3 style='color: darkred'>Record(s) Found</h3>" . "<br>";*/
+            }
         }
         
         /** @noinspection PhpUnused

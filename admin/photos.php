@@ -41,12 +41,12 @@
                     </h1>
                     <div class="col-md-12 ">
                         <table class="table table-striped table-hover">
-                           <!-- ↓↓ catch get request from delete-photos.php ↓↓ -->
+                            <!-- ↓↓ catch get request from delete-photos.php ↓↓ -->
                             <?php
-                                if (isset($_GET['delete-success'])){
+                                if (isset($_GET['delete-success'])) {
                                     echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
                                 }
-                                if (isset($_GET['no-photo'])){
+                                if (isset($_GET['no-photo'])) {
                                     echo "<warning style='color: darkred'>Something went Wrong!</warning>";
                                 }
                             ?>
@@ -69,7 +69,7 @@
                                         <td>
                                             <img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->title ?>" width="175">
                                             <div class="picture-link">
-                                                <a href="includes/delete-photos.php?photo-id=<?php echo $photo->id; ?>">Delete</a>
+                                                <a href="includes/delete-photos.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
                                                 <a href="#">Edit</a>
                                                 <a href="">View</a>
                                             </div>
