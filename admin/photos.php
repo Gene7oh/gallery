@@ -39,17 +39,17 @@
                         Gallery
                         <small>Photo Display</small>
                     </h1>
+                    <?php
+                        if (isset($_GET['delete-success'])) {
+                            echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
+                            refresh(3, "photos.php");
+                        }
+                        if (isset($_GET['no-photo'])) {
+                            echo "<warning style='color: darkred'>Something went Wrong!</warning>";
+                        }
+                    ?>
                     <div class="col-md-12 ">
                         <table class="table table-striped table-hover">
-                            <!-- ↓↓ catch get request from delete-photos.php ↓↓ -->
-                            <?php
-                                if (isset($_GET['delete-success'])) {
-                                    echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
-                                }
-                                if (isset($_GET['no-photo'])) {
-                                    echo "<warning style='color: darkred'>Something went Wrong!</warning>";
-                                }
-                            ?>
                             <thead>
                             <tr>
                                 <th>Photo</th>
@@ -67,10 +67,11 @@
                                 foreach ($photos as $photo) : ?>
                                     <tr>
                                         <td>
+                                            <!-- https://via.placeholder.com/175x125 -->
                                             <img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->title ?>" width="175">
                                             <div class="picture-link">
-                                                <a href="includes/delete-photos.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
-                                                <a href="#">Edit</a>
+                                                <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
+                                                <a href="edit-photos.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div>
                                         </td>

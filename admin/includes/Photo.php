@@ -73,7 +73,9 @@
         
         public function deletePhoto(): bool
         {
+            /*delete records ↓↓ from database parent class method */
             if ($this->delete()) {
+                /* upon successful removal ↓↓ of records from db remove image file from server directory */
                 $target_path = SITE_ROOT . DS . 'admin' . DS . $this->picturePath();
                 /** @noinspection PhpTernaryExpressionCanBeReplacedWithConditionInspection */
                 return unlink($target_path) ? true : false;
@@ -81,10 +83,17 @@
                 return false;
             }
         }  /* End Method */
-        
+
         public function picturePath(): string
         {
-            return $this->upload_directory . DS  . $this->filename;
+            return $this->upload_directory . DS . $this->filename;
+        }
+        
+        public function editPhoto()
+        {
+            if ($this->update()){
+            
+            }
         }
         
     }  /* end of class */

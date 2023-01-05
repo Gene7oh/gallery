@@ -13,9 +13,10 @@
             <?php
                 echo "<pre>";
                 echo "<pre class='pull-right' style='background-color: #999999; color: antiquewhite; font-size: 16px; width: 95%'>";
-                echo "<h4 class='media'>The Admin Practice Page</h4>";
+                echo "<h4 style='font-family: Montserrat;'>The Admin Practice Page</h4>";
                 #↓↓ start pre element styled code ↓↓.
                     ## code here
+                /*Montserrat*/
                 echo SITE_ROOT;
                 echo "<br>";
                 #↑↑ end pre element styled code ↑↑

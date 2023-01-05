@@ -70,7 +70,7 @@
             foreach ($properties as $key => $value) {
                 $property_pairs[] = " {$key}= '{$value}' ";
             }
-    
+            
             /** @noinspection PhpUndefinedFieldInspection */
             $sql = "UPDATE " . static::$db_table . " SET " . implode(",", $property_pairs) . " WHERE id = {$database->escapeString($this->id)}";
             $database->query($sql);
@@ -111,7 +111,7 @@
             $sql        = "INSERT INTO " . static::$db_table . "(" . implode(",", array_keys($properties)) . ")";
             $sql        .= "VALUES ('" . implode("','", array_values($properties)) . "')";
             if ($database->query($sql)) {
-               /* id is created dynamically in the child class which is why there is an error showing in the editor */
+                /* id is created dynamically in the child class which is why there is an error showing in the editor */
                 /** @noinspection PhpDynamicFieldDeclarationInspection */
                 $this->id = $database->TheInsertId();
                 return true;
