@@ -9,16 +9,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php">Gallery Admin</a>
-            <a class="navbar-brand" href="../index.php">Gallery Front</a>
-        </div>
+        <?php include "includes/navbar-header.php"; ?>
         <!-- Top Menu Items -->
         <?php
             include('includes/admin-top-nav.php'); ?>
@@ -50,16 +41,14 @@
                                 echo "<warning style='color: darkred'>Something went Wrong!</warning>";
                             }
                         ?>
-                        <div class="col-md-8" >
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <label for="">Title</label>
-                            </div>
-                            <div class="form-group">
+                                <label for="title">Title</label>
                                 <input type="text" name="title" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <img name="image" src="https://via.placeholder.com/175x125" alt="" class="img-responsive">
+                                <img src="https://via.placeholder.com/175x125" alt="" class="img-responsive">
                             </div>
                             <div class="form-group">
                                 <label class="form-group" for="caption">Caption</label>
@@ -71,7 +60,8 @@
                             </div>
                             <label class="form-group" for="description">Description</label>
                             <textarea class="form-control" name="description" id="description" cols="" rows="10"></textarea>
-                            <input class="" type="submit" name="submit"></div>
+                            <input class="" type="submit" name="submit">
+                        </div>
                     </div>
                 </div>
             </div>
