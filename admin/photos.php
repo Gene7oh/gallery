@@ -1,10 +1,10 @@
-<?php include("includes/admin-header.php"); ?>
+<?php /** @noinspection DuplicatedCode */
+    include("includes/admin-header.php"); ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
         redirect("login.php");
     } ?>
-    <title>Photos</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
