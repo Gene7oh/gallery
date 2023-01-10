@@ -3,11 +3,13 @@
     class Photo extends Db_object
     {
         protected static string $db_table            = "photos";
-        protected static array  $db_table_fields     = array('title', 'description', 'filename', 'type', 'size');
+        protected static array  $db_table_fields     = array('title', 'caption', 'description', 'filename', 'alt_text', 'type', 'size');
         public int              $id                  = 0;
         public string           $title               = "";
+        public                  $caption;
         public string           $description         = "";
         public string           $filename            = "";
+        public                  $alt_text;
         public string           $type                = "";
         public int              $size                = 0;
         public string           $tmp_path;
@@ -83,7 +85,7 @@
                 return false;
             }
         }  /* End Method */
-
+        
         public function picturePath(): string
         {
             return $this->upload_directory . DS . $this->filename;
@@ -91,7 +93,7 @@
         
         public function editPhoto()
         {
-            if ($this->update()){
+            if ($this->update()) {
             
             }
         }

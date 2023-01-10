@@ -28,44 +28,56 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Gallery
-                        <small>Edit Photo</small>
+                        <small>Edit Photo Page</small>
                     </h1>
-                    <?php
-                        $photo = new Photo();
-                        if (isset($_GET['edit-id'])){
-                            $photo = Photo::findById($_GET['edit-id']);
-                        }
-                        
-                        if (isset($_POST['update'])){
-                        }
-                        if (isset($_GET['edit-success'])) {
-                            echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
-                            refresh(3, "photos.php");
-                        }
-                        if (isset($_GET['no-photo'])) {
-                            echo "<warning style='color: darkred'>Something went Wrong!</warning>";
-                        }
-                    
-                    ?>
-                    <form class="form-group" method="post" action="">
-                        <div class="col-md-8 ">
+                    <form action="" method="post">
+                        <div class="col-md-8">
+                            <?php
+                                /*<!-- ↓↓ STOP THE NAGS ↓↓ -->*/
+                                $photo = "";
+                                /*<!-- ↑↑ STOP THE NAGS ↑↑ -->*/
+                                if (empty($_GET['edit-id'])) {
+                                    redirect("photos.php?no-photo");
+                                } else {
+                                    $photo = Photo::findById($_GET['edit-id']);
+                                    if (isset($_POST['update'])) {
+                                        if ($photo) {
+                                            $photo->title       = $_POST['title'];
+                                            $photo->caption     = $_POST['caption'];
+                                            $photo->alt_text    = $_POST['alt-text'];
+                                            $photo->description = $_POST['description'];
+                                            $photo->save();
+                                        }
+                                    }
+                                }
+                            ?>
                             <div class="form-group">
-                                <input class="form-control" type="text" name="title" placeholder="php echoed placeholder text">
+                                <label for="title">Title
+                                    <input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>">
+                                </label>
                             </div>
                             <div class="form-group">
-                                <img src="https://via.placeholer.com/225x150" alt="web placeholder image" class="form-control img-responsive">
+                                <label for="image">Image
+                                    <img src="<?php echo $photo->picturePath(); ?>" alt="" class="img-responsive">
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label for="caption">Caption</label>
-                                <input type="text" name="caption" class="form-control">
+                                <label class="form-group" for="caption">Caption
+                                    <input type="text" name="caption" class="form-control" value="<?php echo $photo->caption; ?>">
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label for="alt-text">Alternative Text</label>
-                                <input type="text" name="alt-text" class="form-control">
+                                <label class="form-group" for="alt-text">Alternate Text
+                                    <input type="text" name="alt-text" class="form-control" value="<?php echo $photo->alt_text; ?>">
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" name="description" id="description"></textarea>
+                                <label class="form-group" for="description">Description
+                                    <textarea class="form-control" name="description" id="description" cols="" rows="10"><?php echo $photo->description; ?></textarea>
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4"><input class="" type="submit" name="submit"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -79,21 +91,21 @@
                                             <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
                                         </p>
                                         <p class="text ">
-                                            Photo Id: <span class="data photo_id_box"><?php echo $photo->id;?></span>
+                                            Photo Id: <span class="data photo_id_box"><?php echo $photo->id; ?></span>
                                         </p>
                                         <p class="text">
-                                            Filename: <span class="data">image.jpg</span>
+                                            Filename: <span class="data"><?php echo $photo->filename; ?></span>
                                         </p>
                                         <p class="text">
-                                            File Type: <span class="data">JPG</span>
+                                            File Type: <span class="data"><?php echo $photo->type; ?></span>
                                         </p>
                                         <p class="text">
-                                            File Size: <span class="data">3245345</span>
+                                            File Size: <span class="data"><?php echo $photo->size; ?></span>
                                         </p>
                                     </div>
                                     <div class="info-box-footer clearfix">
                                         <div class="info-box-delete pull-left">
-                                            <a href="includes/delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>
+                                            <a href="includes/delete_photo.php?delete-id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>
                                         </div>
                                         <div class="info-box-update pull-right ">
                                             <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">

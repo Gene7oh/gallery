@@ -1,10 +1,10 @@
-<?php /** @noinspection DuplicatedCode */
-    include("includes/admin-header.php"); ?>
+<?php include("includes/admin-header.php"); ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
         redirect("login.php");
     } ?>
+    <title>Photos</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,7 +59,7 @@
                                     <tr>
                                         <td>
                                             <!-- https://via.placeholder.com/175x125 -->
-                                            <img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->title ?>" width="175">
+                                            <img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>" width="175">
                                             <div class="picture-link">
                                                 <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
                                                 <a href="edit-photos.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
