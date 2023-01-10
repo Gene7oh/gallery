@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="image">Image
-                                    <img src="<?php echo $photo->picturePath(); ?>" alt="" class="img-responsive">
+                                    <a href="#" class="thumbnail"><img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>" class="img-responsive"></a>
                                 </label>
                             </div>
                             <div class="form-group">
