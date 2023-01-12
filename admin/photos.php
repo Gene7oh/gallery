@@ -58,7 +58,7 @@
                                     <tr>
                                         <td>
                                             <!-- https://via.placeholder.com/175x125 -->
-                                            <img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>" width="175">
+                                            <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
                                             <div class="picture-link">
                                                 <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
                                                 <a href="edit-photos.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
@@ -67,7 +67,7 @@
                                         </td>
                                         <td><?php echo $photo->id; ?>  </td>
                                         <td><?php echo $photo->title; ?></td>
-                                        <td><?php echo substr($photo->description, -60) . " ...more"; ?></td>
+                                        <td><?php echo substr($photo->description, -60) . " ...<a href='#'>More</a>"; ?></td>
                                         <td><?php echo $photo->filename; ?></td>
                                         <td><?php echo $photo->type; ?></td>
                                         <td><?php echo $photo->size; ?></td>
