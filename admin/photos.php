@@ -4,7 +4,6 @@
     if (!$session->isSignedIn()) {
         redirect("login.php");
     } ?>
-    <title>Photos</title>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,8 +26,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Gallery
-                        <small>Photo Display</small>
+                        Gallery Photo
+                        <small>Display Page </small>
                     </h1>
                     <?php
                         if (isset($_GET['delete-success'])) {
@@ -40,7 +39,7 @@
                         }
                     ?>
                     <div class="col-md-12 ">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th>Photo</th>
