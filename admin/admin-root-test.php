@@ -23,63 +23,54 @@
                         Blank Page
                         <small>Subheading</small>
                     </h1>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <input class="form-control" type="text">
-                            input 1
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text">
-                            input 2
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text">
-                            input 3
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text">
-                            input 4
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="photo-info-box">
-                            <div class="info-box-header">
-                                <h4>Save <span id="toggle" class="glyphicon glyphicon-menu-up pull-right"></span></h4>
+                    <?php
+                        if (isset($_POST['submit'])){
+                            echo "Yes it works ";
+                        }
+                    ?>
+                    <form action="" class="form-group" method="post">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" class="form-control">
                             </div>
-                            <div class="inside">
-                                <div class="box-inner">
-                                    <p class="text">
-                                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
-                                    </p>
-                                    <p class="text ">
-                                        Photo Id: <span class="data photo_id_box">34</span>
-                                    </p>
-                                    <p class="text">
-                                        Filename: <span class="data">image.jpg</span>
-                                    </p>
-                                    <p class="text">
-                                        File Type: <span class="data">JPG</span>
-                                    </p>
-                                    <p class="text">
-                                        File Size: <span class="data">3245345</span>
-                                    </p>
-                                </div>
-                                <div class="info-box-footer clearfix">
-                                    <div class="info-box-delete pull-left">
-                                        <a href="delete_photo.php?id=" class="btn btn-danger btn-lg ">Delete</a>
-                                    </div>
-                                    <div class="info-box-update pull-right ">
-                                        <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label for="email">eMail Address</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="phone" name="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="form-control">
                             </div>
                         </div>
-                    </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="">label 1</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">label 2</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">label 3</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">label 4</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
 <?php include("includes/admin-footer.php"); ?>

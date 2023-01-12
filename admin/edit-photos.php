@@ -56,8 +56,8 @@
                             <input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="image">Image</label>
-                            <a href="#" class="thumbnail"><img src="<?php echo $photo->picturePath(); ?>" alt="<?php echo($photo->alt_text); ?>" class="img-responsive"></a>
+                            <label for="image"><small><?php echo $photo->title; ?></small></label>
+                            <a href="#" class="thumbnail"><img class="thumbnail" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo($photo->alt_text); ?>" class="img-responsive"></a>
                         </div>
                         <div class="form-group">
                             <label for="caption">Caption</label>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" name="description" id="description" cols="" rows="10"><?php echo $photo->description; ?></textarea>
+                            <textarea class="form-control" name="description" id="summernote" cols="" rows="10"><?php echo $photo->description; ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-4">
