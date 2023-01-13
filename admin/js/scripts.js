@@ -4,8 +4,8 @@ $(document).ready(function () {
         height: 125
     });
 });
-/*
-$(document).ready(function () {
+/* for any future use of the editor */
+/* $(document).ready(function () {
     $('#summernoteII').summernote({
         height: 125
     });
