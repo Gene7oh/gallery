@@ -31,13 +31,14 @@
                         <small>Display Page </small>
                     </h1>
                     <?php
-                        /* if (isset($_GET['delete-success'])) {
-                             echo "<info style='color: darkblue'>user Successfully Deleted</info>";
+                         if (isset($_GET['delete-success'])) {
+                             $delete_id = $_GET['id'];
+                             echo "<info style='color: darkblue'><h4>User ID Number $delete_id Successfully Deleted</h4></info>";
                              refresh(3, "users.php");
                          }
-                         if (isset($_GET['no-user'])) {
-                             echo "<warning style='color: darkred'>Something went Wrong!</warning>";
-                         }*/
+                         if (isset($_GET['delete-error'])) {
+                             echo "<warning style='color: darkred'><h4>Something went Wrong!</h4></warning>";
+                         }
                     ?>
                     <div class="col-md-12 ">
                         <table class="table table-hover">

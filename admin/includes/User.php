@@ -31,6 +31,14 @@
         {
             return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
         }
+        public function deleteUser(): bool
+        {
+            if ($this->delete()) {
+                return true;
+            } else {
+                return false;
+            }
+        }  /* End Method */
         
         
     } /* end User class */
