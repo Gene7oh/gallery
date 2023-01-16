@@ -30,11 +30,13 @@
                         Gallery user
                         <small>Display Page </small>
                     </h1>
+                    <a href="add-user.php" class="btn btn-primary">Add User</a>
                     <?php
+                        $delete_id ="";
                          if (isset($_GET['delete-success'])) {
                              $delete_id = $_GET['id'];
                              echo "<info style='color: darkblue'><h4>User ID Number $delete_id Successfully Deleted</h4></info>";
-                             refresh(3, "users.php");
+                             refresh(4, "users.php");
                          }
                          if (isset($_GET['delete-error'])) {
                              echo "<warning style='color: darkred'><h4>Something went Wrong!</h4></warning>";

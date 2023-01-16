@@ -8,12 +8,13 @@
         redirect("../users.php");
     } else {
         $user = User::findById($_GET['delete-id']);
-        if ($user){
-            $id=$_GET['delete-id'];
+        $id="";
+        if ($user) {
+            $id = $_GET['delete-id'];
             $user->deleteUser();
             redirect("../users.php?delete-success&id=$id");
         } else {
-        redirect("../users.php?delete-error");
+            redirect("../users.php?delete-error&id=$id");
         }
     }
     
