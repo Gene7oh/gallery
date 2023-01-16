@@ -34,15 +34,26 @@
                         /*<!-- ↓↓ STOP THE NAGS ↓↓ -->*/
                         $user = "";
                         /*<!-- ↑↑ STOP THE NAGS ↑↑ -->*/
-                      if (isset($_POST['create'])){
-                      #code
-                      }
+                        $user = new User();
+                        if (isset($_POST['create'])) {
+                            /** @noinspection PhpConditionAlreadyCheckedInspection */
+                            if ($user) {
+                                $user->username = $_POST['username'];
+                                $user->user_fname = $_POST['first-name'];
+                                $user->user_lname = $_POST['last-name'];
+                                $user->user_password = $_POST['password'];
+                            }
+                        }
                     ?>
                     <form class="form-group" method="post" action="" enctype="multipart/form-data">
-                        <div class="col-md-8 col-lg-offset-3">
+                        <div class="col-md-6 col-md-offset-3">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" >
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-image">Select Profile Image</label>
+                                <input type="file" name="profile-image" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="first-name">First Name</label>
@@ -50,18 +61,22 @@
                             </div>
                             <div class="form-group">
                                 <label for="last-name">Last Name</label>
-                                <input type="text" name="last-name" class="form-control" >
+                                <input type="text" name="last-name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" >
+                                <input type="password" name="password" class="form-control">
                             </div>
-                            <div class="info-box-update pull-right ">
-                                <input type="submit" name="create" value="Add User" class="btn btn-primary btn-lg ">
+                            <!--<div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" name="confirm-password" class="form-control" >
+                            </div>-->
+                            <div class="form-group pull-right ">
+                                <input type="submit" name="create" value="Add User" class="btn btn-primary btn">
                             </div>
                             <!--<div class="form-group">
                                 <label for="user-bio">Bio</label>
-                                <textarea class="form-control" name="description" id="summernoteII" cols="" rows="10"><?php /*echo $photo->description; */?></textarea>
+                                <textarea class="form-control" name="description" id="summernoteII" cols="" rows="10"><?php /*echo $photo->description; */ ?></textarea>
                             </div>-->
                         </div>
                         <!--<div class="col-md-4">
@@ -76,21 +91,21 @@
                                             <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
                                         </p>
                                         <p class="text ">
-                                            User Id: <span class="data photo_id_box"><?php /*echo "Users user ID"; */?></span>
+                                            User Id: <span class="data photo_id_box"><?php /*echo "Users user ID"; */ ?></span>
                                         </p>
                                         <p class="text">
-                                            Username: <span class="data"><?php /*echo "Users Username"; */?></span>
+                                            Username: <span class="data"><?php /*echo "Users Username"; */ ?></span>
                                         </p>
                                         <p class="text">
-                                            First Name: <span class="data"><?php /*echo "Users first name."; */?></span>
+                                            First Name: <span class="data"><?php /*echo "Users first name."; */ ?></span>
                                         </p>
                                         <p class="text">
-                                            Last Name: <span class="data"><?php /*echo "Users last name."; */?></span>
+                                            Last Name: <span class="data"><?php /*echo "Users last name."; */ ?></span>
                                         </p>
                                     </div>
                                     <div class="info-box-footer clearfix">
                                         <div class="info-box-delete pull-left">
-                                            <a href="includes/delete-user.php?delete-id=<?php /* */?>" class="btn btn-danger btn-lg ">Delete</a>
+                                            <a href="includes/delete-user.php?delete-id=<?php /* */ ?>" class="btn btn-danger btn-lg ">Delete</a>
                                         </div>
                                         <div class="info-box-update pull-right ">
                                             <input type="submit" name="create" value="Add User" class="btn btn-primary btn-lg ">
