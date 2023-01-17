@@ -30,7 +30,6 @@
                         Gallery user
                         <small>Display Page </small>
                     </h1>
-                    <a href="add-user.php" class="btn btn-primary">Add User</a>
                     <?php
                         $delete_id ="";
                          if (isset($_GET['delete-success'])) {
@@ -41,8 +40,17 @@
                          if (isset($_GET['delete-error'])) {
                              echo "<warning style='color: darkred'><h4>Something went Wrong!</h4></warning>";
                          }
+                        $user_added ="";
+                         if (isset($_GET['user-added'])) {
+                             echo "<info style='color: darkblue'><h4>User Successfully Created</h4></info>";
+                             refresh(4, "users.php");
+                         }
+                        if (isset($_GET['add-user-error'])) {
+                            echo "<warning style='color: darkred'><h4>Unable to create user.!</h4></warning>";
+                        }
                     ?>
                     <div class="col-md-12 ">
+                        <a href="add-user.php" class="btn btn-primary pull-right">Add User</a>
                         <table class="table table-hover">
                             <thead>
                             <tr>

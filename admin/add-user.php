@@ -31,17 +31,24 @@
                         <small>Add User Page</small>
                     </h1>
                     <?php
-                        /*<!-- ↓↓ STOP THE NAGS ↓↓ -->*/
-                        $user = "";
-                        /*<!-- ↑↑ STOP THE NAGS ↑↑ -->*/
+                        /*<!-- ↓↓ STOP THE NAGS if necessary↓↓ -->*/
+                        //                        $user = "";
+                        /*<!-- ↑↑ STOP THE NAGS if necessary↑↑ -->*/
                         $user = new User();
                         if (isset($_POST['create'])) {
-                            /** @noinspection PhpConditionAlreadyCheckedInspection */
-                            if ($user) {
-                                $user->username = $_POST['username'];
-                                $user->user_fname = $_POST['first-name'];
-                                $user->user_lname = $_POST['last-name'];
-                                $user->user_password = $_POST['password'];
+                            if (empty($_POST['username']) || empty($_POST['first-name']) || empty($_POST['last-name']) || empty($_POST['password'])) {
+                                redirect("users.php?add-user-error");
+                            } else {
+                                /** @noinspection PhpConditionAlreadyCheckedInspection */
+                                if ($user) {
+                                    $user->username      = $_POST['username'];
+                                    $user->user_fname    = $_POST['first-name'];
+                                    $user->user_lname    = $_POST['last-name'];
+                                    $user->user_password = $_POST['password'];
+                                    if ($user->create()) {
+                                        redirect("users.php?user-added");
+                                    }
+                                }
                             }
                         }
                     ?>
