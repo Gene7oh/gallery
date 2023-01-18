@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Gallery
-                <small>Admin Page</small>
+                Gallery <br>
+                <small>control panel home</small>
             </h1>
             <?php
                 echo "<pre>";

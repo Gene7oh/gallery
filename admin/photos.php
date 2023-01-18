@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Gallery Photo
-                        <small>Display Page </small>
+                        Control Panel
+                        <small>Gallery Photos </small>
                     </h1>
                     <?php
                         if (isset($_GET['delete-success'])) {
@@ -61,7 +61,7 @@
                                             <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
                                             <div class="picture-link">
                                                 <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
-                                                <a href="edit-photos.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
+                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div>
                                         </td>
