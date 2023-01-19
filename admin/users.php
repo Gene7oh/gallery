@@ -71,7 +71,7 @@
                                         <td><?php echo $user->username; ?>
                                             <div class="action-links">
                                                 <a href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>">Delete</a>
-                                                <a href="edit-users.php?edit-id=<?php echo $user->id; ?>">Edit</a>
+                                                <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div></td>
                                         <td><?php echo $user->user_fname; ?></td>
