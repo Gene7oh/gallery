@@ -93,12 +93,4 @@
         {
             return $this->upload_directory . DS . $this->filename;
         }
-        
-        public function editPhoto()
-        {
-            if ($this->update()) {
-            
-            }
-        }
-        
     }  /* end of class */

@@ -36,21 +36,16 @@
                         /*<!-- ↑↑ STOP THE NAGS if necessary↑↑ -->*/
                         $user = new User();
                         if (isset($_POST['create'])) {
-                            if (empty($_POST['username']) || empty($_POST['first-name']) || empty($_POST['last-name']) || empty($_POST['password'])) {
-                                redirect("users.php?add-user-error");
-                            } else {
-                                /** @noinspection PhpConditionAlreadyCheckedInspection */
-                                if ($user) {
-                                    $user->username      = $_POST['username'];
-                                    $user->user_fname    = $_POST['first-name'];
-                                    $user->user_lname    = $_POST['last-name'];
-                                    $user->user_password = $_POST['password'];
-                                    if ($user->create()) {
-                                        redirect("users.php?user-added");
-                                    }
-                                }
+                            /** @noinspection PhpConditionAlreadyCheckedInspection */
+                            if ($user) {
+                                $user->username      = $_POST['username'];
+                                $user->user_fname    = $_POST['first-name'];
+                                $user->user_lname    = $_POST['last-name'];
+                                $user->user_password = $_POST['password'];
+                                $user->setFile($_FILES['user-image']);
+                                $user->saveNewUserData();
                             }
-                        }
+                        } /** end if post create is set */
                     ?>
                     <form class="form-group" method="post" action="" enctype="multipart/form-data">
                         <div class="col-md-6 col-md-offset-3">
@@ -60,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="profile-image">Select Profile Image</label>
-                                <input type="file" name="profile-image" class="form-control">
+                                <input type="file" name="user-image" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="first-name">First Name</label>

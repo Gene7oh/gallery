@@ -46,7 +46,8 @@
                              refresh(4, "users.php");
                          }
                         if (isset($_GET['add-user-error'])) {
-                            echo "<warning style='color: darkred'><h4>Unable to create user.!</h4></warning>";
+                           $msg = (isset($_GET['err-msg'])) ? "empty fields not allowed" : false;
+                            echo "<warning style='color: darkred'><h4>Unable to create user $msg !</h4></warning>";
                         }
                     ?>
                     <div class="col-md-12 ">
