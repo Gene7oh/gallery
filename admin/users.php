@@ -27,10 +27,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Control Panel
-                        <small>Gallery Users</small>
+                        Gallery user
+                        <small>Display Page </small>
                     </h1>
                     <?php
+                        $delete_id ="";
                          if (isset($_GET['delete-success'])) {
                              $delete_id = $_GET['id'];
                              echo "<info style='color: darkblue'><h4>User ID Number $delete_id Successfully Deleted</h4></info>";
@@ -44,12 +45,8 @@
                              echo "<info style='color: darkblue'><h4>User Successfully Created</h4></info>";
                              refresh(4, "users.php");
                          }
-                        if (isset($_GET['no-user'])) {
-                            echo "<warning style='color: darkred'><h4>User Not Found</h4></warning>";
-                            refresh(4, "users.php");
-                        }
                         if (isset($_GET['add-user-error'])) {
-                            echo "<warning style='color: darkred'><h4>Unable to create user!</h4></warning>";
+                            echo "<warning style='color: darkred'><h4>Unable to create user.!</h4></warning>";
                         }
                     ?>
                     <div class="col-md-12 ">
@@ -70,14 +67,11 @@
                                 foreach ($users as $user) : ?>
                                     <tr>
                                         <td><?php echo $user->id; ?></td>
-                                        <td style="width: 130px;">
-                                            <img class="user-image" src="<?php echo $user->placeholderOrImage();?>" alt="">
-                                            <?php echo "<p class='pull-right' style='color: darkblue; font-size: 11px;' >$user->user_image</p>"; ?>
-                                        </td>
+                                        <td><img class="user-image" src="<?php echo $user->placeholderOrImage();?>" alt=""></td>
                                         <td><?php echo $user->username; ?>
                                             <div class="action-links">
                                                 <a href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>">Delete</a>
-                                                <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Edit</a>
+                                                <a href="edit-users.php?edit-id=<?php echo $user->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div></td>
                                         <td><?php echo $user->user_fname; ?></td>

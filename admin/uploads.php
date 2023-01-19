@@ -39,7 +39,7 @@
                                 $photo->description = $_POST['description'];
                                 $photo->setFile($_FILES['file_upload']);
                                 if ($photo->save()) {
-                                    $msg = "<info style='color: darkblue;'>Photo uploaded Successfully</info>";
+                                    $msg = "Photo uploaded Successfully";
                                 } else {
                                     $msg = "<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>";
                                 }
