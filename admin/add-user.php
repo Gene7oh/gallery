@@ -45,7 +45,8 @@
                                     $user->user_fname    = $_POST['first-name'];
                                     $user->user_lname    = $_POST['last-name'];
                                     $user->user_password = $_POST['password'];
-                                    if ($user->create()) {
+                                    $user->user_image    = $user->setFile($_FILES['upload']);
+                                    if ($user->saveUserData()) {
                                         redirect("users.php?user-added");
                                     }
                                 }
@@ -79,7 +80,7 @@
                                 <input type="password" name="confirm-password" class="form-control" >
                             </div>-->
                             <div class="form-group pull-right ">
-                                <input type="submit" name="create" value="Add User" class="btn btn-primary btn">
+                                <input type="submit" name="upload" value="Add User" class="btn btn-primary btn">
                             </div>
                             <!--<div class="form-group">
                                 <label for="user-bio">Bio</label>

@@ -70,7 +70,7 @@
                                     <a href="#" class="admin-thumb"><img class="user-image" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>" class="img-responsive"></a>
                                 </div>
                                 <div class="form-group pull-right">
-                                    <label for="upload"><small>New Image</small></label>
+                                    <label for="upload">New Image</label>
                                     <input type="file" name="upload">
                                 </div>
                             </div>
