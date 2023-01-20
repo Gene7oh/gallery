@@ -14,6 +14,20 @@
         public string           $user_image        = "";
         public string           $user_password     = "";
         public string           $upload_directory  = "images";
+        public string           $type                = "";
+        public int              $size                = 0;
+        public string           $tmp_path;
+        public array            $errors              = array();
+        public array            $upload_errors_array = array(
+                UPLOAD_ERR_OK         => "File successfully uploaded",
+                UPLOAD_ERR_INI_SIZE   => "File exceeds max upload file size",
+                UPLOAD_ERR_FORM_SIZE  => "File exceeds max file size",
+                UPLOAD_ERR_PARTIAL    => "The file only partially uploaded",
+                UPLOAD_ERR_NO_FILE    => "No file was chosen",
+                UPLOAD_ERR_NO_TMP_DIR => "Missing temp folder",
+                UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
+                UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
+        );
         public string           $image_placeholder = "https://via.placeholder.com/250x200&text=user-profile-picture";
         
                 public static function verifyUser($username, $password)
@@ -44,7 +58,7 @@ public function setFile($file)
             
         }
         
-        public function saveNewUserData()
+        public function saveAddUserData()
         {
             /** @noinspection DuplicatedCode */
             if ($this->id) {

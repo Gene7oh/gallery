@@ -43,7 +43,7 @@
                                 $user->user_lname    = $_POST['last-name'];
                                 $user->user_password = $_POST['password'];
                                 $user->setFile($_FILES['user-image']);
-                                $user->saveNewUserData();
+                                $user->saveAddUserData();
                             }
                         } /** end if post create is set */
                     ?>
@@ -81,41 +81,6 @@
                                 <textarea class="form-control" name="description" id="summernoteII" cols="" rows="10"><?php /*echo $photo->description; */ ?></textarea>
                             </div>-->
                         </div>
-                        <!--<div class="col-md-4">
-                            <div class="photo-info-box">
-                                <div class="info-box-header">
-                                    <h4>Save <span id="toggle" class="glyphicon glyphicon-menu-up pull-right"></span></h4>
-                                </div>
-                                <div class="inside">
-                                    <div class="box-inner">
-                                        <h3>Preview Information:</h3>
-                                        <p class="text">
-                                            <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
-                                        </p>
-                                        <p class="text ">
-                                            User Id: <span class="data photo_id_box"><?php /*echo "Users user ID"; */ ?></span>
-                                        </p>
-                                        <p class="text">
-                                            Username: <span class="data"><?php /*echo "Users Username"; */ ?></span>
-                                        </p>
-                                        <p class="text">
-                                            First Name: <span class="data"><?php /*echo "Users first name."; */ ?></span>
-                                        </p>
-                                        <p class="text">
-                                            Last Name: <span class="data"><?php /*echo "Users last name."; */ ?></span>
-                                        </p>
-                                    </div>
-                                    <div class="info-box-footer clearfix">
-                                        <div class="info-box-delete pull-left">
-                                            <a href="includes/delete-user.php?delete-id=<?php /* */ ?>" class="btn btn-danger btn-lg ">Delete</a>
-                                        </div>
-                                        <div class="info-box-update pull-right ">
-                                            <input type="submit" name="create" value="Add User" class="btn btn-primary btn-lg ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
                     </form>
                 </div>
             </div>

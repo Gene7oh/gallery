@@ -27,7 +27,7 @@
         );
         
         // ↓↓ passes the FILES super global ['uploaded_file'] as an argument
-    
+        
         /** @noinspection DuplicatedCode */
         public function setFile($file)
         {
