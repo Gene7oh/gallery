@@ -5,17 +5,18 @@
     
     class User extends Db_object
     {
-        protected static string $db_table          = "users";
-        protected static array  $db_table_fields   = array('username', 'user_fname', 'user_lname', 'user_image', 'user_password');
-        public int              $id                = 0;
-        public string           $username          = "";
-        public string           $user_fname        = "";
-        public string           $user_lname        = "";
-        public string           $user_image        = "";
-        public string           $user_password     = "";
-        public string           $upload_directory  = "images";
-        public string           $type                = "";
-        public int              $size                = 0;
+        protected static string $db_table            = "users";
+        protected static array  $db_table_fields     = array('username', 'user_fname', 'user_lname', 'user_image', 'user_password');
+        public int              $id                  = 0;
+        public string           $username            = "";
+        public string           $user_fname          = "";
+        public string           $user_lname          = "";
+        public string           $user_image          = "";
+        public string           $user_password       = "";
+        public string           $image_placeholder   = "https://via.placeholder.com/250x200&text=user-profile-picture";
+        public string           $upload_directory    = "images";
+        public string           $type;
+        public int              $size;
         public string           $tmp_path;
         public array            $errors              = array();
         public array            $upload_errors_array = array(
@@ -28,9 +29,8 @@
                 UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
                 UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
         );
-        public string           $image_placeholder = "https://via.placeholder.com/250x200&text=user-profile-picture";
         
-                public static function verifyUser($username, $password)
+        public static function verifyUser($username, $password)
         {
             global $database;
             $username = $database->escapeString($username);
@@ -40,8 +40,8 @@
             $result_array = User::findByQuery($sql);
             return !empty($result_array) ? array_shift($result_array) : false;
         }  /* End Method */
-
-public function setFile($file)
+        
+        public function setFile($file)
         {
             /** @noinspection PhpConditionAlreadyCheckedInspection */
             if (empty($file) || !$file || !is_array($file)) {
@@ -58,12 +58,40 @@ public function setFile($file)
             
         }
         
-        public function saveAddUserData()
+        public function editUserAndImage()
         {
-            /** @noinspection DuplicatedCode */
+            if ($this->id){
+                /** @noinspection DuplicatedCode */
+                if (!empty($this->errors)) {
+                    return false;
+                }
+                if (empty($this->user_image) || empty($this->tmp_path)) {
+                    $this->errors[] = "File not available";
+                    return false;
+                }
+                $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+                if (file_exists($target_path)) {
+                    $this->errors[] = "File {$this->user_image} already exists";
+                    return false;
+                }
+                if (move_uploaded_file($this->tmp_path, $target_path)) {
+                    if ($this->create()) {
+                        unset($this->tmp_path);
+                        return true;
+                    }
+                } else {
+                    $this->errors[] = "Upload directory may need permissions set";
+                    return false;
+                }
+            }
+        }
+        
+        public function saveUserAndImage()
+        {
             if ($this->id) {
                 $this->update();
             } else {
+                /** @noinspection DuplicatedCode */
                 if (!empty($this->errors)) {
                     return false;
                 }

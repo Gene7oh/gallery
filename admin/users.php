@@ -31,6 +31,12 @@
                         <small>Display Page </small>
                     </h1>
                     <?php
+                          /*  Fetch get requests code TODO add all to switch statement */
+                        if (isset($_GET['no-user'])) {
+                            $delete_id = $_GET['id'];
+                            echo "<warning style='color: darkred'><h4>No User ID</h4></warning>";
+                            refresh(4, "users.php");
+                        }
                         $delete_id ="";
                          if (isset($_GET['delete-success'])) {
                              $delete_id = $_GET['id'];
@@ -73,7 +79,6 @@
                                             <div class="action-links">
                                                 <a href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>">Delete</a>
                                                 <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Edit</a>
-                                                <a href="">View</a>
                                             </div></td>
                                         <td><?php echo $user->user_fname; ?></td>
                                         <td><?php echo $user->user_lname; ?></td>

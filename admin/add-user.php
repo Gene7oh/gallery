@@ -43,7 +43,7 @@
                                 $user->user_lname    = $_POST['last-name'];
                                 $user->user_password = $_POST['password'];
                                 $user->setFile($_FILES['user-image']);
-                                $user->saveAddUserData();
+                                $user->saveUserAndImage();
                             }
                         } /** end if post create is set */
                     ?>
@@ -69,17 +69,9 @@
                                 <label for="password">Password</label>
                                 <input type="password" name="password" class="form-control">
                             </div>
-                            <!--<div class="form-group">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="password" name="confirm-password" class="form-control" >
-                            </div>-->
                             <div class="form-group pull-right ">
                                 <input type="submit" name="create" value="Add User" class="btn btn-primary btn">
                             </div>
-                            <!--<div class="form-group">
-                                <label for="user-bio">Bio</label>
-                                <textarea class="form-control" name="description" id="summernoteII" cols="" rows="10"><?php /*echo $photo->description; */ ?></textarea>
-                            </div>-->
                         </div>
                     </form>
                 </div>
