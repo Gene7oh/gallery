@@ -13,12 +13,19 @@
         public string           $user_lname          = "";
         public string           $user_image          = "";
         public string           $user_password       = "";
+<<<<<<< HEAD
         public string           $image_placeholder   = "images".DS."UserPlaceholder.png";
+=======
+        public string           $image_placeholder   = "images".DS."placeholder.png";
+>>>>>>> new-placeholder
         public string           $upload_directory    = "images";
         public string           $type;
         public int              $size;
         public string           $tmp_path;
+<<<<<<< HEAD
         public array            $errors              = array();
+=======
+>>>>>>> new-placeholder
         
         public static function verifyUser($username, $password)
         {
@@ -30,6 +37,7 @@
             $result_array = User::findByQuery($sql);
             return !empty($result_array) ? array_shift($result_array) : false;
         }  /* End Method */
+<<<<<<< HEAD
         
         public function setFile($file)
         {
@@ -49,6 +57,11 @@
         }
         
         public function saveNewUserData()
+=======
+     
+        
+        public function saveUserAndImage()
+>>>>>>> new-placeholder
         {
             /** @noinspection DuplicatedCode */
             if ($this->id) {

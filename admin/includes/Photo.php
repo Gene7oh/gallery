@@ -20,6 +20,7 @@
         // ↓↓ passes the FILES super global ['uploaded_file'] as an argument
         
         /** @noinspection DuplicatedCode */
+<<<<<<< HEAD
         public function setFile($file)
         {
             /** @noinspection PhpConditionAlreadyCheckedInspection */
@@ -36,6 +37,8 @@
             }
             
         }  /* End Method */
+=======
+>>>>>>> new-placeholder
         
         public function save()
         {

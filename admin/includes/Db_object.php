@@ -4,6 +4,10 @@
     
     class Db_object
     {
+<<<<<<< HEAD
+=======
+        public array            $errors              = array();
+>>>>>>> new-placeholder
         public array            $upload_errors_array = array(
                 UPLOAD_ERR_OK         => "File successfully uploaded",
                 UPLOAD_ERR_INI_SIZE   => "File exceeds max upload file size",
@@ -14,7 +18,27 @@
                 UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
                 UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
         );
+<<<<<<< HEAD
         
+=======
+    
+        public function setFile($file)
+        {
+            /** @noinspection PhpConditionAlreadyCheckedInspection */
+            if (empty($file) || !$file || !is_array($file)) {
+                $this->errors[] = "No file Uploaded";
+                return false;
+            } elseif ($file['error'] !== 0) {
+                $this->errors[] = $this->upload_errors_array[$file['error']];
+            } else {
+                $this->user_image = basename($file['name']);
+                $this->tmp_path   = $file['tmp_name'];
+                $this->type       = $file['type'];
+                $this->size       = $file['size'];
+            }
+        
+        }
+>>>>>>> new-placeholder
         /* @noinspection PhpMissingReturnTypeInspection */
         public static function findAll()
         {
