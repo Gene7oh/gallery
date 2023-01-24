@@ -36,6 +36,7 @@
                         /*<!-- ↑↑ STOP THE NAGS if necessary↑↑ -->*/
                         $user = new User();
                         if (isset($_POST['create'])) {
+<<<<<<< HEAD
                             if (empty($_POST['username']) || empty($_POST['first-name']) || empty($_POST['last-name']) || empty($_POST['password'])) {
                                 redirect("users.php?add-user-error");
                             } else {
@@ -49,6 +50,16 @@
                                         redirect("users.php?user-added");
                                     }
                                 }
+=======
+                            /** @noinspection PhpConditionAlreadyCheckedInspection */
+                            if ($user) {
+                                $user->username      = $_POST['username'];
+                                $user->user_fname    = $_POST['first-name'];
+                                $user->user_lname    = $_POST['last-name'];
+                                $user->user_password = $_POST['password'];
+                                $user->setFile($_FILES['user-image']);
+                                $user->saveAddUserData();
+>>>>>>> parent of e591ded (Finally find logic error in update user from add user code.)
                             }
                         }
                     ?>
