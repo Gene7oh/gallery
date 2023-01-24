@@ -13,7 +13,7 @@
         public string           $user_lname          = "";
         public string           $user_image          = "";
         public string           $user_password       = "";
-        public string           $image_placeholder   = "https://via.placeholder.com/250x200&text=user-profile-picture";
+        public string           $image_placeholder   = "images".DS."UserPlaceholder.png";
         public string           $upload_directory    = "images";
         public string           $type;
         public int              $size;
