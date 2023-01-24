@@ -61,7 +61,7 @@
                                             <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
                                             <div class="picture-link">
                                                 <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
-                                                <a href="edit-photos.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
+                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
                                                 <a href="">View</a>
                                             </div>
                                         </td>

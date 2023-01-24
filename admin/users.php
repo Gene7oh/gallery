@@ -31,6 +31,12 @@
                         <small>Display Page </small>
                     </h1>
                     <?php
+                          /*  Fetch get requests code TODO add all to switch statement */
+                        if (isset($_GET['no-user'])) {
+                            $delete_id = $_GET['id'];
+                            echo "<warning style='color: darkred'><h4>No User ID</h4></warning>";
+                            refresh(4, "users.php");
+                        }
                         $delete_id ="";
                          if (isset($_GET['delete-success'])) {
                              $delete_id = $_GET['id'];
@@ -46,7 +52,8 @@
                              refresh(4, "users.php");
                          }
                         if (isset($_GET['add-user-error'])) {
-                            echo "<warning style='color: darkred'><h4>Unable to create user.!</h4></warning>";
+                           $msg = (isset($_GET['err-msg'])) ? "empty fields not allowed" : false;
+                            echo "<warning style='color: darkred'><h4>Unable to create user $msg !</h4></warning>";
                         }
                     ?>
                     <div class="col-md-12 ">
@@ -71,12 +78,7 @@
                                         <td><?php echo $user->username; ?>
                                             <div class="action-links">
                                                 <a href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>">Delete</a>
-<<<<<<< HEAD
-                                                <a href="edit-users.php?edit-id=<?php echo $user->id; ?>">Edit</a>
-=======
                                                 <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Edit</a>
->>>>>>> parent of e591ded (Finally find logic error in update user from add user code.)
-                                                <a href="">View</a>
                                             </div></td>
                                         <td><?php echo $user->user_fname; ?></td>
                                         <td><?php echo $user->user_lname; ?></td>
