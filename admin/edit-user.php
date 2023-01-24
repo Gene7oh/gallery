@@ -37,7 +37,7 @@
                         if (empty($_GET['edit-id'])) {
                             redirect("users.php?no-user");
                         }
-                        $user = user::findById($_GET['edit-id']);
+                        $user = User::findById($_GET['edit-id']);
                         if (isset($_POST['update'])) {
                             if ($user) {
                                 $user->username      = $_POST['username'];
@@ -45,23 +45,22 @@
                                 $user->user_lname    = $_POST['last-name'];
                                 $user->user_password = $_POST['password'];
                                 $user->setFile($_FILES['new-image']);
-                                $user->editUserAndImage();
+                                $user->saveUserAndImage();
                             }
                         }
                     ?>
-                    <form class="form-group" method="post" action="" enctype="multipart/form-data">
                     <div class="row col-md-6">
                         <div class="form-group">
-                            <label for="image"><small><?php echo "Current Image for ID: $user->id;" ?></small></label><br>
-                            <a href="#" class="img-responsive"><img class="user-image" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>" class="img-responsive"></a>
-                        </div>
-                        <div class="form-group">
-                            <label for="new-image">Upload New Image</label>
-                                <input type="file" name="new-image">
-                            
+                            <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>
+                            <a href="#" class=""><img class="user-image img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>" class="img-responsive"></a>
                         </div>
                     </div>
+                    <form class="form-group" method="post" action="" enctype="multipart/form-data">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="new-image">Upload New Image</label>
+                                <input type="file" name="new-image">
+                            </div>
                             <div class="form-group">
                                 <label for="username">Username
                                     <input type="text" name="username" class="form-control" value="<?php echo $user->username; ?>"></label>
@@ -72,11 +71,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="last-name">Last name
-                                <input type="text" name="last-name" class="form-control" value="<?php echo $user->user_lname; ?>"></label>
+                                    <input type="text" name="last-name" class="form-control" value="<?php echo $user->user_lname; ?>"></label>
                             </div>
                             <div class="form-group">
                                 <label for="password">Edit Password
-                                <input type="password" name="password" class="form-control" value="<?php echo $user->user_password; ?>"></label>
+                                    <input type="password" name="password" class="form-control" value="<?php echo $user->user_password; ?>"></label>
                             </div>
                             <div class="info-box-update pull-right ">
                                 <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">

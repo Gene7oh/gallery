@@ -48,19 +48,19 @@
                         <form action="" method="post" enctype="multipart/form-data">
                             <?php echo $msg; ?>
                             <div class="form-group">
-                                <label for="upload_file">Chose photo to upload.
+                                <label for="upload_file">Chose photo to upload.</label>
                                     <input type="file" name="file_upload" class="form-control">
-                                </label>
+                                
                             </div>
                             <div class="form-group">
-                                <label for="title">Name your photo
+                                <label for="title">Name your photo</label>
                                     <input type="text" name="title" class="form-control">
-                                </label>
+                                
                             </div>
                             <div class="form-group">
-                                <label for="description">Describe your photo
+                                <label for="description">Describe your photo</label>
                                     <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
-                                </label>
+                                
                             </div>
                             <input type="submit" name="submit">
                         </form>

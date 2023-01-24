@@ -67,7 +67,7 @@
                                         </td>
                                         <td><?php echo $photo->id; ?>  </td>
                                         <td><?php echo $photo->title; ?></td>
-                                        <td><?php echo substr($photo->description, -60) . " ...<a href='#'>More</a>"; ?></td>
+                                        <td><?php echo substr($photo->description, -90) . " ...<a href='#'>More</a>"; ?></td>
                                         <td><?php echo $photo->filename; ?></td>
                                         <td><?php echo $photo->type; ?></td>
                                         <td><?php echo $photo->size; ?></td>
