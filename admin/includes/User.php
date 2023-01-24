@@ -48,7 +48,7 @@
             
         }
         
-        public function saveUserAndImage()
+        public function saveNewUserData()
         {
             /** @noinspection DuplicatedCode */
             if ($this->id) {
