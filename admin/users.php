@@ -32,9 +32,9 @@
                     </h1>
                     <?php
                           /*  Fetch get requests code TODO add all to switch statement */
-                        if (isset($_GET['no-user'])) {
-                            $delete_id = $_GET['id'];
-                            echo "<warning style='color: darkred'><h4>No User ID</h4></warning>";
+                        if (isset($_GET['query-error'])) {
+                            $user = "";
+                            echo "<warning style='color: darkred'><h4>$user->errors</h4> <br> Possible Database Query Error!</warning>";
                             refresh(4, "users.php");
                         }
                         $delete_id ="";
@@ -55,9 +55,8 @@
                              echo "<info style='color: darkblue'><h4>User Successfully Edited</h4></info>";
                              refresh(4, "users.php");
                          }
-                        if (isset($_GET['add-user-error'])) {
-                           $msg = (isset($_GET['err-msg'])) ? "empty fields not allowed" : false;
-                            echo "<warning style='color: darkred'><h4>Unable to create user $msg !</h4></warning>";
+                        if (isset($_GET['empty-fields-error'])) {
+                            echo "<warning style='color: darkred'><h4>Empty Fields Not Allowed!</h4></warning>";
                         }
                     ?>
                     <div class="col-md-12 ">
@@ -78,11 +77,10 @@
                                 foreach ($users as $user) : ?>
                                     <tr>
                                         <td><?php echo $user->id; ?></td>
-                                        <td><img class="user-image" src="<?php echo $user->placeholderOrImage();?>" alt=""></td>
+                                        <td><img class="user-image" src="<?php echo $user->placeholderOrImage() ?>" alt=""></td>
                                         <td><?php echo $user->username; ?>
                                             <div class="action-links">
-                                                <a href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>">Delete</a>
-                                                <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Edit</a>
+                                                <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Manage</a>
                                             </div></td>
                                         <td><?php echo $user->user_fname; ?></td>
                                         <td><?php echo $user->user_lname; ?></td>

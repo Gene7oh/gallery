@@ -37,8 +37,8 @@
                                 $photo              = new Photo();
                                 $photo->title       = $_POST['title'];
                                 $photo->description = $_POST['description'];
-                                $photo->setFile($_FILES['file_upload']);
-                                if ($photo->save()) {
+                                $photo->setFile($_FILES['file-upload']);
+                                if ($photo->savePhoto()) {
                                     $msg = "Photo uploaded Successfully";
                                 } else {
                                     $msg = "<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>";
@@ -48,19 +48,19 @@
                         <form action="" method="post" enctype="multipart/form-data">
                             <?php echo $msg; ?>
                             <div class="form-group">
-                                <label for="upload_file">Chose photo to upload.</label>
-                                    <input type="file" name="file_upload" class="form-control">
-                                
+                                <label for="upload_file">Chose photo to upload.
+                                    <input type="file" name="file-upload" class="form-control">
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label for="title">Name your photo</label>
+                                <label for="title">Name your photo
                                     <input type="text" name="title" class="form-control">
-                                
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label for="description">Describe your photo</label>
+                                <label for="description">Describe your photo
                                     <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
-                                
+                                </label>
                             </div>
                             <input type="submit" name="submit">
                         </form>

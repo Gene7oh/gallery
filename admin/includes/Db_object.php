@@ -4,6 +4,7 @@
     
     class Db_object
     {
+        public array            $errors            = array();
         public array            $upload_errors_array = array(
                 UPLOAD_ERR_OK         => "File successfully uploaded",
                 UPLOAD_ERR_INI_SIZE   => "File exceeds max upload file size",

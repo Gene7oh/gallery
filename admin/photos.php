@@ -59,9 +59,8 @@
                                         <td>
                                             <!-- https://via.placeholder.com/175x125 -->
                                             <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
-                                            <div class="picture-link">
-                                                <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>">Delete</a>
-                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Edit</a>
+                                            <div class="action-links">
+                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage</a><br>
                                                 <a href="">View</a>
                                             </div>
                                         </td>

@@ -5,12 +5,17 @@
     }
 
 .user-image {
-    width: 125px;
+    width: 150px;
     border-radius: 22px;
     box-shadow: 6px 3px 4px 2px darkgray;
     }
+.action-links {
+    color: darkred;
+    }
 
-
+.action-links .a:hover {
+    color: darkred !important;
+    }
 /* **************************Edit-Photo.php col-sm-4 ************/
 .photo-info-box {
     border: 1px solid #e5e5e5;

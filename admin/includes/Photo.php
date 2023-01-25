@@ -14,7 +14,6 @@
         public int              $size                = 0;
         public string           $tmp_path;
         public string           $upload_directory    = "images";
-        public array            $errors              = array();
        
         
         // ↓↓ passes the FILES super global ['uploaded_file'] as an argument
@@ -37,7 +36,7 @@
             
         }  /* End Method */
         
-        public function save()
+        public function savePhoto()
         {
             /** @noinspection DuplicatedCode */
             if ($this->id) {

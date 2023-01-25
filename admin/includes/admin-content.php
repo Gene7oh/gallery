@@ -16,6 +16,8 @@
                 echo "<h4 style='font-family: Montserrat;'>The Admin Practice Page</h4>";
                 #↓↓ start pre element styled code ↓↓.
                     ## code here
+                $user = new User();
+                echo $user->placeholderOrImage() . "<br>";
                 echo SITE_ROOT;
                 echo "<br>";
                 #↑↑ end pre element styled code ↑↑

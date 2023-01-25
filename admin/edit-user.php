@@ -39,20 +39,28 @@
                         }
                         $user = User::findById($_GET['edit-id']);
                         if (isset($_POST['update'])) {
-                            if ($user) {
+                            if (!$user) {
+                                redirect("users.php?query-error");
+                            } else {
                                 $user->username      = $_POST['username'];
                                 $user->user_fname    = $_POST['first-name'];
                                 $user->user_lname    = $_POST['last-name'];
                                 $user->user_password = $_POST['password'];
-                                $user->setFile($_FILES['new-image']);
-                                $user->saveUserAndImage();
+                                if (empty($_FILES['new-image'])) {
+                                    $user->save();
+                                } else {
+                                    $user->setFile($_FILES['new-image']);
+                                    $user->saveNewUserData();
+                                }
+                                $user->save();
+                                redirect("users.php?user-edited");
                             }
                         }
                     ?>
                     <div class="row col-md-6">
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>
-                            <a href="#" class="img-responsive"><img class="user-image" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>" class="img-responsive"></a>
+                            <img class="user-image img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>">
                         </div>
                     </div>
                     <form class="form-group" method="post" action="" enctype="multipart/form-data">
@@ -74,11 +82,15 @@
                                     <input type="text" name="last-name" class="form-control" value="<?php echo $user->user_lname; ?>"></label>
                             </div>
                             <div class="form-group">
-                                <label for="password">Edit Password
-                                    <input type="password" name="password" class="form-control" value="<?php echo $user->user_password; ?>"></label>
+                                <label for="password">Current Password</label>
+                                <input type="password" name="password" class="form-control" value="<?php echo $user->user_password; ?>">
                             </div>
-                            <div class="info-box-update pull-right ">
-                                <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
+                            <div class="info-box-update">
+                                <?php if (isset($_POST['delete-user'])){
+                                    redirect("includes/delete-user.php?delete-id=$user->id");
+                                }?>
+                                <input type="submit" name="delete-user" value="Delete" class="btn btn-danger btn-lg">
+                                <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg pull-right">
                             </div>
                         </div>
                     </form>

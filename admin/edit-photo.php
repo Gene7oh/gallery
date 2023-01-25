@@ -44,7 +44,7 @@
                                     $photo->caption     = $_POST['caption'];
                                     $photo->alt_text    = $_POST['alt-text'];
                                     $photo->description = $_POST['description'];
-                                    $photo->save();
+                                    $photo->savePhoto();
                                 }
                             }
                         }
