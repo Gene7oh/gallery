@@ -4,8 +4,9 @@
     
     class Db_object
     {
-        public array            $errors            = array();
-        public array            $upload_errors_array = array(
+        /*public string $img_url             = ""; guessing a abstract var will be needed to use the setFile method in child classes.*/
+        public array  $errors              = array();
+        public array  $upload_errors_array = array(
                 UPLOAD_ERR_OK         => "File successfully uploaded",
                 UPLOAD_ERR_INI_SIZE   => "File exceeds max upload file size",
                 UPLOAD_ERR_FORM_SIZE  => "File exceeds max file size",
