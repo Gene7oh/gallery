@@ -53,7 +53,8 @@
                                     $user->saveNewUserData();
                                 }
                                 $user->save();
-                                redirect("users.php?user-edited");
+                                $user->id = $_GET['edit-id'];
+                                redirect("edit-user.php?edit-id=$user->id");
                             }
                         }
                     ?>
