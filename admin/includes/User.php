@@ -30,23 +30,6 @@
             return !empty($result_array) ? array_shift($result_array) : false;
         }  /* End Method */
         
-        /** @noinspection DuplicatedCode */
-        public function setFile($file)
-        {
-            /** @noinspection PhpConditionAlreadyCheckedInspection */
-            if (empty($file) || !$file || !is_array($file)) {
-                $this->errors[] = "No file Uploaded";
-                return false;
-            } elseif ($file['error'] !== 0) {
-                $this->errors[] = $this->upload_errors_array[$file['error']];
-            } else {
-                $this->user_image = basename($file['name']);
-                $this->tmp_path   = $file['tmp_name'];
-                $this->type       = $file['type'];
-                $this->size       = $file['size'];
-            }
-            
-        }  /* End Method */
         
         public function saveNewUserData()
         {

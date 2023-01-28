@@ -28,8 +28,11 @@
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
                         </li>
-                        <li class="active">
+                        <li class="">
                             <i class="fa fa-file"></i> Blank Page
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-comment"></i> <a href="../photo.php"> Comments Home Page</a>
                         </li>
                     </ol>
                 </div>
