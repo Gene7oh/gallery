@@ -91,13 +91,11 @@
         <!-- Comment -->
     </div>
     <!-- End Nested Comment -->
-</div>
-</div>
-</div>
 <!-- Blog Sidebar Widgets Column -->
 <div class="col-md-4">
     <?php
         include("includes/sidebar.php"); ?>
+</div>
 </div>
 <!-- /.row -->
 <?php
