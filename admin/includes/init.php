@@ -10,3 +10,4 @@
     require_once "User.php";
     require_once "Photo.php";
     require_once "Session.php";
+    require_once "Comment.php";

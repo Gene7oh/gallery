@@ -29,6 +29,17 @@
                         Gallery Photo
                         <small>Display Page </small>
                     </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
+                        </li>
+                        <li class="">
+                            <i class="fa fa-file"></i> Blank Page
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-comment"></i> <a href="../photo-comments.php"> Comments Front End</a>
+                        </li>
+                    </ol>
                     <?php
                         if (isset($_GET['delete-success'])) {
                             echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
@@ -61,7 +72,7 @@
                                             <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
                                             <div class="action-links">
                                                 <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage</a><br>
-                                                <a href="">View</a>
+                                                <a href="../photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">View</a>
                                             </div>
                                         </td>
                                         <td><?php echo $photo->id; ?>  </td>

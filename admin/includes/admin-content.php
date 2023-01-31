@@ -17,8 +17,9 @@
                 #↓↓ start pre element styled code ↓↓.
                     ## code here
                 $user = new User();
+                $photo = new Photo();
                 echo $user->placeholderOrImage() . "<br>";
-                echo SITE_ROOT;
+                echo  INCLUDES_PATH. DS.$photo->picturePath();;
                 echo "<br>";
                 #↑↑ end pre element styled code ↑↑
                 echo "</pre>"; /*end tag info display */

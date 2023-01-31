@@ -24,6 +24,9 @@
                         Comments Page
                         <small>Subheading</small>
                     </h1>
+                    <div class="col-md-12">
+                        <h3>Table and content here</h3>
+                    </div>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
@@ -31,9 +34,10 @@
                         <li class="">
                             <i class="fa fa-file"></i> Blank Page
                         </li>
+                        <!--
                         <li class="active">
-                            <i class="fa fa-comment"></i> <a href="../photo.php"> Comments Home Page</a>
-                        </li>
+                            <i class="fa fa-comment"></i> <a href="../photo-comments.php"> Comments Front End</a>
+                        </li>-->
                     </ol>
                 </div>
             </div>
