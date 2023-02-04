@@ -48,6 +48,9 @@
                         if (isset($_GET['no-photo'])) {
                             echo "<warning style='color: darkred'>Something went Wrong!</warning>";
                         }
+                        if (isset($_GET['no-comment'])) {
+                            echo "<warning style='color: darkred'>No Comment Results!</warning>";
+                        }
                     ?>
                     <div class="col-md-12 ">
                         <table class="table table-hover">
@@ -71,8 +74,9 @@
                                             <!-- https://via.placeholder.com/175x125 -->
                                             <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
                                             <div class="action-links">
-                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage</a><br>
-                                                <a href="../photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">View</a>
+                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage image</a><br>
+                                                <a href="../photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">View or Comment</a><br>
+                                                <a href="comment-photo.php?view-comment-id=<?php echo $photo->id; ?>">View Comments</a>
                                             </div>
                                         </td>
                                         <td><?php echo $photo->id; ?>  </td>

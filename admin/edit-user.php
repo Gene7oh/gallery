@@ -68,7 +68,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="new-image">Upload New Image
-                                <input type="file" name="new-image"></label>
+                                    <input type="file" name="new-image"></label>
                             </div>
                             <div class="form-group">
                                 <label for="username">Username
@@ -84,15 +84,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Current Password
-                                <input type="password" class="form-control" name="password" value="<?php echo $user->user_password; ?>"></label>
+                                    <input type="password" class="form-control" name="password" value="<?php echo $user->user_password; ?>"></label>
                             </div>
-                                <div class="info-box-update">
-                                    <?php if (isset($_POST['delete-user'])){
-                                        redirect("includes/delete-user.php?delete-id=$user->id");
-                                    }?>
-                                    <input type="submit" name="delete-user" value="Delete" class="btn btn-danger btn-lg">
-                                    <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg pull-right">
-                                </div>
+                            <div class="info-box-update">
+                                <?php if (isset($_POST['delete-user'])) {
+                                    redirect("includes/delete-user.php?delete-id=$user->id");
+                                } ?>
+                                <input type="submit" name="delete-user" value="Delete" class="btn btn-danger btn-lg">
+                                <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg pull-right">
+                            </div>
                         </div>
                     </form>
                 </div>

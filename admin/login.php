@@ -26,7 +26,7 @@
     }*/
     if (isset($_GET['logout_success'])) {
         $status_message = "Log Out Successful";
-        refresh(3, 'index.php');
+        refresh(3, '../index.php');
     }
 ?>
 <div class="col-md-4 col-md-offset-3">

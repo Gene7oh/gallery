@@ -25,12 +25,12 @@
         <!--<img class="img-responsive" src="https://via.placeholder.com/900x300?text=Large Image" alt="">-->
         <hr>
         <!-- Post Content -->
-        <p class="lead"><?php echo $photo->description; ?></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim,
+        <p class="lead-important"><?php echo $photo->description; ?></p>
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim,
             iure!</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui,
-            necessitatibus, est!</p>
+            necessitatibus, est!</p>-->
         <hr>
         <!-- Blog Comments -->
         <!-- Comments Form -->
@@ -74,28 +74,25 @@
         <?php foreach ($comments as $comment) : ?>
             <div class="media">
                 <a class="pull-left" href="#">
-                    <img class="media-object user-image" src="<?php echo "admin/images" . DS . $photo->filename; ?>" alt=""><!--
+                    <img class="media-object" style="width: 87px !important;" src="<?php echo "admin/images" . DS . $photo->filename; ?>" alt=""><!--
                 <img class="media-object" src="https://via.placeholder.com/80x80?text=thumbnail" alt="">-->
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">Posted by: <?php echo $comment->author; ?>
                         <small>April 19th at 11:30 AM</small>
                     </h4>
-                    <?php echo $comment->body; ?>
-                    <!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate
-                    fringilla. Donec lacinia congue felis in faucibus.-->
+                    <?php echo $comment->body; ?> <a href="#">Edit <i class="fa fa-edit"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>
         <!-- Comment -->
     </div>
     <!-- End Nested Comment -->
-<!-- Blog Sidebar Widgets Column -->
-<div class="col-md-4">
-    <?php
-        include("includes/sidebar.php"); ?>
-</div>
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <?php
+            include("includes/sidebar.php"); ?>
+    </div>
 </div>
 <!-- /.row -->
 <?php

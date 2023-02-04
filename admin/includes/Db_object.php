@@ -5,8 +5,8 @@
     class Db_object
     {
         /*public string $img_url             = ""; guessing a abstract var will be needed to use the setFile method in child classes.*/
-        public array  $errors              = array();
-        public array  $upload_errors_array = array(
+        public array $errors              = array();
+        public array $upload_errors_array = array(
                 UPLOAD_ERR_OK         => "File successfully uploaded",
                 UPLOAD_ERR_INI_SIZE   => "File exceeds max upload file size",
                 UPLOAD_ERR_FORM_SIZE  => "File exceeds max file size",
@@ -16,31 +16,11 @@
                 UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
                 UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
         );
-        /** @noinspection DuplicatedCode
-         * @noinspection PhpDynamicFieldDeclarationInspection
-         */
-        public function setFile($file)
-        {
-            /** @noinspection PhpConditionAlreadyCheckedInspection */
-            if (empty($file) || !$file || !is_array($file)) {
-                $this->errors[] = "No file Uploaded";
-                return false;
-            } elseif ($file['error'] !== 0) {
-                $this->errors[] = $this->upload_errors_array[$file['error']];
-            } else {
-                $this->user_image = basename($file['name']);
-                $this->tmp_path   = $file['tmp_name'];
-                $this->type       = $file['type'];
-                $this->size       = $file['size'];
-            }
         
-        }  /* End Method */
-        
-        public static function findAll(): array
+                public static function findAll(): array
         {
             return static::findByQuery("SELECT * FROM " . static::$db_table);
-        }
-        
+        }  /* End Method */
         
         public static function findByQuery($sql): array
         {
@@ -66,13 +46,11 @@
             return $the_object;
         }
         
-        
         private function hasAttribute($the_attribute)
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);
         }
-        
         
         public static function findById($id)
         {
@@ -81,6 +59,25 @@
             return !empty($id_array) ? array_shift($id_array) : false;
         }
         
+/** @noinspection DuplicatedCode
+         * @noinspection PhpDynamicFieldDeclarationInspection
+         */
+        public function setFile($file)
+        {
+            /** @noinspection PhpConditionAlreadyCheckedInspection */
+            if (empty($file) || !$file || !is_array($file)) {
+                $this->errors[] = "No file Uploaded";
+                return false;
+            } elseif ($file['error'] !== 0) {
+                $this->errors[] = $this->upload_errors_array[$file['error']];
+            } else {
+                $this->user_image = basename($file['name']);
+                $this->tmp_path   = $file['tmp_name'];
+                $this->type       = $file['type'];
+                $this->size       = $file['size'];
+            }
+            
+        }
         
         public function save()
         {

@@ -4,6 +4,10 @@
     if (!$session->isSignedIn()) {
         redirect("login.php");
     }
+    if (empty($_GET['view-comment-id'])) {
+        redirect("photos.php");
+    }
+    $comments = Comment::findComments($_GET['view-comment-id']);
 ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,39 +35,34 @@
                     </h1>
                     <div class="col-md-12">
                         <?php
-                            if (isset($_GET['comment-delete-success'])) {
-                                echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
-                                refresh(3, "comments.php");
-                            }
-                            if (isset($_GET['no-comment'])) {
-                                echo "<warning style='color: darkred'>Something went Wrong!</warning>";
-                            }
+                        
                         ?>
                         <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <!--<th>Photo ID</th>-->
+                                <th>Photo</th>
                                 <th>Author</th>
                                 <th>Comment Body</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                                $comments = Comment::findAll();
-                                foreach ($comments as $comment) : ?>
-                                    <tr>
-                                        <td><?php echo $comment->id; ?></td>
-                                        <!-- <td><?php /*echo $comment->photo_id; */ ?></td>-->
-                                        <!--                                        <td><img class="user-image" src="--><?php //echo $comment->placeholderOrImage() ?><!--" alt=""></td>-->
-                                        <td><?php echo $comment->author; ?>
-                                            <!--                                            <img class="admin-thumb" src="--><?php //echo $comment->picturePath(); ?><!--" alt="--><?php //echo $comment->alt_text; ?><!--">-->
-                                            <div class="action-links">
-                                                <a href="includes/delete-comment.php?delete-comment-id=<?php echo $comment->id; ?>">Delete <i class="fa fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                        <td><?php echo $comment->body ?></td>
-                                    </tr>
+                            <?php foreach ($comments as $comment) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $comment->id; ?>
+                                </td>
+                                <td>
+                                    <?php echo $comment->photo_id; ?>
+                                    <!--                                    <img class="user-image" src="---><?php //echo  $image_path ;?><!--" alt="">-->
+                                </td>
+                                <td>
+                                    <?php echo $comment->author; ?>
+                                </td>
+                                <td>
+                                    <?php echo $comment->body ?>
+                                </td>
+                            </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>

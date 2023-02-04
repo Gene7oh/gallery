@@ -9,13 +9,14 @@
     border-radius: 22px;
     box-shadow: 6px 3px 4px 2px darkgray;
     }
-.action-links {
-    color: darkred;
+
+.image-large {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 12px 6px 8px 4px darkgray;
     }
 
-.action-links .a:hover {
-    color: darkred !important;
-    }
+
 /* **************************Edit-Photo.php col-sm-4 ************/
 .photo-info-box {
     border: 1px solid #e5e5e5;
