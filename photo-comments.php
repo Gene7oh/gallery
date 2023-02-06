@@ -74,8 +74,7 @@
         <?php foreach ($comments as $comment) : ?>
             <div class="media">
                 <a class="pull-left" href="#">
-                    <img class="media-object" style="width: 87px !important;" src="<?php echo "admin/images" . DS . $photo->filename; ?>" alt=""><!--
-                <img class="media-object" src="https://via.placeholder.com/80x80?text=thumbnail" alt="">-->
+                    <img class="media-object" style="width: 87px !important;" src="<?php echo "admin/images" . DS . $photo->filename; ?>" alt="">
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">Posted by: <?php echo $comment->author; ?>

@@ -49,47 +49,57 @@
                             echo "<warning style='color: darkred'>Something went Wrong!</warning>";
                         }
                         if (isset($_GET['no-comment'])) {
-                            echo "<warning style='color: darkred'>No Comment Results!</warning>";
+                            echo "<warning style='color: darkred'>No Comment Results<small> for the selected photo</small>!</warning>";
                         }
                     ?>
-                    <div class="col-md-12 ">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Photo</th>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Filename</th>
-                                <th>Type</th>
-                                <th>Size</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                $photos = Photo::findAll();
-                                foreach ($photos as $photo) : ?>
-                                    <tr>
-                                        <td>
-                                            <!-- https://via.placeholder.com/175x125 -->
-                                            <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
-                                            <div class="action-links">
-                                                <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage image</a><br>
-                                                <a href="../photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">View or Comment</a><br>
-                                                <a href="comment-photo.php?view-comment-id=<?php echo $photo->id; ?>">View Comments</a>
-                                            </div>
-                                        </td>
-                                        <td><?php echo $photo->id; ?>  </td>
-                                        <td><?php echo $photo->title; ?></td>
-                                        <td><?php echo substr($photo->description, -90) . " ...<a href='#'>More</a>"; ?></td>
-                                        <td><?php echo $photo->filename; ?></td>
-                                        <td><?php echo $photo->type; ?></td>
-                                        <td><?php echo $photo->size; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Filename</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Comments</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $photos = Photo::findAll();
+                            foreach ($photos as $photo) : ?>
+                                <tr>
+                                    <td>
+                                        <!-- https://via.placeholder.com/175x125 -->
+                                        <img class="admin-thumb" src="<?php echo $photo->picturePath(); ?>" alt="<?php echo $photo->alt_text; ?>">
+                                        <div class="action-links">
+                                            <a href="edit-photo.php?edit-id=<?php echo $photo->id; ?>">Manage image</a><br>
+                                            <a href="../photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">View or Comment</a><br>
+                                            <!--<a href="comment-photo.php?view-comment-id=<?php /*echo $photo->id; */ ?>">View Comments</a>-->
+                                        </div>
+                                    </td>
+                                    <td><?php echo $photo->id; ?>  </td>
+                                    <td><?php echo $photo->title; ?></td>
+                                    <td><?php echo substr($photo->description, -90) . " ...<a href='#'>More</a>"; ?></td>
+                                    <td><?php echo $photo->filename; ?></td>
+                                    <td><?php echo $photo->type; ?></td>
+                                    <td><?php echo $photo->size; ?></td>
+                                    <td>
+                                        <a href="comment-photo.php?view-comment-id=<?php echo $photo->id; ?>">
+                                            <?php
+                                                $comments = Comment::findComments($photo->id);
+                                                $count    = count($comments);
+                                                if ($count == 0){
+                                                    $count = "No Comments";
+                                                } else $count = $count;
+                                            ?><?php echo $count; ?>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!-- /.row -->

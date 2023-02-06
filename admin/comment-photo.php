@@ -35,7 +35,12 @@
                     </h1>
                     <div class="col-md-12">
                         <?php
-                        
+                            if (isset($_GET['del-comm-success'])){
+                                echo "<info class='bg-success'>Comment Successfully Deleted</info>";
+                            }
+                            foreach ($comments as $comment) {
+                                $img_path = "images" . DS . $comment->photo_id;
+                            }
                         ?>
                         <table class="table table-hover">
                             <thead>
@@ -48,22 +53,37 @@
                             </thead>
                             <tbody>
                             <?php foreach ($comments as $comment) : ?>
-                            <tr>
-                                <td>
-                                    <?php echo $comment->id; ?>
-                                </td>
-                                <td>
-                                    <?php echo $comment->photo_id; ?>
-                                    <!--                                    <img class="user-image" src="---><?php //echo  $image_path ;?><!--" alt="">-->
-                                </td>
-                                <td>
-                                    <?php echo $comment->author; ?>
-                                </td>
-                                <td>
-                                    <?php echo $comment->body ?>
-                                </td>
-                            </tr>
-                                <?php endforeach; ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $comment->id; ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                            $photo = Photo::findById($comment->photo_id);
+                                            if ($photo) {
+                                                $img_path = "images" . DS . $photo->filename;
+                                            } else {
+                                                $img_path = "";
+                                            }
+                                        ?>
+                                        <?php echo "Photo ID " . $comment->photo_id; ?>
+                                        <img style="width: 87px !important;" class="img-thumbnail" src="<?php echo $img_path; ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <?php echo $comment->author; ?>
+                                        <br>
+                                        <a href="includes/comment-delete-photo.php?comment-delete-id=<?php echo $comment->id; ?>">Delete <i class="fa fa-trash"></i></a>
+                                        <?php
+                                            if (isset($_GET['comment-delete-id'])){
+                                            redirect("includes/comment-delete-photo.php?comment-delete=$comment->id");
+                                            }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $comment->body ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
