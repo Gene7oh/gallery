@@ -1,3 +1,4 @@
+
 <footer class="modal-footer" style="color: antiquewhite">
     <h3 style="color: lightblue;">Footer Stuff</h3>
 </footer>
