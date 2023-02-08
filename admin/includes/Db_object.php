@@ -17,7 +17,7 @@
                 UPLOAD_ERR_EXTENSION  => "A PHP extension stopped the file upload"
         );
         
-                public static function findAll(): array
+        public static function findAll(): array
         {
             return static::findByQuery("SELECT * FROM " . static::$db_table);
         }  /* End Method */
@@ -59,7 +59,16 @@
             return !empty($id_array) ? array_shift($id_array) : false;
         }
         
-/** @noinspection DuplicatedCode
+        public static function countAll()
+        {
+            global $database;
+            $sql = "SELECT COUNT(*) FROM " . static::$db_table;
+            $result_set = $database->query($sql);
+            $row = mysqli_fetch_array($result_set);
+            return array_shift($row);
+        }
+        
+        /** @noinspection DuplicatedCode
          * @noinspection PhpDynamicFieldDeclarationInspection
          */
         public function setFile($file)
@@ -107,7 +116,6 @@
             }
         }
         
-        
         protected function cleanProperties(): array
         {
             global $database;
@@ -117,7 +125,6 @@
             }
             return $cleaned_properties;
         }
-        
         
         protected function properties(): array
         {

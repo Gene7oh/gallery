@@ -4,13 +4,24 @@
     {
         public int    $id;
         public string $message;
+        public int    $count;
         private bool  $signed_in = false;
         
         function __construct()
         {
             session_start();
+            $this->visitorCount();
             $this->checkLogin();
             $this->checkMessage();
+        }
+        
+        public function visitorCount()
+        {
+            if (isset($_SESSION['count'])) {
+                return $this->count = $_SESSION['count']++;
+            } else {
+                return $_SESSION['count'] = 1;
+            }
         }
         
         private function checkLogin()
@@ -56,7 +67,7 @@
                 $this->signed_in = true;
             }
         }
-    
+        
         public function logout()
         {
             unset($this->id);
