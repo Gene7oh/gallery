@@ -1,30 +1,40 @@
-
 <footer class="modal-footer" style="color: antiquewhite">
     <h3 style="color: lightblue;">Footer Stuff</h3>
 </footer>
 </div>
 <!-- /#wrapper -->
-
-  <!--  /* ↓↓ Pie chart script */   -->
+<!--  /* ↓↓ Pie chart script */   -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     
     function drawChart() {
         
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Work',     11],
-            ['Eat',      2],
-            ['Commute',  2],
-            ['Watch TV', 2],
-            ['Sleep',    7]
+            ['Session Views',     <?php echo $session->count;?>],
+            ['Comment Count', <?php echo Comment::countAll();?>],
+            ['User Count',  <?php echo User::countAll();?>],
+            ['Photo Count',      <?php echo Photo::countAll();?>],
         ]);
         
         var options = {
-            title: 'Gallery Total Activities',
-            /*is3D: true,*/
+            title: 'Total Gallery Activities',
+            pieSliceText: 'percent',
+            /*legend: {
+                position: 'right'
+        },*/
+            backgroundColor: 'transparent',
+            slices: {
+                // 1: {offset: 0.08},
+                2: {offset: 0.07},
+                // 3: {offset: 0.1},
+            },
+            titleTextStyle: {
+                color: 'darkred',
+                fontSize: 20
+            }
         };
         
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
