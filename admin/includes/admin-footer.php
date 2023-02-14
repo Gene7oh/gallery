@@ -1,5 +1,20 @@
 <footer class="modal-footer" style="color: antiquewhite">
-    <h3 style="color: lightblue;">Footer Stuff</h3>
+    <h3 class="lead" style="color: lightblue;">Footer Stuff</h3>
+    <div class="row">
+        <div class="col-lg-4">
+            <p class="lead">Copyright &copy; Your Website 2014</p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <p class="lead">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <p class="lead">Copyright &copy; Your Website 2023</p>
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
 </footer>
 </div>
 <!-- /#wrapper -->
@@ -13,15 +28,15 @@
         
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['Session Views',     <?php echo $session->count;?>],
-            ['Comment Count', <?php echo Comment::countAll();?>],
-            ['User Count',  <?php echo User::countAll();?>],
-            ['Photo Count',      <?php echo Photo::countAll();?>],
+            ['Session Views',  <?php echo $session->count;?>],
+            ['Comment Count',  <?php echo Comment::countAll();?>],
+            ['User Count',     <?php echo User::countAll();?>],
+            ['Photo Count',    <?php echo Photo::countAll();?>],
         ]);
         
         var options = {
             title: 'Total Gallery Activities',
-            pieSliceText: 'percent',
+            pieSliceText: 'label',
             /*legend: {
                 position: 'right'
         },*/

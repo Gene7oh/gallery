@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Gallery
-                        <small>Admin Page</small>
+                        Gallery <br>
+                        <small>Admin Dashboard</small>
                     </h1>
                     <?php include "includes/admin-content.php"; ?>
                 </div>

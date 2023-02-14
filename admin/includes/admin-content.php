@@ -94,5 +94,7 @@
         </div>
     </div>
 </div>
-        <div class="col-md-8" id="piechart" style=" width: 800px; height: 500px;"></div>
+<div class="row">
+    <div class="col-md-6 col-xs-offset-2" id="piechart" style=" width: 800px; height: 500px;"></div>
+</div>
 <!--First Row-->
