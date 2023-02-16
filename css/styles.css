@@ -1,6 +1,7 @@
 
 .image-front-end {
     width: 250px;
-    border-radius: 30px !important;
+    height: 150px;
+    border-radius: 12px !important;
     box-shadow: 8px 4px 4px 2px darkgray !important;
     }

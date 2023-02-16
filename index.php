@@ -10,7 +10,7 @@
             <?php foreach ($photos as $photo) : ?>
                 <div class="col-xs-8 col-md-3">
                     <a class="" href="#">
-                        <img class="img-responsive image-front-end" src="<?php echo 'admin/' . $photo->picturePath(); ?>" alt="image of <?php echo $photo->title; ?>">
+                        <img class="thumbnail image-front-end img-responsive" src="<?php echo 'admin/' . $photo->picturePath(); ?>" alt="image of <?php echo $photo->title; ?>">
                     </a>
                 </div>
             <?php endforeach; ?>
