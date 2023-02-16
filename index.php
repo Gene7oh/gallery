@@ -9,7 +9,7 @@
         <div class=" row">
             <?php foreach ($photos as $photo) : ?>
                 <div class="col-xs-8 col-md-3">
-                    <a class="" href="#">
+                    <a class="" href="photo-comments.php?view-photo-id=<?php echo $photo->id; ?>">
                         <img class="thumbnail image-front-end img-responsive" src="<?php echo 'admin/' . $photo->picturePath(); ?>" alt="image of <?php echo $photo->title; ?>">
                     </a>
                 </div>
