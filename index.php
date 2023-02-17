@@ -1,11 +1,12 @@
 <?php
     include("includes/header.php");
-    $photos = Photo::findAll();
+    $photos  = Photo::findAll();
+    $comment = new Comment();
 ?>
 <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-md-12">
-        <h1 class="lead">8 Grid Column.</h1>
+        <h1 class="lead">12 Grid Framework</h1>
         <div class=" row">
             <?php foreach ($photos as $photo) : ?>
                 <div class="col-xs-8 col-md-3">

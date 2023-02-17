@@ -8,13 +8,13 @@
 ?>
 <div class="row">
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-12">
         <!-- Blog Post -->
         <!-- Title -->
         <h1><?php echo $photo->title; ?></h1>
         <!-- Author -->
         <p class="lead">
-            by <a href="#">Start Bootstrap</a>
+            by <a href="#"> Gene7oh</a>
         </p>
         <hr>
         <!-- Date/Time -->
@@ -82,11 +82,11 @@
         <!-- Comment -->
     </div>
     <!-- End Nested Comment -->
-    <!-- Blog Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <!-- Blog Sidebar Widgets Column --><!--
+    <div class="col-md-4">-->
         <?php
-            include("includes/sidebar.php"); ?>
-    </div>
+           // include("includes/sidebar.php"); ?><!--
+    </div>-->
 </div>
 <!-- /.row -->
 <?php

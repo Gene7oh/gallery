@@ -26,12 +26,12 @@
     }*/
     if (isset($_GET['logout_success'])) {
         $status_message = "Log Out Successful";
-        refresh(3, '../index.php');
+        refresh(3, 'index.php');
     }
 ?>
 <div class="col-md-4 col-md-offset-3">
     <div class="form-group pull-right"><a style="text-decoration: none; color: whitesmoke;" class="navbar-link" href="../index.php">Home Page</a></div>
-    <h4 class="bg-danger"><?php echo $status_message; ?></h4>
+    <h4 class="bg-danger pull-left"><?php echo $status_message; ?></h4>
     <form id="login-id" action="" method="post">
         <div style="color: whitesmoke !important;" class="form-group">
             <label for="username">Username</label>
