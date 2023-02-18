@@ -25,7 +25,8 @@
         <!--<img class="img-responsive" src="https://via.placeholder.com/900x300?text=Large Image" alt="">-->
         <hr>
         <!-- Post Content -->
-        <p class="lead"><?php echo $photo->description; ?></p>
+        <p class="lead"><?php echo $photo->caption; ?></p>
+        <p class=""><?php echo $photo->description; ?></p>
         <hr>
         <!-- Blog Comments -->
         <!-- Comments Form -->
