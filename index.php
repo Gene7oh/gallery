@@ -1,7 +1,15 @@
 <?php
     include("includes/header.php");
-    $photos  = Photo::findAll();
+//    $photos  = Photo::findAll();
     $comment = new Comment();
+    $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+    $items_per_page = 8;
+    $total_item_count = Photo::countAll();
+    $paginate = new Pagination($page, $items_per_page, $total_item_count);
+    $sql = "SELECT * FROM photos ";
+    $sql .=" LIMIT {$items_per_page} ";
+    $sql .= "OFFSET {$paginate->offset()} ";
+    $photos = Photo::findByQuery($sql)
 ?>
 <div class="row">
     <!-- Blog Entries Column -->
@@ -15,6 +23,10 @@
                     </a>
                 </div>
             <?php endforeach; ?>
+        </div>
+        <div class="col-xs-12 text-center">
+            <a href="" class="pagination"> < previous</a>
+            <a href="" class="pagination"> next ></a>
         </div>
     </div>
     <!-- Blog Sidebar Widgets Column -->
