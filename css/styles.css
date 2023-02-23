@@ -5,29 +5,8 @@
     box-shadow: 4px 2px 2px 1px darkgray !important;
     }
 
-.comment-count {
-    background: transparent;
-    font-size: 12px;
-    color: orangered !important;
-    /*<div style="margin-top: -50px;margin-left: 30px">
-    <p class="comment-count">the number of comments</p>
-    </div>*/
-    /*TODO implement above style with below code to create floating comment count*/
-    /*
-                    <p>
-                        <?php $find_comment = $comment::findComments($photo->id);
-                       foreach ($find_comment as $comment_found){
-                           echo $comment_found->id;
-                       }
-                    ?>
-                    </p>*/
-    /*
-                        <?php
-                            $sql = "SELECT * FROM comments WHERE photo_id = $photo->id";
-                            $find_comments = $comment::findByQuery($sql);
-                            foreach ($find_comments as $comment_found) {
-                                echo mysqli_num_rows($comment_found);
-                            }
-                        ?>
-                       */
+/******Pagination**********/
+.pager .active a {
+    background-color: darkgray !important;
+    color: whitesmoke !important;
     }

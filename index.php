@@ -24,16 +24,23 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="row">
-                <ul class="pager">
+        <div class="row text-center">
+                <ul class="pagination">
                     <?php
                         if ($paginate->pageTotal() > 1) {
                             if ($paginate->hasNext()){
                                 echo "<li class='next'><a href='index.php?page={$paginate->next()}' >Next</a></li>";
                             }
-                        }
-                        if ($paginate->hasPrevious()){
-                            echo "<li class='previous'><a href='index.php?page={$paginate->previous()}' >Previous</a></li>";
+                            for ($i = 1; $i <= $paginate->pageTotal(); $i++){
+                                if ($i == $paginate->current_page){
+                                    echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='index.php?page={$i}'>{$i}</a></li>";
+                                } else {
+                                    echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+                                }
+                            }
+                            if ($paginate->hasPrevious()){
+                                echo "<li class='previous'><a href='index.php?page={$paginate->previous()}' >Previous</a></li>";
+                            }
                         }
                     ?>
                 </ul>
@@ -48,5 +55,3 @@
 </div>
 <?php
     include("includes/footer.php"); ?>
-    
-
