@@ -1,7 +1,4 @@
-
-        <hr>
-
-        <!-- Footer -->
+<!-- Footer -->
         <footer>
             <div class="row text-center">
                 <div class="col-lg-4">

@@ -3,7 +3,7 @@
     //    $photos  = Photo::findAll();
     $comment           = new Comment();
     $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
-    $items_per_page    = 4;
+    $items_per_page    = 8;
     $total_items_count = Photo::countAll();
     $paginate          = new Pagination($page, $items_per_page, $total_items_count);
     $sql               = "SELECT * FROM photos ";
@@ -14,7 +14,7 @@
 <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-md-12">
-        <h1 class="lead">12 Grid Framework</h1>
+        <h1 class="lead">Complete Photo Gallery</h1>
         <div class=" row">
             <?php foreach ($photos as $photo) : ?>
                 <div class="col-xs-8 col-md-3">
@@ -35,7 +35,7 @@
                                 if ($i == $paginate->current_page){
                                     echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='index.php?page={$i}'>{$i}</a></li>";
                                 } else {
-                                    echo "<li><a href='index.php?page={$i}'>{$i}</a></li>";
+                                    echo "<li><a style='' href='index.php?page=$i'>$i</a></li>";
                                 }
                             }
                             if ($paginate->hasPrevious()){

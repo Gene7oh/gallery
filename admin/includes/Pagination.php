@@ -27,10 +27,12 @@
         {
             return ceil($this->total_items_count / $this->items_per_page);
         }
-        public function hasPrevious(){
+        public function hasPrevious(): bool
+        {
             return $this->previous() >= 1;
         }
-        public function hasNext(){
+        public function hasNext(): bool
+        {
             return $this->next() <= $this->pageTotal();
         }
         public function offset(){

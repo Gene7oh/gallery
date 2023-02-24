@@ -30,7 +30,7 @@
     }
 ?>
 <div class="col-md-4 col-md-offset-3">
-    <div class="form-group pull-right"><a style="text-decoration: none; color: whitesmoke;" class="navbar-link" href="../index.php">Home Page</a></div>
+    <div class="form-group pull-right"><a style="text-decoration: none; color: whitesmoke;" class="navbar-link" href="../index.php">Home</a></div>
     <h4 class="bg-danger pull-left"><?php echo $status_message; ?></h4>
     <form id="login-id" action="" method="post">
         <div style="color: whitesmoke !important;" class="form-group">

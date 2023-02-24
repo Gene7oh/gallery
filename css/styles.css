@@ -6,7 +6,7 @@
     }
 
 /******Pagination**********/
-.pager .active a {
+.pagination .active a {
     background-color: darkgray !important;
     color: whitesmoke !important;
     }
