@@ -23,7 +23,10 @@
                 return $_SESSION['count'] = 1;
             }
         }
-        
+        public function resetCount(): int
+        {
+            return $this->count = $_SESSION['count'] = 0;
+        }
         private function checkLogin()
         {
             if (isset($_SESSION['id'])) {

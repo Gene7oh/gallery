@@ -40,6 +40,7 @@
                             <i class="fa fa-comment"></i> <a href="../photo-comments.php"> Comments Front End</a>
                         </li>
                     </ol>
+                    Add Pagination
                     <?php
                         if (isset($_GET['delete-success'])) {
                             echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";

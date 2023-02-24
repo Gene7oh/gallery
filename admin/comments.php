@@ -26,9 +26,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                       View All <br>
-                        <small>comments page</small>
+                      All Comments
                     </h1>
+                    Add Pagination
                     <div class="col-md-12">
                         <?php
                             if (isset($_GET['comment-delete-success'])) {

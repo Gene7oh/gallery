@@ -30,6 +30,7 @@
                         Gallery user
                         <small>Display Page </small>
                     </h1>
+                    Add Pagination
                     <?php
                           /*  Fetch get requests code TODO add all to switch statement */
                         if (isset($_GET['query-error'])) {
