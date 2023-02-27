@@ -6,6 +6,7 @@
         public string $message;
         public int    $count;
         private bool  $signed_in = false;
+        //ToDo set user properties to Session class to display custom per user dynamic data.
         
         function __construct()
         {
