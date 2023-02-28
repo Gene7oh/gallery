@@ -6,9 +6,10 @@
     $items_per_page    = 8;
     $total_items_count = Photo::countAll();
     $paginate          = new Pagination($page, $items_per_page, $total_items_count);
-    $sql               = "SELECT * FROM photos ";
-    $sql               .= "LIMIT $items_per_page ";
-    $sql               .= "OFFSET {$paginate->offset()} ";
+    /** @noinspection SqlResolve */
+            $sql = "SELECT * FROM photos ";
+            $sql .= "LIMIT $items_per_page ";
+            $sql .= "OFFSET {$paginate->offset()} ";
     $photos            = Photo::findByQuery($sql)
 ?>
 <div class="row">

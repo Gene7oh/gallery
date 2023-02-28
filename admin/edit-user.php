@@ -28,7 +28,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Gallery
-                        <small>Edit User Page</small>
+                        <small>User Page</small>
                     </h1>
                     <?php
                         /*<!-- ↓↓ STOP THE NAGS ↓↓ -->*/
@@ -57,11 +57,12 @@
                                 redirect("edit-user.php?edit-id=$user->id");
                             }
                         }
+                        include "includes/photo-library-modal.php";
                     ?>
                     <div class="row col-md-6">
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>
-                            <img class="user-image img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>">
+                            <a href="#" data-toggle="modal" data-target="#photo-modal"><img class="user-image img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>"></a>
                         </div>
                     </div>
                     <form class="form-group" method="post" action="" enctype="multipart/form-data">
