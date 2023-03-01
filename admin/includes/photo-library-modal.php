@@ -7,22 +7,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Gallery System Library</h4>
+        <h4 class="modal-title">Gallery <small>System Library</small></h4>
       </div>
       <div class="modal-body">
           <div class="col-md-9">
-             <div class="thumbnails row">
+             <div class="thumbnail row">
             
                 <!-- PHP LOOP HERE CODE HERE-->
                  <?php foreach ($photos as $photo) : ?>
                <div class="col-xs-2">
                  <a role="checkbox" aria-checked="false" tabindex="0" id="" href="#" class="thumbnail">
-                   <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picturePath(); ?>" data="<!-- PHP LOOP HERE CODE HERE-->">
+                   <img class="modal-thumbnails img-responsive" src="<?php echo $photo->picturePath(); ?>" data="<!-- PHP LOOP HERE CODE HERE-->">
                  </a>
                   <div class="photo-id hidden"></div>
                </div>
                  <?php endforeach; ?>
-                    <!-- PHP LOOP HERE CODE HERE-->
+                    <!-- PHP LOOP ENDS HERE CODE HERE-->
 
              </div>
           </div><!--col-md-9 -->

@@ -1,5 +1,7 @@
 <?php /** @noinspection DuplicatedCode */
-    include("includes/admin-header.php"); ?>
+    include("includes/admin-header.php");
+    include "includes/photo-library-modal.php";
+?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
@@ -56,9 +58,7 @@
                                 $user->id = $_GET['edit-id'];
                                 redirect("edit-user.php?edit-id=$user->id");
                             }
-                        }
-                        include "includes/photo-library-modal.php";
-                    ?>
+                        } ?>
                     <div class="row col-md-6">
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>

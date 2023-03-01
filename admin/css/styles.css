@@ -56,8 +56,6 @@
 
 .modal-dialog {
     width: 90% !important;
-
-
     }
 
 .modal-body {
@@ -66,21 +64,15 @@
     min-height: 300px !important;
     }
 
-.modal_thumbnails {
-
-    width: 150px;
-    height: 100px !important;
+.modal-thumbnails {
+    width: 400px;
+    height: 125px !important;
     }
 
 #set_user_image {
-
     margin: 10px;
-
     }
 
-
 #modal_sidebar {
-
     position: fixed !important;
-
     }
