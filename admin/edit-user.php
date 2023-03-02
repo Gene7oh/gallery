@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>
                             <a href="#" data-toggle="modal" data-target="#photo-modal">
-                                <img class="user-image img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>">
+                                <img class="image-shadow img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>">
                             </a>
                         </div>
                     </div>

@@ -78,7 +78,7 @@
                                 foreach ($users as $user) : ?>
                                     <tr>
                                         <td><?php echo $user->id; ?></td>
-                                        <td><img class="user-image" src="<?php echo $user->placeholderOrImage() ?>" alt=""></td>
+                                        <td><img class="image-shadow" src="<?php echo $user->placeholderOrImage() ?>" alt=""></td>
                                         <td><?php echo $user->username; ?>
                                             <div class="action-links">
                                                 <a href="edit-user.php?edit-id=<?php echo $user->id; ?>">Manage</a>
