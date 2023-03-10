@@ -1,6 +1,5 @@
 <?php /** @noinspection DuplicatedCode */
     include("includes/admin-header.php");
-    include "includes/photo-library-modal.php";
 ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
@@ -33,6 +32,7 @@
                         <small>User Page</small>
                     </h1>
                     <?php
+                        include "includes/photo-library-modal.php";
                         /*<!-- ↓↓ STOP THE NAGS ↓↓ -->*/
                         $user = "";
                         /*<!-- ↑↑ STOP THE NAGS ↑↑ -->*/
@@ -90,10 +90,10 @@
                                     <input type="password" class="form-control" name="password" value="<?php echo $user->user_password; ?>"></label>
                             </div>
                             <div class="info-box-update">
-                                <?php if (isset($_POST['delete-user'])) {
+                                <?php /*if (isset($_POST['delete-user'])) {
                                     redirect("includes/delete-user.php?delete-id=$user->id");
-                                } ?>
-                                <input type="submit" name="delete-user" value="Delete" class="btn btn-danger btn-lg">
+                                } */?>
+                                <a id="find_user_id" href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>" class="btn btn-danger btn-lg">Delete</a>
                                 <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg pull-right">
                             </div>
                         </div>
