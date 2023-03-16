@@ -59,7 +59,7 @@
                                 redirect("edit-user.php?edit-id=$user->id");
                             }
                         } ?>
-                    <div class="row col-md-6">
+                    <div class="row col-md-6 user-image-box">
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>
                             <a href="#" data-toggle="modal" data-target="#photo-modal">
@@ -92,7 +92,7 @@
                             <div class="info-box-update">
                                 <?php /*if (isset($_POST['delete-user'])) {
                                     redirect("includes/delete-user.php?delete-id=$user->id");
-                                } */?>
+                                } */ ?>
                                 <a id="find_user_id" href="includes/delete-user.php?delete-id=<?php echo $user->id; ?>" class="btn btn-danger btn-lg">Delete</a>
                                 <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg pull-right">
                             </div>

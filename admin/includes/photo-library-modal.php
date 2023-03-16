@@ -25,7 +25,8 @@
                     </div>
                 </div><!--col-md-9 -->
                 <div class="col-md-3">
-                    <div id="modal_sidebar"></div>
+                    <div id="modal_sidebar">
+                    </div>
                 </div>
             </div><!--Modal Body-->
             <div class="modal-footer">

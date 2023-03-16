@@ -71,5 +71,15 @@
             }
         }  /* End Method */
         
-        
+        public function ajaxSaveUserImage($user_image, $user_id)
+        {
+            global $database;
+            $user_image       = $database->escapeString($user_image);
+            $user_id          = $database->escapeString($user_id);
+            $this->id         = $user_id;
+            $this->user_image = $user_image;
+            $sql = "UPDATE " . self::$db_table . " SET user_image = '$this->user_image' WHERE id = '$this->id' ";
+            $update_image = $database->query($sql);
+            echo $this->placeholderOrImage();
+        }
     } /* end User class */
