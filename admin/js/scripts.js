@@ -26,7 +26,7 @@ $(document).ready(function () {
             type: "POST",
             success: function (data) {
                 if (!data.error) {
-                $(".user-image-box").prop('src', data);
+                $(".user-image-box a img").prop('src', data);
                 }
             }
         });

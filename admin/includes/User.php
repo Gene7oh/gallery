@@ -57,29 +57,29 @@
             }
         }
         
-        public function placeholderOrImage(): string
-        {
-            return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
-        }
-        
-        public function deleteUser(): bool
+public function deleteUser(): bool
         {
             if ($this->delete()) {
                 return true;
             } else {
                 return false;
             }
-        }  /* End Method */
+        }
         
-        public function ajaxSaveUserImage($user_image, $user_id)
+                public function ajaxSaveUserImage($user_image, $user_id)
         {
             global $database;
             $user_image       = $database->escapeString($user_image);
             $user_id          = $database->escapeString($user_id);
             $this->id         = $user_id;
             $this->user_image = $user_image;
-            $sql = "UPDATE " . self::$db_table . " SET user_image = '$this->user_image' WHERE id = '$this->id' ";
-            $update_image = $database->query($sql);
+            $sql              = "UPDATE " . self::$db_table . " SET user_image = '$this->user_image' WHERE id = '$this->id' ";
+            $update_image     = $database->query($sql);
             echo $this->placeholderOrImage();
+        }  /* End Method */
+        
+        public function placeholderOrImage(): string
+        {
+            return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
         }
     } /* end User class */
