@@ -80,7 +80,7 @@
                             <div class="inside">
                                 <div class="box-inner">
                                     <p class="text">
-                                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
+                                        <span class="glyphicon glyphicon-calendar"></span> <?php echo $photo->date; ?>
                                     </p>
                                     <p class="text ">
                                         Photo Id: <span class="data photo_id_box"><?php echo $photo->id; ?></span>

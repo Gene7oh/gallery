@@ -2,23 +2,40 @@
     
     class Photo extends Db_object
     {
-        protected static string $db_table            = "photos";
-        protected static array  $db_table_fields     = array('title', 'caption', 'description', 'filename', 'alt_text', 'type', 'size');
-        public int              $id                  = 0;
-        public string           $title               = "";
+        protected static string $db_table         = "photos";
+        protected static array  $db_table_fields  = array('title', 'caption', 'description', 'filename', 'alt_text', 'type', 'size', 'date');
+        public int              $id               = 0;
+        public string           $title            = "";
         public                  $caption;
-        public string           $description         = "";
-        public string           $filename            = "";
+        public string           $description      = "";
+        public string           $filename         = "";
         public                  $alt_text;
-        public string           $type                = "";
-        public int              $size                = 0;
+        public string           $type             = "";
+        public int              $size             = 0;
+        public string           $date             = "";
         public string           $tmp_path;
-        public string           $upload_directory    = "images";
-       
+        public string           $upload_directory = "images";
         
+        public static function displaySidebarData($photo_id)
+        {
+            $photo  = Photo::findById($photo_id);
+            $output = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picturePath()}'></a> ";
+            $output .= "Date Uploaded: <span class=' data media-body'> {$photo->date}</span>";
+            $output .= "Image Title: <span class='data media-body'>{$photo->title}</span>";
+            $output .= "Filename: <span class='data media-body'>{$photo->filename}</span> ";
+            $output .= "Image Type: <span class='data media-body'>{$photo->type}</span> ";
+            $output .= "Image Size: <span class='data media-body'>{$photo->size}</span> ";
+            echo $output;
+        }
         // ↓↓ passes the FILES super global ['uploaded_file'] as an argument
         
         /** @noinspection DuplicatedCode */
+        
+        public function picturePath(): string
+        {
+            return $this->upload_directory . DS . $this->filename;
+        }  /* End Method */
+        
         public function setFile($file)
         {
             /** @noinspection PhpConditionAlreadyCheckedInspection */
@@ -34,7 +51,7 @@
                 $this->size     = $file['size'];
             }
             
-        }  /* End Method */
+        }
         
         public function savePhoto()
         {
@@ -64,7 +81,7 @@
                     return false;
                 }
             }
-        }
+        }  /* End Method */
         
         public function deletePhoto(): bool
         {
@@ -77,10 +94,5 @@
             } else {
                 return false;
             }
-        }  /* End Method */
-        
-        public function picturePath(): string
-        {
-            return $this->upload_directory . DS . $this->filename;
         }
     }  /* end of class */

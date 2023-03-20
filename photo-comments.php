@@ -18,7 +18,7 @@
         </p>
         <hr>
         <!-- Date/Time -->
-        <p><span class="glyphicon glyphicon-time"></span> Posted on April 19th at 9:00 AM</p>
+        <p><span class="glyphicon glyphicon-time"></span> <?php echo $photo->date; ?></p>
         <hr>
         <!-- Preview Image -->
         <img class="img-responsive" src="<?php echo "admin" . DS . "images" . DS . $photo->filename; ?>" alt="">

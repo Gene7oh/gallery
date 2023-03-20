@@ -37,6 +37,7 @@
                                 $photo              = new Photo();
                                 $photo->title       = $_POST['title'];
                                 $photo->description = $_POST['description'];
+                                $photo->date = date(myTimeZone());
                                 $photo->setFile($_FILES['file-upload']);
                                 if ($photo->savePhoto()) {
                                     $msg = "Photo uploaded Successfully";
