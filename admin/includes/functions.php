@@ -9,14 +9,14 @@
      * die("File $class not found! It was either deleted, renamed, or moved");
      * }
      * }*/
-    function myTimeZone(): string
+    function myTimeZone($time_zone): string
     {
         //	F j, Y, g:i a
         //	D jS \of M y h:i A
         //	g:i a
         //	date("F j, y,");
         //	d/m/y
-        date_default_timezone_set('America/Chicago');
+        date_default_timezone_set($time_zone);
       return "F j, Y, g:i a";
     }
     
