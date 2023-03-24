@@ -41,9 +41,7 @@
                         }
                         $user = User::findById($_GET['edit-id']);
                         if (isset($_POST['update'])) {
-                            if (!$user) {
-                                redirect("users.php?query-error");
-                            } else {
+                            if ($user) {
                                 $user->username      = $_POST['username'];
                                 $user->user_fname    = $_POST['first-name'];
                                 $user->user_lname    = $_POST['last-name'];
@@ -53,12 +51,13 @@
                                 } else {
                                     $user->setFile($_FILES['new-image']);
                                     $user->saveNewUserData();
+                                    $user->save();
+                                    $user->id = $_GET['edit-id'];
+                                    redirect("edit-user.php?edit-id=$user->id");
                                 }
-                                $user->save();
-                                $user->id = $_GET['edit-id'];
-                                redirect("edit-user.php?edit-id=$user->id");
                             }
-                        } ?>
+                        }
+                            ?>
                     <div class="row col-md-6 user-image-box">
                         <div class="form-group">
                             <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title  $user->user_image;" ?></small></label><br>

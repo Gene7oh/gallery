@@ -44,6 +44,7 @@
                           $user->save();
                           } else {
                               $user->setFile($_FILES['user-image']);
+                              $user->saveNewUserData();
                               $user->create();
                           }
                           redirect("users.php?user-added");
