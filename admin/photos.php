@@ -29,18 +29,38 @@
                         Gallery Photo
                         <small>Display Page </small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-comment"></i> <a href="../photo-comments.php"> Comments Front End</a>
-                        </li>
-                    </ol>
-                    Add Pagination
+                    <?php
+                        $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
+                        $items_per_page    = 6;
+                        $total_items_count = Photo::countAll();
+                        $paginate          = new Pagination($page, $items_per_page, $total_items_count);
+                        $sql               = "SELECT * FROM photos ";
+                        $sql               .= "LIMIT $items_per_page ";
+                        $sql               .= "OFFSET {$paginate->offset()} ";
+                        $photos              = Photo::findByQuery($sql);
+                    ?>
+                    <div class="row text-center">
+                        <ul class="pagination">
+                            <?php
+                                /** @noinspection DuplicatedCode */
+                                if ($paginate->pageTotal() > 1) {
+                                    if ($paginate->hasNext()) {
+                                        echo "<li class='next'><a href='photos.php?page={$paginate->next()}' >Next</a></li>";
+                                    }
+                                    for ($i = 1; $i <= $paginate->pageTotal(); $i++) {
+                                        if ($i == $paginate->current_page) {
+                                            echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='photos.php?page={$i}'>{$i}</a></li>";
+                                        } else {
+                                            echo "<li><a style='' href='photos.php?page=$i'>$i</a></li>";
+                                        }
+                                    }
+                                    if ($paginate->hasPrevious()) {
+                                        echo "<li class='previous'><a href='photos.php?page={$paginate->previous()}' >Previous</a></li>";
+                                    }
+                                }
+                            ?>
+                        </ul>
+                    </div>
                     <?php
                         if (isset($_GET['delete-success'])) {
                             echo "<info style='color: darkblue'>Photo Successfully Deleted</info>";
@@ -68,7 +88,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $photos = Photo::findAll();
+//                            $photos = Photo::findAll();
                             foreach ($photos as $photo) : ?>
                                 <tr>
                                     <td>

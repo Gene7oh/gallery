@@ -28,7 +28,39 @@
                     <h1 class="page-header">
                       All Comments
                     </h1>
-                    Add Pagination
+                    <?php
+                        $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
+                        $items_per_page    = 7;
+                        $total_items_count = Comment::countAll();
+                        $paginate          = new Pagination($page, $items_per_page, $total_items_count);
+                        $sql               = "SELECT * FROM comments ";
+                        $sql               .= "LIMIT $items_per_page ";
+                        $sql               .= "OFFSET {$paginate->offset()} ";
+                        $comments              = Comment::findByQuery($sql);
+                    ?>
+                    <div class="row text-center">
+                        <ul class="pagination">
+                            <?php
+                                /** @noinspection DuplicatedCode */
+                                if ($paginate->pageTotal() > 1) {
+                                    if ($paginate->hasNext()) {
+                                        echo "<li class='next'><a href='comments.php?page={$paginate->next()}' >Next</a></li>";
+                                    }
+                                    for ($i = 1; $i <= $paginate->pageTotal(); $i++) {
+                                        if ($i == $paginate->current_page) {
+                                            echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='comments
+                        .php?page={$i}'>{$i}</a></li>";
+                                        } else {
+                                            echo "<li><a style='' href='comments.php?page=$i'>$i</a></li>";
+                                        }
+                                    }
+                                    if ($paginate->hasPrevious()) {
+                                        echo "<li class='previous'><a href='comments.php?page={$paginate->previous()}' >Previous</a></li>";
+                                    }
+                                }
+                            ?>
+                        </ul>
+                    </div>
                     <div class="col-md-12">
                         <?php
                             if (isset($_GET['comment-delete-success'])) {
@@ -50,7 +82,7 @@
                             </thead>
                             <tbody>
                             <?php
-                                $comments = Comment::findAll();
+//                                $comments = Comment::findAll();
                                 foreach ($comments as $comment) : ?>
                                     <tr>
                                         <td><?php echo $comment->id; ?></td>
@@ -68,18 +100,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                        <!--
-                        <li class="active">
-                            <i class="fa fa-comment"></i> <a href="../photo-comments.php"> Comments Front End</a>
-                        </li>-->
-                    </ol>
                 </div>
             </div>
             <!-- /.row -->
