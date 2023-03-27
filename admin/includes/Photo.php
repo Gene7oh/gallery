@@ -19,7 +19,7 @@
         public static function displaySidebarData($photo_id)
         {
             $photo  = Photo::findById($photo_id);
-            $output = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picturePath()}'></a> ";
+            $output = "<a class='thumbnail' href='../photo-comments.php?view-photo-id=$photo->id'><img width='100' src='{$photo->picturePath()}'></a> ";
             $output .= "Date Uploaded: <span class=' data media-body'> {$photo->date}</span>";
             $output .= "Image Title: <span class='data media-body'>{$photo->title}</span>";
             $output .= "Filename: <span class='data media-body'>{$photo->filename}</span> ";

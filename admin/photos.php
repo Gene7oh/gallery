@@ -31,7 +31,7 @@
                     </h1>
                     <?php
                         $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
-                        $items_per_page    = 6;
+                        $items_per_page    = 5;
                         $total_items_count = Photo::countAll();
                         $paginate          = new Pagination($page, $items_per_page, $total_items_count);
                         $sql               = "SELECT * FROM photos ";

@@ -53,8 +53,10 @@
                                     $user->saveNewUserData();
                                     $user->save();
                                     $user->id = $_GET['edit-id'];
-                                    redirect("edit-user.php?edit-id=$user->id");
+                                   /* redirect("edit-user.php?edit-id=$user->id");*/
                                 }
+                                $session->message("Username: $user->username has been updated");
+                                redirect("users.php");
                             }
                         }
                             ?>

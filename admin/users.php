@@ -38,10 +38,10 @@
                         $sql               = "SELECT * FROM users ";
                         $sql               .= "LIMIT $items_per_page ";
                         $sql               .= "OFFSET {$paginate->offset()} ";
-                        $users              = User::findByQuery($sql);
+                        $users             = User::findByQuery($sql);
                     ?>
                     <?php
-                        /*  Fetch get requests code TODO add all to switch statement */
+                        /*  Fetch get requests code TODO replace with appropriate $session->message(); */
                         if (isset($_GET['query-error'])) {
                             $user = "";
                             echo "<warning style='color: darkred'><h4>$user->errors</h4> <br> Possible Database Query Error!</warning>";
@@ -56,11 +56,11 @@
                         if (isset($_GET['delete-error'])) {
                             echo "<warning style='color: darkred'><h4>Something went Wrong!</h4></warning>";
                         }
-                        $user_added = "";
+                        /*$user_added = "";
                         if (isset($_GET['user-added'])) {
                             echo "<info style='color: darkblue'><h4>User Successfully Created</h4></info>";
                             refresh(4, "users.php");
-                        }
+                        }*/
                         if (isset($_GET['user-edited'])) {
                             echo "<info style='color: darkblue'><h4>User Successfully Edited</h4></info>";
                             refresh(4, "users.php");
@@ -70,6 +70,12 @@
                         }
                     ?>
                     <div class="col-md-12 ">
+                        <h4 class="bg-info">
+                            <?php
+                                /** @noinspection PhpUndefinedVariableInspection */
+                                echo $message;
+                                ?>
+                        </h4>
                         <div class="row text-center">
                             <ul class="pagination">
                                 <?php
@@ -105,7 +111,7 @@
                             </thead>
                             <tbody>
                             <?php
-//                                $users = User::findAll();
+                                //                                $users = User::findAll();
                                 foreach ($users as $user) : ?>
                                     <tr>
                                         <td><?php echo $user->id; ?></td>

@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                      All Comments
+                        All Comments
                     </h1>
                     <?php
                         $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
@@ -36,7 +36,7 @@
                         $sql               = "SELECT * FROM comments ";
                         $sql               .= "LIMIT $items_per_page ";
                         $sql               .= "OFFSET {$paginate->offset()} ";
-                        $comments              = Comment::findByQuery($sql);
+                        $comments          = Comment::findByQuery($sql);
                     ?>
                     <div class="row text-center">
                         <ul class="pagination">
@@ -48,8 +48,7 @@
                                     }
                                     for ($i = 1; $i <= $paginate->pageTotal(); $i++) {
                                         if ($i == $paginate->current_page) {
-                                            echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='comments
-                        .php?page={$i}'>{$i}</a></li>";
+                                            echo "<li class=''><a style='background-color: darkgray; color: whitesmoke;' class='page-link' href='comments.php?page={$i}'>{$i}</a></li>";
                                         } else {
                                             echo "<li><a style='' href='comments.php?page=$i'>$i</a></li>";
                                         }
@@ -82,7 +81,7 @@
                             </thead>
                             <tbody>
                             <?php
-//                                $comments = Comment::findAll();
+                                //                                $comments = Comment::findAll();
                                 foreach ($comments as $comment) : ?>
                                     <tr>
                                         <td><?php echo $comment->id; ?></td>

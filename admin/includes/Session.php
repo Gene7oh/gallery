@@ -6,6 +6,7 @@
         public string $message;
         public int    $count;
         private bool  $signed_in = false;
+        
         //ToDo set user properties to Session class to display custom per user dynamic data.
         
         function __construct()
@@ -24,10 +25,7 @@
                 return $_SESSION['count'] = 1;
             }
         }
-        public function resetCount(): int
-        {
-            return $this->count = $_SESSION['count'] = 0;
-        }
+        
         private function checkLogin()
         {
             if (isset($_SESSION['id'])) {
@@ -58,6 +56,11 @@
             }
         }
         
+        public function resetCount(): int
+        {
+            return $this->count = $_SESSION['count'] = 0;
+        }
+        
         public function isSignedIn(): bool
         {
             // method fetches private var is a getter method
@@ -81,3 +84,4 @@
         
     } /*←← end the session class */
     $session = new Session();
+    $message = $session->message();

@@ -47,7 +47,8 @@
                               $user->saveNewUserData();
                               $user->create();
                           }
-                          redirect("users.php?user-added");
+                          $session->message("UserName $user->username Successfully Created");
+                          redirect("users.php");
                         }
                     ?>
                     <form class="form-group" method="post" action="" enctype="multipart/form-data">
