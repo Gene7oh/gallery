@@ -28,7 +28,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Gallery
-                        <small>Add User Page</small>
+                        <small>Add New User Page</small>
                     </h1>
                     <?php
                         /*<!-- ↓↓ STOP THE NAGS if necessary↓↓ -->*/
@@ -40,11 +40,12 @@
                           $user->user_fname = $_POST['first-name'];
                           $user->user_lname = $_POST['last-name'];
                           $user->user_password = $_POST['password'];
+                          $user->user_join_date = date(myTimeZone('America/Chicago'));
                           if (empty($_FILES['user-image'])){
                           $user->save();
                           } else {
                               $user->setFile($_FILES['user-image']);
-                              $user->saveNewUserData();
+                              $user->saveUserNewImage();
                               $user->create();
                           }
                           $session->message("UserName $user->username Successfully Created");

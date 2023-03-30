@@ -9,6 +9,11 @@
      * die("File $class not found! It was either deleted, renamed, or moved");
      * }
      * }*/
+    function targetPath($photo_name)
+    {
+    return SITE_ROOT . DS . 'admin' . DS . "images" . DS . $photo_name ;
+    }
+    
     function myTimeZone($time_zone): string
     {
         //	F j, Y, g:i a
@@ -17,7 +22,7 @@
         //	date("F j, y,");
         //	d/m/y
         date_default_timezone_set($time_zone);
-      return "F j, Y, g:i a";
+        return "F j, Y, g:i a";
     }
     
     function classAutoLoader($class)

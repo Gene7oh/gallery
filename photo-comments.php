@@ -14,7 +14,7 @@
         <h1><?php echo $photo->title; ?></h1>
         <!-- Author -->
         <p class="lead">
-            by <a href="#"> Gene7oh</a>
+            by <a href="#"> Session User</a>
         </p>
         <hr>
         <!-- Date/Time -->

@@ -74,7 +74,7 @@
                             <?php
                                 /** @noinspection PhpUndefinedVariableInspection */
                                 echo $message;
-                                ?>
+                            ?>
                         </h4>
                         <div class="row text-center">
                             <ul class="pagination">
@@ -107,13 +107,14 @@
                                 <th>UserName</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
+                                <th>Member Since</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                                //                                $users = User::findAll();
+                                /*$users = User::findAll();*/
                                 foreach ($users as $user) : ?>
-                                    <tr>
+                                    <tr class="">
                                         <td><?php echo $user->id; ?></td>
                                         <td><img class="image-shadow admin-thumb" src="<?php echo $user->placeholderOrImage() ?>" alt=""></td>
                                         <td><?php echo $user->username; ?>
@@ -123,6 +124,7 @@
                                         </td>
                                         <td><?php echo $user->user_fname; ?></td>
                                         <td><?php echo $user->user_lname; ?></td>
+                                        <td><?php /*echo $user->user_join_date;*/ ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

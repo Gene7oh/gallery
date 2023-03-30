@@ -46,7 +46,7 @@
             return $the_object;
         }
         
-        private function hasAttribute($the_attribute)
+        private function hasAttribute($the_attribute): bool
         {
             $object_properties = get_object_vars($this);
             return array_key_exists($the_attribute, $object_properties);

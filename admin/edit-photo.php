@@ -45,6 +45,8 @@
                                     $photo->alt_text    = $_POST['alt-text'];
                                     $photo->description = $_POST['description'];
                                     $photo->savePhoto();
+                                    $session->message("Photo Successfully Edited");
+                                    redirect("photos.php");
                                 }
                             }
                         }

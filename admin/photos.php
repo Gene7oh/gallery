@@ -29,6 +29,7 @@
                         Gallery Photo
                         <small>Display Page </small>
                     </h1>
+                    <p class="bg-info"><?php echo $message; ?></p>
                     <?php
                         $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
                         $items_per_page    = 5;

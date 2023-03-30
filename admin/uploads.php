@@ -44,10 +44,12 @@
                                 } else {
                                     $msg = "<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>";
                                 }
+                                $session->message($msg);
+                                redirect("uploads.php");
                             } /*  End isset submit */
                         ?>
                         <form action="" method="post" enctype="multipart/form-data">
-                            <?php echo $msg; ?>
+                            <p class="bg-success"><?php echo $message ?></p>
                             <div class="form-group">
                                 <label for="upload_file">Chose photo to upload.
                                     <input type="file" name="file-upload" class="form-control">

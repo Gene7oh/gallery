@@ -4,17 +4,17 @@
     if (!$session->isSignedIn()) {
         redirect("login.php");
     }
-    if (empty($_GET['delete-id'])) {
-        redirect("../users.php");
-    } else {
+    if (!empty($_GET['delete-id'])) {
         $user = User::findById($_GET['delete-id']);
-        $id="";
+        $id   = "";
         if ($user) {
             $id = $_GET['delete-id'];
-            $user->deleteUser();
-            redirect("../users.php?delete-success&id=$id");
+            $session->message("User ID: $id has been successfully deleted!");
+            $user->deleteUserPhoto();
         } else {
-            redirect("../users.php?delete-error&id=$id");
+            $session->message("Something went wrong!");
         }
+    
     }
+    redirect("../users.php");
     

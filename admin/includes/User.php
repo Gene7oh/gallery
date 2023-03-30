@@ -6,13 +6,14 @@
     class User extends Db_object
     {
         protected static string $db_table          = "users";
-        protected static array  $db_table_fields   = array('username', 'user_fname', 'user_lname', 'user_image', 'user_password');
+        protected static array  $db_table_fields   = array('username', 'user_fname', 'user_lname', 'user_image', 'user_password', 'user_join_date');
         public int              $id                = 0;
         public string           $username          = "";
         public string           $user_fname        = "";
         public string           $user_lname        = "";
         public string           $user_image        = "";
         public string           $user_password     = "";
+        public string           $user_join_date;
         public string           $image_placeholder = "images" . DS . "UserPlaceholder.png";
         public string           $upload_directory  = "images";
         public string           $type;
@@ -31,7 +32,20 @@
         }  /* End Method */
         
         
-        public function saveNewUserData()
+        public function deleteUserPhoto(): bool
+        {
+            /*delete records ↓↓ from database parent class method */
+            if ($this->delete()) {
+                /* upon successful removal ↓↓ of records from db remove image file from server directory */
+                $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+                /** @noinspection PhpTernaryExpressionCanBeReplacedWithConditionInspection */
+                return unlink($target_path) ? true : false;
+            } else {
+                return false;
+            }
+        }
+        
+        public function saveUserNewImage()
         {
             /** @noinspection DuplicatedCode */
             if (!empty($this->errors)) {
@@ -57,7 +71,7 @@
             }
         }
         
-public function deleteUser(): bool
+        public function deleteUser(): bool
         {
             if ($this->delete()) {
                 return true;
@@ -66,15 +80,16 @@ public function deleteUser(): bool
             }
         }
         
-                public function ajaxSaveUserImage($user_image, $user_id)
+        public function ajaxSaveUserImage($user_image, $user_id)
         {
             global $database;
-            $user_image       = $database->escapeString($user_image);
-            $user_id          = $database->escapeString($user_id);
-            $this->id         = $user_id;
-            $this->user_image = $user_image;
-            $sql              = "UPDATE " . self::$db_table . " SET user_image = '$this->user_image' WHERE id = '$this->id' ";
-            $update_image     = $database->query($sql);
+            $user_image           = $database->escapeString($user_image);
+            $user_id              = $database->escapeString($user_id);
+            $this->id             = $user_id;
+            $this->user_image     = $user_image;
+            $this->user_join_date = "";
+            $sql                  = "UPDATE " . self::$db_table . " SET user_image = '$this->user_image' WHERE id = '$this->id' ";
+            $update_image         = $database->query($sql);
             echo $this->placeholderOrImage();
         }  /* End Method */
         
