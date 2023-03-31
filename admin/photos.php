@@ -29,7 +29,9 @@
                         Gallery Photo
                         <small>Display Page </small>
                     </h1>
-                    <p class="bg-info"><?php echo $message; ?></p>
+                    <p class="bg-info"><?php
+                            /** @noinspection PhpUndefinedVariableInspection */
+                            echo $message; ?></p>
                     <?php
                         $page              = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
                         $items_per_page    = 5;
@@ -38,7 +40,7 @@
                         $sql               = "SELECT * FROM photos ";
                         $sql               .= "LIMIT $items_per_page ";
                         $sql               .= "OFFSET {$paginate->offset()} ";
-                        $photos              = Photo::findByQuery($sql);
+                        $photos            = Photo::findByQuery($sql);
                     ?>
                     <div class="row text-center">
                         <ul class="pagination">
@@ -84,12 +86,13 @@
                             <th>Filename</th>
                             <th>Type</th>
                             <th>Size</th>
-                            <th>Comments</th>
+                            <th><i class="fa fa-comments-o"></i></th>
+                            <th><i class="fa fa-calendar-o"></i></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-//                            $photos = Photo::findAll();
+                            //                            $photos = Photo::findAll();
                             foreach ($photos as $photo) : ?>
                                 <tr>
                                     <td>
@@ -112,12 +115,13 @@
                                             <?php
                                                 $comments = Comment::findComments($photo->id);
                                                 $count    = count($comments);
-                                                if ($count == 0){
+                                                if ($count == 0) {
                                                     $count = "No Comments";
                                                 } else $count = $count;
                                             ?><?php echo $count; ?>
                                         </a>
                                     </td>
+                                    <td><?php echo $photo->date; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

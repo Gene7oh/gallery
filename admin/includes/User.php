@@ -13,7 +13,7 @@
         public string           $user_lname        = "";
         public string           $user_image        = "";
         public string           $user_password     = "";
-        public string           $user_join_date;
+        public                  $user_join_date;
         public string           $image_placeholder = "images" . DS . "UserPlaceholder.png";
         public string           $upload_directory  = "images";
         public string           $type;
@@ -45,7 +45,7 @@
             }
         }
         
-        public function saveUserNewImage()
+        public function saveNewUserData()
         {
             /** @noinspection DuplicatedCode */
             if (!empty($this->errors)) {

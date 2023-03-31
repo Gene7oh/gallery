@@ -10,7 +10,8 @@
     $photo = Photo::findById($_GET['delete-id']);
     if ($photo) {
         $photo->deletePhoto();
-        redirect("../photos.php?delete-success");
+        $session->message("Photo ID: $photo->id has been successfully deleted!");
     } else {
-        redirect("../photos.php?no-photo");
+        $session->message("Something went wrong!");
     }
+    redirect("../photos.php");

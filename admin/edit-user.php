@@ -40,23 +40,17 @@
                             redirect("users.php?no-user");
                         }
                         $user = User::findById($_GET['edit-id']);
-                        if ($user) {
-                            $sql = "SELECT user_join_date FROM users WHERE id = $user->id ";
-                            User::findByQuery($sql);
-                            
-                        }
                         if (isset($_POST['update'])) {
                             if ($user) {
                                 $user->username      = $_POST['username'];
                                 $user->user_fname    = $_POST['first-name'];
                                 $user->user_lname    = $_POST['last-name'];
                                 $user->user_password = $_POST['password'];
-                                $user->user_join_date = "";
                                 if (empty($_FILES['new-image'])) {
                                     $user->save();
                                 } else {
                                     $user->setFile($_FILES['new-image']);
-                                    $user->saveUserNewImage();
+                                    $user->saveNewUserData();
                                     $user->save();
                                     $user->id = $_GET['edit-id'];
                                     /* redirect("edit-user.php?edit-id=$user->id");*/
@@ -67,8 +61,8 @@
                         }
                     ?>
                     <div class="row col-md-6 user-image-box">
+                        <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title:  $user->user_image <br> Member Since: " ?></small></label><br>
                         <div class="form-group">
-                            <label for="image"><small><?php echo "UserID: $user->id  <br> Image Title:  $user->user_image <br> Member Since:" ?></small></label><br>
                             <a href="#" data-toggle="modal" data-target="#photo-modal">
                                 <img class="image-shadow img-responsive" src="<?php echo $user->placeholderOrImage(); ?>" alt="<?php echo $user->user_image; ?>">
                             </a>

@@ -124,7 +124,7 @@
                                         </td>
                                         <td><?php echo $user->user_fname; ?></td>
                                         <td><?php echo $user->user_lname; ?></td>
-                                        <td><?php /*echo $user->user_join_date;*/ ?></td>
+                                        <td><?php echo $user->user_join_date; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

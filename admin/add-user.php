@@ -45,7 +45,7 @@
                           $user->save();
                           } else {
                               $user->setFile($_FILES['user-image']);
-                              $user->saveUserNewImage();
+                              $user->saveNewUserData();
                               $user->create();
                           }
                           $session->message("UserName $user->username Successfully Created");
