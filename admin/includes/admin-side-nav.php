@@ -14,4 +14,7 @@
     <li>
         <a href="comments.php"><i class="fa fa-fw fa-comments-o"></i> Comments</a>
     </li>
+    <li>
+        <a href="dropzone.php"><i class="fa fa-fw fa-file-archive-o"></i> Drop Zone</a>
+    </li>
 </ul>

@@ -109,7 +109,7 @@
                                     <td><?php echo substr($photo->description, -90) . " ...<a href='#'>More</a>"; ?></td>
                                     <td><?php echo $photo->filename; ?></td>
                                     <td><?php echo $photo->type; ?></td>
-                                    <td><?php echo $photo->size; ?></td>
+                                    <td><?php echo convertToMb($photo->size); ?></td>
                                     <td>
                                         <a href="comment-photo.php?view-comment-id=<?php echo $photo->id; ?>">
                                             <?php

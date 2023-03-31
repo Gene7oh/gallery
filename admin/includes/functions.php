@@ -9,9 +9,15 @@
      * die("File $class not found! It was either deleted, renamed, or moved");
      * }
      * }*/
+    function convertToMb($size): float
+    {
+        $mb = $size / 1048576;
+        return round($mb, 2);
+    }
+    
     function targetPath($photo_name)
     {
-    return SITE_ROOT . DS . 'admin' . DS . "images" . DS . $photo_name ;
+        return SITE_ROOT . DS . 'admin' . DS . "images" . DS . $photo_name;
     }
     
     function myTimeZone($time_zone): string
