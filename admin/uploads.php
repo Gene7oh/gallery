@@ -1,4 +1,6 @@
-<?php include("includes/admin-header.php"); ?>
+<?php
+global $message;
+    include("includes/admin-header.php"); ?>
 <?php
     /** @noinspection PhpUndefinedVariableInspection */
     if (!$session->isSignedIn()) {
@@ -32,24 +34,23 @@
                     </h1>
                     <div class="col-md-6">
                         <?php
-                            $msg = "";
                             if (isset($_POST['submit'])) {
+                                /** @noinspection DuplicatedCode */
                                 $photo              = new Photo();
                                 $photo->title       = $_POST['title'];
                                 $photo->description = $_POST['description'];
-                                $photo->date = date(myTimeZone('America/Chicago'));
+                                $photo->date        = date(myTimeZone('America/Chicago'));
                                 $photo->setFile($_FILES['file-upload']);
                                 if ($photo->savePhoto()) {
-                                    $msg = "Photo uploaded Successfully";
+                                    $session->message("The image $photo->filename has been successfully added to the gallery.");
                                 } else {
-                                    $msg = "<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>";
+                                    $session->message("<warning style='color: darkred'>" . join("<br>", $photo->errors) . "</warning>");
                                 }
-                                $session->message($msg);
                                 redirect("uploads.php");
                             } /*  End isset submit */
                         ?>
                         <form action="" method="post" enctype="multipart/form-data">
-                            <p class="bg-success"><?php echo $message ?></p>
+                            <p class="bg-info"><?php echo $message ?></p>
                             <div class="form-group">
                                 <label for="upload_file">Chose photo to upload.
                                     <input type="file" name="file-upload" class="form-control">

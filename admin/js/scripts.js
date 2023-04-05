@@ -7,6 +7,11 @@ $(document).ready(function () {
     let image_src_split;
     let image_title;
     let image_id;
+    /***↓↓ toggle edit-photo page side bar info */
+    $(".info-box-header").click(function (){
+        $(".inside").slideToggle("fast");
+        $("#toggle").toggleClass("glyphicon glyphicon-menu-up ,  glyphicon-menu-down glyphicon ");
+    });
     /** ☺☻♥↓↓ Edit User change image modal ↓↓♥☻☺ */
     $(".modal-thumbnails").click(function () {
         $("#set_user_image").prop('disabled', false);
@@ -44,7 +49,7 @@ $(document).ready(function () {
             }
         });
     });
-    
+
     /* ↓↓ Text Editor embed code ↓↓ */
     $('#summernote').summernote({
         height: 125

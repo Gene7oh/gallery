@@ -22,7 +22,11 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?<?= filemtime('css/styles.css') ; ?>">
+    --    <link rel="stylesheet" href="css/dropzone.css">-
+   <!-- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css"/>-->
+    -
+    <link rel="stylesheet" href="css/styles.css?<?= filemtime('css/styles.css'); ?>">
 </head>
 <body>
 <div id="wrapper">

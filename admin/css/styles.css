@@ -1,3 +1,11 @@
+.dzone-border {
+    border: 2px dashed darkred;
+    border-radius: 22px;
+    /*background-color: transparent;*/
+    font-size: x-large;
+    margin-bottom: 10px;
+    }
+/**8*********Dropzone Styles ↑↑ ********/
 .admin-thumb {
     width: 125px;
     border-radius: 22px;

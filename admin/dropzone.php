@@ -1,5 +1,12 @@
-<?php include("includes/admin-header.php"); ?>
-    
+<?php
+global $message;
+include("includes/admin-header.php");
+?>
+<?php
+/** @noinspection PhpUndefinedVariableInspection */
+if (!$session->isSignedIn()) {
+    redirect("login.php");
+} ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,15 +31,31 @@
                         Drop Zone
                         <small> Multiple File Uploads</small>
                     </h1>
-                    <!-- if an include content script is needed here is where it goes -->
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                    </ol>
+                    <?php
+                    if (isset($_FILES['file'])) {
+                        $photo = new Photo();
+                        $photo->title = $_FILES['file']['name'];
+                        $photo->date = date(myTimeZone("America/Chicago"));
+                        if ($photo->title) {
+                            $photo->setFile($_FILES['file']);
+                            $photo->savePhoto();
+                            $session->message("File $photo->title is set, today $photo->date");
+                        } else {
+                            $session->message("Error loading file");
+                        }
+                        redirect("photos.php");
+                    } /*  End isset submit */
+                    ?>
+                    <div class="row col-xs-offset-1 col-md-10">
+                        <?php echo $message; ?>
+                        <div class="form-group">
+                        <form action="dropzone.php" class="dropzone dzone-border">
+                                <div class="form-control">
+                                </div>
+                        </form>
+                    </div>
+                        <!--                        <button type="submit" name="submit" class="btn btn-primary pull-right">Submit</button>-->
+                    </div>
                 </div>
             </div>
             <!-- /.row -->
