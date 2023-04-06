@@ -90,7 +90,7 @@
                                         <td><?php echo $comment->author; ?>
                                             <!--                                            <img class="admin-thumb" src="--><?php //echo $comment->picturePath(); ?><!--" alt="--><?php //echo $comment->alt_text; ?><!--">-->
                                             <div class="action-links">
-                                                <a href="includes/delete-comment.php?delete-comment-id=<?php echo $comment->id; ?>">Delete <i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-danger delete-link" href="includes/delete-comment.php?delete-comment-id=<?php echo $comment->id; ?>">Delete <i class="fa fa-trash delete-link"></i></a>
                                             </div>
                                         </td>
                                         <td><?php echo $comment->body ?></td>

@@ -7,9 +7,13 @@ $(document).ready(function () {
     let image_src_split;
     let image_title;
     let image_id;
+    /******* ↓↓ Confirm Delete ↓↓********/
+    $(".delete-link").click(function (){
+        return confirm("Are you sure you want to delete?");
+    });
     /***↓↓ toggle edit-photo page side bar info */
-    $(".info-box-header").click(function (){
-        $(".inside").slideToggle("fast");
+    $(".info-box-header").click(function () {
+        $(".inside").slideToggle("slow");
         $("#toggle").toggleClass("glyphicon glyphicon-menu-up ,  glyphicon-menu-down glyphicon ");
     });
     /** ☺☻♥↓↓ Edit User change image modal ↓↓♥☻☺ */
@@ -44,7 +48,7 @@ $(document).ready(function () {
             type: "POST",
             success: function (data) {
                 if (!data.error) {
-                $(".user-image-box a img").prop('src', data);
+                    $(".user-image-box a img").prop('src', data);
                 }
             }
         });

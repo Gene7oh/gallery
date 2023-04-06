@@ -50,7 +50,8 @@ if (!$session->isSignedIn()) {
                         <?php echo $message; ?>
                         <div class="form-group">
                         <form action="dropzone.php" class="dropzone dzone-border">
-                                <div class="form-control">
+                                <div class="form-control text-center">
+                                    Select multiple images and drop in the field.
                                 </div>
                         </form>
                     </div>

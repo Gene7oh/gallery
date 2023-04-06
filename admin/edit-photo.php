@@ -45,7 +45,7 @@
                                     $photo->alt_text    = $_POST['alt-text'];
                                     $photo->description = $_POST['description'];
                                     $photo->savePhoto();
-                                    $session->message("Photo Successfully Edited");
+                                    $session->message("Photo $photo->title Successfully Edited");
                                     redirect("photos.php");
                                 }
                             }
@@ -100,7 +100,7 @@
                             </div>
                             <div class="info-box-footer clearfix">
                                 <div class="info-box-delete pull-left">
-                                    <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>
+                                    <a href="includes/delete-photo.php?delete-id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg delete-link">Delete</a>
                                 </div>
                                 <div class="info-box-update pull-right ">
                                     <input type="submit" name="update" value="Update" class="btn btn-primary btn-lg ">
