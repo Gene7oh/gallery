@@ -12,7 +12,7 @@
         <a href="comments.php"><i class="fa fa-fw fa-comments-o"></i> Comments</a>
     </li>
     <li>
-        <a href="uploads.php"><i class="fa fa-fw fa-upload"></i>Individual Upload</a>
+        <a href="uploads.php"><i class="fa fa-fw fa-upload"></i>Individual File Upload</a>
     </li>
     <li>
         <a href="dropzone.php"><i class="fa fa-fw fa-file-archive-o"></i> Multiple Image Upload</a>
