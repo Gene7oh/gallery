@@ -37,6 +37,7 @@ global $message;
                             if (isset($_POST['submit'])) {
                                 /** @noinspection DuplicatedCode */
                                 $photo              = new Photo();
+                                $photo->user_id =  $_SESSION['id'];
                                 $photo->title       = $_POST['title'];
                                 $photo->description = $_POST['description'];
                                 $photo->date        = date(myTimeZone('America/Chicago'));

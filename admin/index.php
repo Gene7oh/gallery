@@ -6,8 +6,8 @@
     }
     if (isset($_GET['reset-session'])){
         $session->resetCount();
-        
     }
+    $user = User::findById($session->id);
     ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,7 +31,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Gallery <br>
-                        <small>Admin Dashboard</small>
+                        <small>Admin Dashboard <br> welcome <?php echo $user->username ;?></small>
                     </h1>
                     <?php /*include "includes/admin-content.php";*/ ?>
                     <div class="col-lg-3 col-md-6">

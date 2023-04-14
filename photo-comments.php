@@ -5,6 +5,7 @@
         redirect("index.php");
     }
     $photo = Photo::findById($_GET['view-photo-id']);
+    $user = User::findById($photo->user_id);
 ?>
 <div class="row">
     <!-- Blog Entries Column -->
@@ -14,7 +15,7 @@
         <h1><?php echo $photo->title; ?></h1>
         <!-- Author -->
         <p class="lead">
-            by <a href="#"> Session User</a>
+            by <a href="#"> <?php echo $user->username; ?></a>
         </p>
         <hr>
         <!-- Date/Time -->
@@ -92,5 +93,5 @@
 <!-- /.row -->
 <?php
     include("includes/footer.php"); ?>
-    
+
 

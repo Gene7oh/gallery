@@ -34,6 +34,7 @@ if (!$session->isSignedIn()) {
                     <?php
                     if (isset($_FILES['file'])) {
                         $photo = new Photo();
+                        $photo->user_id =  $_SESSION['id'];
                         $photo->title = $_FILES['file']['name'];
                         $photo->date = date(myTimeZone("America/Chicago"));
                         if ($photo->title) {

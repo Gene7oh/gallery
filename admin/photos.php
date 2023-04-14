@@ -31,7 +31,8 @@ if (!$session->isSignedIn()) {
                     </h1>
                     <p class="bg-info"><?php
                         /** @noinspection PhpUndefinedVariableInspection */
-                        echo $message; ?></p>
+                        echo $message; ?>
+                    </p>
                     <?php
                     $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
                     $items_per_page = 5;
