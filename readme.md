@@ -16,7 +16,7 @@ the second reset complete including new add on lessons.
 
 ### The Second Reset
 
-Today is April the 17th 2023 and the beginning of the reset oop course is offically started.
+Today is April the 17th 2023 and the beginning of the reset oop course is officially started.
 
 This time around each section will be restarted as many times as necessary to complete with zero help from the section lessons.
 
