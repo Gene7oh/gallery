@@ -1,10 +1,11 @@
+.DS_Store
 /assets
 /.idea
 /orginal
 /admin/includes/.test/implode.php
 /admin/includes/.test
 /Previous
-/oop
+/Previous/oop
 /car-pictures
 /admin/images
 /jQuery
