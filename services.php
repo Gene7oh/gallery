@@ -5,18 +5,11 @@
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
-
-
+        <h2>Test new php code</h2>
     </div>
-
-
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
-
-
         <?php include("includes/sidebar.php"); ?>
-
-
     </div>
     <!-- /.row -->
 
