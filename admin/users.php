@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Gallery Template
-                        <small>Blank</small>
+                        Gallery Users <br>
+                        <small>Display and Edit Table</small>
                     </h1>
-                    Content Display Goes Here!
+                    Table goes here and maybe remove the bread crumb below;
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
+                            <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
                         </li>
                         <li class="active">
                             <i class="fa fa-file"></i> Blank Page

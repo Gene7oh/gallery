@@ -13,7 +13,6 @@
     <div id="page-wrapper">
 
         <div class="container-fluid">
-
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
@@ -21,9 +20,10 @@
                         Gallery Admin
                         <small>Dashboard</small>
                     </h1>
+                    <?php include "includes/admin-content.php"; ?>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
+                            <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
                         </li>
                         <li class="active">
                             <i class="fa fa-file"></i> Blank Page

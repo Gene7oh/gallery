@@ -30,7 +30,7 @@
                     </div>
                 </a>
             </li>
-            <li class="message-preview">
+            <!--<li class="message-preview">
                 <a href="#">
                     <div class="media">
                                     <span class="pull-left">
@@ -61,13 +61,13 @@
                         </div>
                     </div>
                 </a>
-            </li>
+            </li>-->
             <li class="message-footer">
                 <a href="#">Read All New Messages</a>
             </li>
         </ul>
     </li>
-    <li class="dropdown">
+<!--    <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
         <ul class="dropdown-menu alert-dropdown">
             <li>
@@ -93,7 +93,7 @@
                 <a href="#">View All</a>
             </li>
         </ul>
-    </li>
+    </li-->>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
         <ul class="dropdown-menu">
