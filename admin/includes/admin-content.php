@@ -1,4 +1,3 @@
-
 <div class="media-body">
     <h4>Admin-Content Page</h4>
 
@@ -7,5 +6,14 @@
         incidunt ipsa magnam maxime minus, mollitia necessitatibus nesciunt, non officiis omnis perferendis qui ratione
         sed ullam.
     </p>
-
+    <?php
+/*$table = $database->query("SHOW columns FROM users ");
+    while($col = mysqli_fetch_array($table)){
+        echo $col['Field']."<br>";
+    }*/
+    $sql = "SELECT * FROM users ";
+    $result = $database->query($sql);
+    $user = mysqli_fetch_array($result);
+    echo $user['username'] . "<br>" . $user['fname'];
+    ?>
 </div>

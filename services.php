@@ -7,10 +7,8 @@
     <div class="col-md-8">
         <h2>Test new php code</h2>
         <?php
-        $db = $database->connect;
-        if ($db){
-            echo "The Database name is " . DB_NAME . "<br>The User is " . DB_USER;
-        } else die("Connection Failed" . mysqli_error($db));
+       echo "Test my php code and design ideas here ↓↓ before inserting into established coded pages.<br>";
+
         ?>
     </div>
     <!-- Blog Sidebar Widgets Column -->

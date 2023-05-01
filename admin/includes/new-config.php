@@ -1,11 +1,12 @@
 <?php /** @noinspection PhpDefineCanBeReplacedWithConstInspection */
 // DATABASE CONNECTION CONSTANTS
-/*const DB_HOST = 'localhost';
-const DB_USER = 'root';
-const DB_PASS = '';
-const DB_NAME = 'gallery';
-↑ easier to write ↓ more functionality*/
-
+/**
+ * have learned about the difference between const and define
+ * const DB_HOST = 'localhost';
+ * const DB_USER = 'root';
+ * const DB_PASS = '';
+ * const DB_NAME = 'gallery';
+ */
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');

@@ -17,7 +17,7 @@
             <a href="comments.php"><i class="fa fa-fw fa-edit"></i> Comments</a>
         </li>
         <li>
-            <a href="includes/admin-content.php"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+            <a href="_blank.php"><i class="fa fa-fw fa-file"></i> Blank Page</a>
         </li>
          <!--<li>
             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>

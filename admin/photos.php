@@ -21,7 +21,7 @@
                         Gallery Photos <br>
                         <small>View, Edit, or delete</small>
                     </h1>
-                    Content Display Goes Here!
+                    Content Display Image Table!
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i> <a href="index.php">Dashboard</a>
