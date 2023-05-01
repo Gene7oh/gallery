@@ -11,9 +11,10 @@
     while($col = mysqli_fetch_array($table)){
         echo $col['Field']."<br>";
     }*/
-    $sql = "SELECT * FROM users ";
-    $result = $database->query($sql);
-    $user = mysqli_fetch_array($result);
-    echo $user['username'] . "<br>" . $user['fname'];
+    $user = new User();
+    $result = $user->findAllUsers();
+    while ($row = mysqli_fetch_array($result)){
+        echo $row['username'] . "<br>";
+    }
     ?>
 </div>
