@@ -5,7 +5,7 @@ require_once "new-config.php";
 
 class Database
 {
-    public $connect;
+    public mysqli $connect;
 
     function __construct()
     {

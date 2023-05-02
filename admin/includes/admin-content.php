@@ -7,14 +7,16 @@
         sed ullam.
     </p>
     <?php
-/*$table = $database->query("SHOW columns FROM users ");
+/*Show column names
+
+ * $table = $database->query("SHOW columns FROM users ");
     while($col = mysqli_fetch_array($table)){
         echo $col['Field']."<br>";
     }*/
     $user = new User();
     $result = $user->findAllUsers();
     while ($row = mysqli_fetch_array($result)){
-        echo $row['username'] . "<br>";
+        echo $row['username'] . " " . $row['fname'] . "<br>";
     }
     ?>
 </div>
