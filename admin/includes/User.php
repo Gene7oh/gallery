@@ -2,6 +2,11 @@
 
 class User
 {
+    public $id ;
+    public $username;
+    public $fname;
+    public $lname;
+    public $password;
     public static function findAllUsers()
     {
         return self::findThisQuery("SELECT * FROM users");
