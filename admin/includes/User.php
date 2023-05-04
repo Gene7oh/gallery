@@ -2,14 +2,21 @@
 
 class User
 {
-    public $id ;
+    public $id;
     public $username;
     public $fname;
     public $lname;
     public $password;
+
     public static function findAllUsers()
     {
         return self::findThisQuery("SELECT * FROM users");
+    }
+
+    private static function findThisQuery($sql)
+    {
+        global $database;
+        return $result = $database->query($sql);
     }
 
     public static function findById($id)
@@ -18,9 +25,14 @@ class User
         return mysqli_fetch_array($result);
     }
 
-    private static function findThisQuery($sql)
+    public static function instantiation($theRecord)
     {
-        global $database;
-        return $result = $database->query($sql);
+        /*$theObject           = new self();
+        $theObject->id       = $result['id'];
+        $theObject->username = $result['username'];
+        $theObject->fname    = $result['fname'];
+        $theObject->lname    = $result['lname'];*/
+
+        return $theObject;
     }
 } /** end class */
