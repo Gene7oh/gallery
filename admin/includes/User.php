@@ -4,14 +4,18 @@ class User
 {
     public static function findAllUsers()
     {
-        global $database;
-        return $result = $database->query("SELECT * FROM users");
+        return self::findThisQuery("SELECT * FROM users");
     }
 
     public static function findById($id)
     {
-        global $database;
-        $result = $database->query("SELECT * FROM users WHERE id = $id LIMIT 1");
+        $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
         return mysqli_fetch_array($result);
+    }
+
+    private static function findThisQuery($sql)
+    {
+        global $database;
+        return $result = $database->query($sql);
     }
 } /** end class */
