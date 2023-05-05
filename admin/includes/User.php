@@ -16,23 +16,37 @@ class User
     private static function findThisQuery($sql)
     {
         global $database;
-        return $result = $database->query($sql);
+        $result = $database->query($sql);
+        $the_object_array = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $the_object_array[] = self::instantiation($row);
+        }
+        return $the_object_array;
+    }
+
+    public static function instantiation($the_record)
+    {
+        $the_object = new self();
+        /*$theObject->id       = $result['id'];
+        $theObject->username = $result['username'];
+        $theObject->fname    = $result['fname'];
+        $theObject->lname    = $result['lname'];*/
+        foreach ($the_record as $the_attribute => $value) {
+            if ($the_object->hasTheAttribute($the_attribute)) {
+                $the_object->$the_attribute = $value;
+            }
+        }
+        return $the_object;
+    }
+
+    private function hasTheAttribute($the_attribute)
+    {
+        $object_properties = get_object_vars($this);
+        return array_key_exists($the_attribute, $object_properties);
     }
 
     public static function findById($id)
     {
-        $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
-        return mysqli_fetch_array($result);
-    }
-
-    public static function instantiation($theRecord)
-    {
-        /*$theObject           = new self();
-        $theObject->id       = $result['id'];
-        $theObject->username = $result['username'];
-        $theObject->fname    = $result['fname'];
-        $theObject->lname    = $result['lname'];*/
-
-        return $theObject;
+        return $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
     }
 } /** end class */

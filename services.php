@@ -14,26 +14,7 @@
         while ($col = mysqli_fetch_array($table)) {
             echo $col['Field'] . "<br>";
         }
-        echo "*************" . "<br>";
-        $result = User::findAllUsers();
-        while ($row = mysqli_fetch_array($result)) {
-            echo $row['username'] . " " . $row['fname'] . "<br>";
-        }
-        echo "******************" . "<br>";
-        $id         = 4;
-        $user_found = User::findById($id);
-        echo $user_found['username'];
-        echo "<br> ********************* <br>";
-
-        $id    = 1;
-        $users = User::findById($id);
-        $user = new User();
-        $user->id = $users['id'];
-        $user->username = $users['username'] . "<br>";
-        $user->fname = $users['fname'] . "<br>";
-        $user->lname = $users['lname'] . "<br>";
-        echo "Now we can echo any column values from the query: <br> such as the username is $user->username <br>";
-        echo "**************** <br>";
+              echo "**************** <br>";
         ?>
     </div>
     <!-- Blog Sidebar Widgets Column -->
