@@ -1,0 +1,27 @@
+/*Show column names */
+        echo "Code to show table column names" . "<br>";
+        $table = $database->query("SHOW columns FROM users ");
+        while ($col = mysqli_fetch_array($table)) {
+            echo $col['Field'] . "<br>";
+        }
+              echo "**************** <br>";
+        echo "*** moved query to one method and self instantiated a new object array <br>";
+        $find_user = User::findById(1);
+        if (!$find_user){
+            echo "User Not Found!";
+        } else {
+            foreach ($find_user as $user_found){
+                echo $user_found->id . " " . $user_found->username ;
+            }
+        }
+        /* insert time and control time zone */
+         function myTimeZone($time_zone): string
+            {
+                //	F j, Y, g:i a
+                //	D jS \of M y h:i A
+                //	g:i a
+                //	date("F j, y,");
+                //	d/m/y
+                date_default_timezone_set($time_zone);
+                return "F j, Y, g:i a";
+            }

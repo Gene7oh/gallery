@@ -7,10 +7,10 @@
         sed ullam.
     </p>
     <?php
-    $id = 50;
+    $id = 65;
     $user_found = User::findById($id);
     if (!$user_found) {
-        echo "User not found! <br>";
+        echo "User with ID: of $id not found! <br>";
     }
     foreach ($user_found as $found_user) {
         echo "The user with id " . $found_user->id . " Has the username " . $found_user->username . "<br>";
