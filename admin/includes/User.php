@@ -24,7 +24,7 @@ class User
         return $the_object_array;
     }
 
-    public static function instantiation($the_record)
+    private static function instantiation($the_record)
     {
         $the_object = new self();
         /*$theObject->id       = $result['id'];
@@ -47,6 +47,9 @@ class User
 
     public static function findById($id)
     {
-        return $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
+        $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
+        if (!empty($result)){
+           return $result_array = array_shift($result);
+        } else return false;
     }
 } /** end class */
