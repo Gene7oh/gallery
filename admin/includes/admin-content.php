@@ -7,12 +7,12 @@
         sed ullam.
     </p>
     <?php
-    $id = 2;
+    $id = 50;
     $find_user = User::findById($id);
     if (!$find_user) {
         echo "User ID: $id Not Found <br>";
     } else {
-        echo $find_user->username . "<br>";
+        echo "The userID is " . $find_user->id . " has a username of " . $find_user->username . "<br>";
     }
 
     echo "************************ <br>";

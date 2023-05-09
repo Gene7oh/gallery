@@ -47,9 +47,10 @@ class User
 
     public static function findById($id)
     {
-        $result = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
-        if (!empty($result)){
-           return $result_array = array_shift($result);
-        } else return false;
+        $result_array = self::findThisQuery("SELECT * FROM users WHERE id = $id LIMIT 1");
+        return !empty($result_array) ? array_shift($result_array) : false;
+        /*if (!empty($result_array)) {
+            return $result_array = array_shift($result_array);
+        } else return false;*/
     }
 } /** end class */
