@@ -29,7 +29,7 @@ class User
         $the_object = new self();
         /*$theObject->id       = $result['id'];
         $theObject->username = $result['username'];
-        $theObject->fname    = $result['fname'];
+        $theObject->fname    = $result['fname'];git
         $theObject->lname    = $result['lname'];*/
         foreach ($the_record as $the_attribute => $value) {
             if ($the_object->hasTheAttribute($the_attribute)) {
