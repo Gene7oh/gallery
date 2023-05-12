@@ -1,5 +1,6 @@
 <?php ob_start() ;?>
-<?php include "admin/includes/init.php"; ?>
+<?php include "admin/includes/init.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 

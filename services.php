@@ -11,9 +11,9 @@
         <?php
         $users = User::findAllUsers();
         ?>
-        <div class="col-md-12 text-center">
+        <div class="col-md-12">
             <?php foreach ($users as $user) : ?>
-                <p class="media-body"><?php echo $user->lname; ?></p>
+                <p class="media-body"><?php echo " The last name of user id: $user->id is $user->lname; " ?></p>
             <?php endforeach ;?>
         </div>
     </div>
