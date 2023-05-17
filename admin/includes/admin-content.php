@@ -7,18 +7,12 @@
         sed ullam.
     </p>
     <?php
-    $id = 50;
+    $id = 3;
     $find_user = User::findById($id);
     if (!$find_user) {
         echo "User ID: $id Not Found <br>";
     } else {
         echo "The userID is " . $find_user->id . " has a username of " . $find_user->username . "<br>";
-    }
-
-    echo "************************ <br>";
-    $users = User::findAllUsers();
-    foreach ($users as $user) {
-        echo $user->id . " " . $user->username . "<br>";
     }
     ?>
 </div>
