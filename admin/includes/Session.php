@@ -30,10 +30,17 @@ class Session
 
     public function logIn($user)
     {
-        if ($user){
+        if ($user) {
             $this->user_id = $_SESSION['user_id'] = $user->id;
             $this->signed_in = true;
         }
+    }
+
+    public function logOut($user)
+    {
+        unset($_SESSION['user_id']);
+        unset($this->user_id);
+        $this->signed_in = false;
     }
 }
 
