@@ -25,3 +25,8 @@ function theTimeZone($time_zone)
     date_default_timezone_set($time_zone);
     return "F j, Y, g:i a";
 }
+
+function redirect($location)
+{
+    header("Location: {$location}");
+}

@@ -2,8 +2,8 @@
 
 class Session
 {
-    public $user_id;
-    private $signed_in = false;
+    public int $user_id;
+    private bool $signed_in = false;
 
     function __construct()
     {
