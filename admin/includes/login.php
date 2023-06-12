@@ -19,3 +19,4 @@ if (isset($_POST['submit'])) {
     $username = "";
     $password = "";
 }
+echo "This is the login page";

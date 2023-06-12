@@ -1,7 +1,7 @@
 <?php ob_start();
 require_once "init.php";
 if (!$session->isSignedIn()) {
-    $location = "login.php";
+    $location = "includes/login.php";
     redirect($location);
 }
 ?>

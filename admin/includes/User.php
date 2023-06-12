@@ -45,7 +45,7 @@ class User
         return array_key_exists($the_attribute, $object_properties);
     }
 
-    public static function verifyUser()
+    public static function verifyUser($username, $password)
     {
         global $database;
         $username = $database->escapeString($username);
