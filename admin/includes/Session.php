@@ -22,9 +22,9 @@ class Session
         }
     }
 
-    public function isSignedIn()
+    public function isSignedIn(): bool
     {
-        // function is a getter
+        // function is a getter to access the private class property $signed_in
         return $this->signed_in;
     }
 
