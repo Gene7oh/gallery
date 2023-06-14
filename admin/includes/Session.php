@@ -3,12 +3,14 @@
 class Session
 {
     public int $user_id;
+    public string $message;
     private bool $signed_in = false;
 
     function __construct()
     {
         session_start();
         $this->checkLogIn();
+        $this->checkMessage();
     }
 
     private function checkLogIn()
@@ -19,6 +21,15 @@ class Session
         } else {
             unset($this->user_id);
             $this->signed_in = false;
+        }
+    }
+
+    public function message($msg = "")
+    {
+        if (!empty($msg)) {
+            $_SESSION['message'] = $msg;
+        } else {
+            return $this->message();
         }
     }
 
@@ -41,6 +52,16 @@ class Session
         unset($_SESSION['user_id']);
         unset($this->user_id);
         $this->signed_in = false;
+    }
+
+    private function checkMessage()
+    {
+        if (isset($_SESSION['message'])) {
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        } else {
+            $this->message = "";
+        }
     }
 }
 
